@@ -75,7 +75,11 @@ extern "C"
   #ifdef START_ROUTER
   #define MT_UART_DEFAULT_BAUDRATE         HAL_UART_BR_19200
   #else
-  #define MT_UART_DEFAULT_BAUDRATE         HAL_UART_BR_9600
+    #if defined ( USB_DONGLE)
+      #define MT_UART_DEFAULT_BAUDRATE         HAL_UART_BR_38400
+    #else
+      #define MT_UART_DEFAULT_BAUDRATE         HAL_UART_BR_9600
+    #endif
   #endif
 #endif
 #define MT_UART_DEFAULT_THRESHOLD        MT_UART_THRESHOLD

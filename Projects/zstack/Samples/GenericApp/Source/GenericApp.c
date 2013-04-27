@@ -79,6 +79,10 @@
 #include "hal_key.h"
 #include "hal_uart.h"
 #include "MT_UART.h"
+
+#if defined ( MODBUS_SUPPLY)
+  #include "modbus.h"
+#endif
 /*********************************************************************
  * MACROS
  */
@@ -360,7 +364,7 @@ uint16 GenericApp_ProcessEvent( uint8 task_id, uint16 events )
     if( TxBuffer.size > 5)
     {
       // the length of scan message is 5
-     if( TxBuffer.buf[0] == 0xff)
+     if( (TxBuffer.buf[0] == 0xff) && ( TxBuffer.buf[1] == 0x19))
      {
        // send a broadcast message
        zb_SendDataRequest( 0xFFFF, GENERICAPP_CLUSTERID, 6, TxBuffer.buf, 
@@ -372,11 +376,18 @@ uint16 GenericApp_ProcessEvent( uint8 task_id, uint16 events )
        // the second byte of read command is 0x03, and write command is 0x06
        if( TxBuffer.size > 7)
        {
-         // the length of read command is 8
-         // send a broadcast message
-         zb_SendDataRequest( 0xFFFF, GENERICAPP_CLUSTERID, TxBuffer.size, TxBuffer.buf, 
-                             0, AF_ACK_REQUEST, 0);
-         TxBuffer.size = 0;
+#if defined ( USB_DONGLE)
+          if( (TxBuffer.buf[0] == 0xff) || ( TxBuffer.buf[0] == modbus_id))
+            modbus_uart_data_process( TxBuffer.buf, TxBuffer.size);
+          else
+#endif
+          {
+             // the length of read command is 8
+             // send a broadcast message
+             zb_SendDataRequest( 0xFFFF, GENERICAPP_CLUSTERID, TxBuffer.size, TxBuffer.buf, 
+                                 0, AF_ACK_REQUEST, 0);
+          }
+          TxBuffer.size = 0;
        }
      }
      else if( (TxBuffer.buf[1] == 0x10) && ( TxBuffer.buf[4] == 0x00) && ( TxBuffer.buf[5] == 0x80))
@@ -434,6 +445,12 @@ afStatus_t zb_SendDataRequest( uint16 destination, uint16 commandId, uint8 len,
     // Binding
     dstAddr.addrMode = afAddrNotPresent;
   }
+  /*
+  else if( destination == MAC_SHORT_ADDR_BROADCAST)
+  {
+    dstAddr.addr.shortAddr = destination;
+    dstAddr.addrMode = afAddrBroadcast;
+  }*/
   else
   {
     // Use short address
@@ -557,7 +574,13 @@ static void GenericApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
 #else
     update_addr = pkt->srcAddr.addr.shortAddr;
       // send the received msg to uart
+    
+#if defined ( USB_DONGLE)
+    HalUARTWrite ( 0, pkt->cmd.Data, pkt->cmd.DataLength );
+#else
     send_str_Uart( pkt->cmd.Data, pkt->cmd.DataLength, 0);
+#endif
+    
 #endif
     break;
     case ACK_CMD_ID:
