@@ -1,0 +1,743 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        22/May/2013  10:02:08 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  D:\Texas Instruments\ZIG_TEMCO\Components\hal\tar /
+//                          get\CC2530USB\usb\library\cc2531\usb_interrupt.c  /
+//    Command line       =  -f "D:\Texas Instruments\ZIG_TEMCO\Projects\zstac /
+//                          k\Samples\GenericApp\CC2531\..\..\..\Tools\CC2530 /
+//                          DB\f8wCoord.cfg" (-DCPU32MHZ -DROOT=__near_func   /
+//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
+//                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8        /
+//                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
+//                          -f "D:\Texas Instruments\ZIG_TEMCO\Projects\zstac /
+//                          k\Samples\GenericApp\CC2531\..\..\..\Tools\CC2530 /
+//                          DB\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0         /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00002000                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 "D:\Texas                  /
+//                          Instruments\ZIG_TEMCO\Components\hal\target\CC253 /
+//                          0USB\usb\library\cc2531\usb_interrupt.c" -D       /
+//                          ZTOOL_P1 -D NV_INIT -D NV_RESTORE -D USB_DONGLE   /
+//                          -D MODBUS_SUPPLY -D xMT_TASK -D xMT_SYS_FUNC -D   /
+//                          xMT_ZDO_FUNC -lC "D:\Texas                        /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\Coordinator\List\" -lA "D:\Texas   /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\Coordinator\List\"                 /
+//                          --diag_suppress Pe001,Pa010 -o "D:\Texas          /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\Coordinator\Obj\" -e               /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I "D:\Texas                 /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\" -I "D:\Texas                     /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\Source\" -I "D:\Texas           /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\ZMain\TI2530DB\" -I       /
+//                          "D:\Texas Instruments\ZIG_TEMCO\Projects\zstack\S /
+//                          amples\GenericApp\CC2531\..\..\..\..\..\Component /
+//                          s\hal\include\" -I "D:\Texas                      /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\hal\targ /
+//                          et\CC2530USB\" -I "D:\Texas                       /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\hal\targ /
+//                          et\CC2530USB\usb\library\" -I "D:\Texas           /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\hal\targ /
+//                          et\CC2530USB\usb\library\cc2531\" -I "D:\Texas    /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\hal\targ /
+//                          et\CC2530USB\usb\class_cdc\" -I "D:\Texas         /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\mac\incl /
+//                          ude\" -I "D:\Texas Instruments\ZIG_TEMCO\Projects /
+//                          \zstack\Samples\GenericApp\CC2531\..\..\..\..\..\ /
+//                          Components\mac\high_level\" -I "D:\Texas          /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\mac\low_ /
+//                          level\srf04\" -I "D:\Texas                        /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\mac\low_ /
+//                          level\srf04\single_chip\" -I "D:\Texas            /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\mt\" -I  /
+//                          "D:\Texas Instruments\ZIG_TEMCO\Projects\zstack\S /
+//                          amples\GenericApp\CC2531\..\..\..\..\..\Component /
+//                          s\osal\include\" -I "D:\Texas                     /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\services /
+//                          \saddr\" -I "D:\Texas Instruments\ZIG_TEMCO\Proje /
+//                          cts\zstack\Samples\GenericApp\CC2531\..\..\..\..\ /
+//                          ..\Components\services\sdata\" -I "D:\Texas       /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\stack\af /
+//                          \" -I "D:\Texas Instruments\ZIG_TEMCO\Projects\zs /
+//                          tack\Samples\GenericApp\CC2531\..\..\..\..\..\Com /
+//                          ponents\stack\nwk\" -I "D:\Texas                  /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\stack\sa /
+//                          pi\" -I "D:\Texas Instruments\ZIG_TEMCO\Projects\ /
+//                          zstack\Samples\GenericApp\CC2531\..\..\..\..\..\C /
+//                          omponents\stack\sec\" -I "D:\Texas                /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\stack\sy /
+//                          s\" -I "D:\Texas Instruments\ZIG_TEMCO\Projects\z /
+//                          stack\Samples\GenericApp\CC2531\..\..\..\..\..\Co /
+//                          mponents\stack\zdo\" -I "D:\Texas                 /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\zmac\"   /
+//                          -I "D:\Texas Instruments\ZIG_TEMCO\Projects\zstac /
+//                          k\Samples\GenericApp\CC2531\..\..\..\..\..\Compon /
+//                          ents\zmac\f8w\" -Ohz --require_prototypes         /
+//    List file          =  D:\Texas Instruments\ZIG_TEMCO\Projects\zstack\Sa /
+//                          mples\GenericApp\CC2531\Coordinator\List\usb_inte /
+//                          rrupt.s51                                         /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME usb_interrupt
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?INTERRUPT_ENTER_XSP
+        EXTERN ?INTERRUPT_LEAVE_XSP
+        EXTERN ?S_SHL
+        EXTERN ?US_SHR
+        EXTERN ?V0
+        EXTERN __INIT_DATA_Z
+
+        PUBWEAK `??usbirqHandler??INTVEC 51`
+        PUBLIC ??usbirqInit?relay
+        FUNCTION ??usbirqInit?relay,0203H
+        PUBWEAK IEN2
+        PUBWEAK P2IEN
+        PUBWEAK P2IFG
+        PUBWEAK SLEEPSTA
+        PUBWEAK _A_IRCON2
+        PUBLIC usbirqData
+        PUBLIC usbirqHandler
+        FUNCTION usbirqHandler,021233H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 16, STACK
+        PUBLIC usbirqInit
+        FUNCTION usbirqInit,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-2
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B SameValue
+        CFI A SameValue
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 SameValue
+        CFI R1 SameValue
+        CFI R2 SameValue
+        CFI R3 SameValue
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT SameValue
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon1
+        
+usbirqHookProcessEvents SYMBOL "usbirqHookProcessEvents"
+??usbirqHookProcessEvents?relay SYMBOL "?relay", usbirqHookProcessEvents
+usbirqHandler       SYMBOL "usbirqHandler"
+`??usbirqHandler??INTVEC 51` SYMBOL "??INTVEC 51", usbirqHandler
+usbirqInit          SYMBOL "usbirqInit"
+??usbirqInit?relay  SYMBOL "?relay", usbirqInit
+
+        EXTERN usbirqHookProcessEvents
+        FUNCTION usbirqHookProcessEvents,0202H
+        ARGFRAME ISTACK, 16, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??usbirqHookProcessEvents?relay
+        FUNCTION ??usbirqHookProcessEvents?relay,00H
+
+// D:\Texas Instruments\ZIG_TEMCO\Components\hal\target\CC2530USB\usb\library\cc2531\usb_interrupt.c
+//    1 /***********************************************************************************
+//    2 
+//    3     Filename:     usb_interrupt.c
+//    4 
+//    5     Description:  USB library interrupt initialisation and ISR.
+//    6 
+//    7 ***********************************************************************************/
+//    8 
+//    9 /// \addtogroup module_usb_interrupt
+//   10 /// @{
+//   11 #define USBINTERRUPT_C ///< Modifies the behavior of "EXTERN" in usb_interrupt.h
+//   12 #include "usb_firmware_library_headers.h"
+
+        RSEG DATA_Z:DATA:NOROOT(0)
+        DATA8
+// USBIRQ_DATA __data usbirqData
+usbirqData:
+        DS 5
+        REQUIRE __INIT_DATA_Z
+
+        ASEGN SFR_AN:DATA:NOROOT,08bH
+// unsigned char volatile __sfr P2IFG
+P2IFG:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,09aH
+// unsigned char volatile __sfr IEN2
+IEN2:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,09dH
+// unsigned char volatile __sfr SLEEPSTA
+SLEEPSTA:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0acH
+// unsigned char volatile __sfr P2IEN
+P2IEN:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0e8H
+// union <unnamed> volatile __sfr _A_IRCON2
+_A_IRCON2:
+        DATA8
+        DS 1
+//   13 #include "usb_board_cfg.h"
+//   14 #include "hal_flash.h"
+//   15 #include "hal_led.h"
+//   16 
+//   17 
+//   18 /** \brief Initializes the \ref module_usb_interrupt module
+//   19  *
+//   20  * This function should be called after the \ref module_usb_framework module has been initialized.
+//   21  * Use interrupt group priority control (refer to the CC2531 datasheet) to adjust the priority of the
+//   22  * USB interrupt relative to other interrupts.
+//   23  *
+//   24  * \param[in]       irqMask
+//   25  *     A bit mask containing USBIRQ_EVENT bits for all events that shall be reported
+//   26  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   27 void usbirqInit(uint16 irqMask)
+usbirqInit:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function usbirqInit
+        CODE
+//   28 {
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+//   29     // Initialize variables
+//   30     usbirqData.eventMask = 0x0000;
+        MOV     usbirqData+0x0,#0x0
+        MOV     usbirqData+0x1,#0x0
+//   31     usbirqData.inSuspend = FALSE;
+        MOV     usbirqData + 2,#0x0
+//   32     usbirqData.irqMask = irqMask;
+        MOV     usbirqData + 3+0x0,R2
+        MOV     usbirqData + 3+0x1,R3
+//   33 
+//   34     // Select which IRQ flags to handle
+//   35     USBCIE = irqMask;
+        MOV     A,R2
+        MOV     DPTR,#0x620b
+        MOVX    @DPTR,A
+//   36     USBIIE = irqMask >> 4;
+        MOV     ?V0 + 0,R2
+        MOV     ?V0 + 1,R3
+        MOV     A,#0x4
+        MOV     R0,#?V0 + 0
+        LCALL   ?US_SHR
+        MOV     A,?V0 + 0
+        MOV     DPTR,#0x6207
+        MOVX    @DPTR,A
+//   37     USBOIE = (irqMask >> 9) & 0x3E;
+        MOV     ?V0 + 0,R2
+        MOV     ?V0 + 1,R3
+        MOV     A,#0x9
+        MOV     R0,#?V0 + 0
+        LCALL   ?US_SHR
+        MOV     A,?V0 + 0
+        ANL     A,#0x3e
+        MOV     DPTR,#0x6209
+        MOVX    @DPTR,A
+//   38 
+//   39     HAL_USB_INT_CLEAR();
+        MOV     0x8b,#0x0
+        CLR     0xe8.0
+//   40     HAL_USB_INT_ENABLE();
+        ORL     0xac,#0x20
+        ORL     0x9a,#0x2
+//   41 
+//   42 } // usbirqInit
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock0
+        REQUIRE P2IFG
+        REQUIRE _A_IRCON2
+        REQUIRE P2IEN
+        REQUIRE IEN2
+//   43 
+//   44 
+//   45 
+//   46 /** \brief USB interrupt handler
+//   47  *
+//   48  * Clears the P2 interrupt flag and converts all USB interrupt flags into events.
+//   49  * The interrupt also lets \ref usbsuspEnter() break from the suspend loop.
+//   50  */
+//   51 #if defined HAL_SB_BOOT_CODE
+//   52 void usbirqHandler(void)
+//   53 #else
+//   54 #pragma vector=P2INT_VECTOR
+
+        RSEG NEAR_CODE:CODE:NOROOT(0)
+//   55 __interrupt void usbirqHandler(void)
+usbirqHandler:
+        CFI Block cfiBlock1 Using cfiCommon1
+        CFI Function usbirqHandler
+        CODE
+//   56 #endif
+//   57 {
+        FUNCALL usbirqHandler, usbirqHookProcessEvents
+        LOCFRAME ISTACK, 16, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 16, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    A
+        CFI A Frame(CFA_SP, 3)
+        CFI CFA_SP SP+-3
+        MOV     A,#-0xf
+        LCALL   ?INTERRUPT_ENTER_XSP
+        CFI R0 load(1, XDATA, add(CFA_XSP16, literal(-15)))
+        CFI R1 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+        CFI R2 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+        CFI R3 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI R4 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R5 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI PSW load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI B load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI CFA_XSP16 add(XSP16, 15)
+        ; Saved register size: 16
+        ; Auto size: 0
+//   58    uint8 usbcif;
+//   59 
+//   60    // First make sure that the crystal oscillator is stable
+//   61    while (!CC2530_IS_XOSC_STABLE());
+??usbirqHandler_0:
+        MOV     A,0x9d
+        MOV     C,0xE0 /* A   */.6
+        JNC     ??usbirqHandler_0
+//   62 
+//   63    // Special handling for reset interrupts
+//   64    usbcif = USBCIF;
+        MOV     DPTR,#0x6206
+        MOVX    A,@DPTR
+        MOV     R2,A
+//   65    if (usbcif & USBCIF_RSTIF) {
+        MOV     C,0xE0 /* A   */.2
+        JNC     ??usbirqHandler_1
+//   66 
+//   67        // All interrupts (except suspend) are by default enabled by hardware, so
+//   68        // re-initialize the enable bits to avoid unwanted interrupts
+//   69        USBCIE = usbirqData.irqMask;
+        MOV     R0,usbirqData + 3+0x0
+        MOV     A,R0
+        MOV     DPTR,#0x620b
+        MOVX    @DPTR,A
+//   70        USBIIE = usbirqData.irqMask >> 4;
+        MOV     ?V0 + 0,A
+        MOV     ?V0 + 1,usbirqData + 3+0x1
+        MOV     A,#0x4
+        MOV     R0,#?V0 + 0
+        LCALL   ?US_SHR
+        MOV     A,?V0 + 0
+        MOV     DPTR,#0x6207
+        MOVX    @DPTR,A
+//   71        USBOIE = (usbirqData.irqMask >> 9) & 0x3E;
+        MOV     ?V0 + 0,usbirqData + 3+0x0
+        MOV     ?V0 + 1,usbirqData + 3+0x1
+        MOV     A,#0x9
+        MOV     R0,#?V0 + 0
+        LCALL   ?US_SHR
+        MOV     A,?V0 + 0
+        ANL     A,#0x3e
+        MOV     DPTR,#0x6209
+        MOVX    @DPTR,A
+//   72 
+//   73        // Enable suspend mode when suspend signaling is detected on the bus
+//   74        USBPOW |= USBPOW_SUSPEND_EN;
+        MOV     DPTR,#0x6201
+        MOVX    A,@DPTR
+        SETB    0xE0 /* A   */.0
+        MOVX    @DPTR,A
+//   75    }
+//   76 
+//   77    // Record events (keeping existing)
+//   78    usbirqData.eventMask |= (uint16) usbcif;
+??usbirqHandler_1:
+        MOV     R0,#usbirqData
+        MOV     A,R2
+        ORL     A,@R0
+        MOV     @R0,A
+//   79    usbirqData.eventMask |= (uint16) USBIIF << 4;
+        MOV     DPTR,#0x6202
+        MOVX    A,@DPTR
+        MOV     ?V0 + 0,A
+        MOV     ?V0 + 1,#0x0
+        MOV     A,#0x4
+        MOV     R0,#?V0 + 0
+        LCALL   ?S_SHL
+        MOV     R0,#usbirqData
+        MOV     A,?V0 + 0
+        ORL     A,@R0
+        MOV     @R0,A
+        INC     R0
+        MOV     A,?V0 + 1
+        ORL     A,@R0
+        MOV     @R0,A
+//   80    usbirqData.eventMask |= (uint16) USBOIF << 9;
+        MOV     DPTR,#0x6204
+        MOVX    A,@DPTR
+        MOV     ?V0 + 0,A
+        MOV     ?V0 + 1,#0x0
+        MOV     A,#0x9
+        MOV     R0,#?V0 + 0
+        LCALL   ?S_SHL
+        MOV     R0,#usbirqData + 1
+        MOV     A,?V0 + 1
+        ORL     A,@R0
+        MOV     @R0,A
+//   81 
+//   82    // If we get a suspend event, we should always enter suspend mode. We must,
+//   83    // however be sure that we exit the suspend loop upon resume or reset
+//   84    // signaling.
+//   85    if (usbcif & USBCIF_SUSPENDIF) {
+        MOV     A,R2
+        MOV     C,0xE0 /* A   */.0
+        JNC     ??usbirqHandler_2
+//   86       usbirqData.inSuspend = TRUE;
+        MOV     usbirqData + 2,#0x1
+//   87    }
+//   88    if (usbcif & (USBCIF_RSTIF | USBCIF_RESUMEIF)) {
+??usbirqHandler_2:
+        MOV     A,#0x6
+        ANL     A,R2
+        JZ      ??usbirqHandler_3
+//   89       usbirqData.inSuspend = FALSE;
+        MOV     usbirqData + 2,#0x0
+//   90    }
+//   91    if (P2IFG & P2IFG_DPIF) {
+??usbirqHandler_3:
+        MOV     A,0x8b
+        MOV     C,0xE0 /* A   */.5
+        JNC     ??usbirqHandler_4
+//   92       // Resume interrupt detected on D+ line while in suspend
+//   93       P2IFG = ~P2IFG_DPIF;
+        MOV     0x8b,#-0x21
+//   94       usbirqData.inSuspend = FALSE;
+        MOV     usbirqData + 2,#0x0
+//   95    }
+//   96 
+//   97    // Handle event which need immediate processing
+//   98    usbirqHookProcessEvents();
+??usbirqHandler_4:
+        ; Setup parameters for call to function usbirqHookProcessEvents
+        LCALL   ??usbirqHookProcessEvents?relay
+//   99 
+//  100    // Clear the interrupt
+//  101    HAL_USB_INT_CLEAR();
+        MOV     0x8b,#0x0
+        CLR     0xe8.0
+//  102 
+//  103 } // usbirqHandler
+        MOV     R7,#0x2
+        LJMP    ?INTERRUPT_LEAVE_XSP
+        CFI EndBlock cfiBlock1
+        REQUIRE SLEEPSTA
+        REQUIRE P2IFG
+        REQUIRE _A_IRCON2
+
+        COMMON INTVEC:CODE:ROOT(0)
+        ORG 51
+`??usbirqHandler??INTVEC 51`:
+        LJMP       (usbirqHandler)
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??usbirqInit?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    usbirqInit
+
+        END
+//  104 
+//  105 //@}
+//  106 
+//  107 /*
+//  108 +------------------------------------------------------------------------------
+//  109 |  Copyright 2008-2009 Texas Instruments Incorporated. All rights reserved.
+//  110 |
+//  111 |  IMPORTANT: Your use of this Software is limited to those specific rights
+//  112 |  granted under the terms of a software license agreement between the user who
+//  113 |  downloaded the software, his/her employer (which must be your employer) and
+//  114 |  Texas Instruments Incorporated (the "License"). You may not use this Software
+//  115 |  unless you agree to abide by the terms of the License. The License limits
+//  116 |  your use, and you acknowledge, that the Software may not be modified, copied
+//  117 |  or distributed unless embedded on a Texas Instruments microcontroller or used
+//  118 |  solely and exclusively in conjunction with a Texas Instruments radio
+//  119 |  frequency transceiver, which is integrated into your product. Other than for
+//  120 |  the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//  121 |  works of, modify, distribute, perform, display or sell this Software and/or
+//  122 |  its documentation for any purpose.
+//  123 |
+//  124 |  YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//  125 |  PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//  126 |  INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//  127 |  NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//  128 |  TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//  129 |  NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//  130 |  LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES INCLUDING
+//  131 |  BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
+//  132 |  CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
+//  133 |  SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//  134 |  (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//  135 |
+//  136 |  Should you have any questions regarding your right to use this Software,
+//  137 |  contact Texas Instruments Incorporated at www.TI.com.
+//  138 |
+//  139 +------------------------------------------------------------------------------
+//  140 */
+// 
+//  75 bytes in segment BANKED_CODE
+//   6 bytes in segment BANK_RELAYS
+//   5 bytes in segment DATA_Z
+//   3 bytes in segment INTVEC
+// 170 bytes in segment NEAR_CODE
+//   5 bytes in segment SFR_AN
+// 
+// 251 bytes of CODE memory (+ 3 bytes shared)
+//   5 bytes of DATA memory (+ 5 bytes shared)
+//
+//Errors: none
+//Warnings: none

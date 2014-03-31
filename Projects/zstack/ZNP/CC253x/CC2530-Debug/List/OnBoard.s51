@@ -1,0 +1,1909 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        20/Mar/2014  13:24:16 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  C:\Documents and Settings\Administrator\×ÀÃæ\1\Te /
+//                          mcoZNP\Projects\zstack\ZMain\TI2530ZNP\OnBoard.c  /
+//    Command line       =  -f "C:\Documents and Settings\Administrator\×ÀÃæ\ /
+//                          1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\Source\z /
+//                          np.cfg" (-DMAC_CFG_APP_PENDING_QUEUE=TRUE         /
+//                          "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR  /
+//                          | DEVICE_BUILD_ROUTER | DEVICE_BUILD_ENDDEVICE)"  /
+//                          -DNWK_AUTO_POLL -DZNP_RUN_WDOG=FALSE -DZIGBEEPRO  /
+//                          -DZIGBEE_FRAGMENTATION -DOSAL_CLOCK               /
+//                          -DOSAL_SAPI=FALSE -DSAPI_CB_FUNC=FALSE -DNV_INIT  /
+//                          -DNUM_DISC_ATTEMPTS=0) -f "C:\Documents and       /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.c /
+//                          fg" (-DZIGBEEPRO -DSECURE=0                       /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00001000                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100   /
+//                          -DREJOIN_POLL_RATE=440) -f "C:\Documents and      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg" /
+//                           "C:\Documents and Settings\Administrator\×ÀÃæ\1\ /
+//                          TemcoZNP\Projects\zstack\ZMain\TI2530ZNP\OnBoard. /
+//                          c" -D xPOWER_SAVING -D NV_RESTORE -lC             /
+//                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\T /
+//                          emcoZNP\Projects\zstack\ZNP\CC253x\CC2530-Debug\L /
+//                          ist\" -lA "C:\Documents and                       /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\CC2530-Debug\List\"              /
+//                          --diag_suppress Pe001,Pa010 -o "C:\Documents and  /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\CC2530-Debug\Obj\" -e            /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I "C:\Documents and         /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\" -I "C:\Documents and           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\Source\" -I "C:\Documents and    /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\Source\" -I "C:\Documents     /
+//                          and Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projec /
+//                          ts\zstack\ZNP\CC253x\..\..\SE\Source\" -I         /
+//                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\T /
+//                          emcoZNP\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI /
+//                          2530ZNP\" -I "C:\Documents and                    /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\hal\inclu /
+//                          de\" -I "C:\Documents and                         /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\hal\targe /
+//                          t\CC2530ZNP\" -I "C:\Documents and                /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mac\inclu /
+//                          de\" -I "C:\Documents and                         /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mac\high_ /
+//                          level\" -I "C:\Documents and                      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mac\low_l /
+//                          evel\srf04\" -I "C:\Documents and                 /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mac\low_l /
+//                          evel\srf04\single_chip\" -I "C:\Documents and     /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mt\" -I   /
+//                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\T /
+//                          emcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\..\Co /
+//                          mponents\osal\include\" -I "C:\Documents and      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\services\ /
+//                          saddr\" -I "C:\Documents and                      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\services\ /
+//                          sdata\" -I "C:\Documents and                      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\af\ /
+//                          " -I "C:\Documents and Settings\Administrator\×ÀÃ /
+//                          æ\1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\ /
+//                          ..\Components\stack\nwk\" -I "C:\Documents and    /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\sap /
+//                          i\" -I "C:\Documents and                          /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\sec /
+//                          \" -I "C:\Documents and                           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\sys /
+//                          \" -I "C:\Documents and                           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\zcl /
+//                          \" -I "C:\Documents and                           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\zdo /
+//                          \" -I "C:\Documents and                           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\zmac\"    /
+//                          -I "C:\Documents and Settings\Administrator\×ÀÃæ\ /
+//                          1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\.. /
+//                          \Components\zmac\f8w\" -Ohz --require_prototypes  /
+//    List file          =  C:\Documents and Settings\Administrator\×ÀÃæ\1\Te /
+//                          mcoZNP\Projects\zstack\ZNP\CC253x\CC2530-Debug\Li /
+//                          st\OnBoard.s51                                    /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME OnBoard
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:DATA:REORDER:NOROOT(0)
+
+        EXTERN ?ALLOC_XSTACK8
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK_I_TWO
+        EXTERN ?US_DIV_MOD
+        EXTERN ?V0
+        EXTERN ?XSP
+        EXTERN __INIT_XDATA_I
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC ??BigLight_Off?relay
+        FUNCTION ??BigLight_Off?relay,0203H
+        PUBLIC ??BigLight_On?relay
+        FUNCTION ??BigLight_On?relay,0203H
+        PUBLIC ??BuzzerControl?relay
+        FUNCTION ??BuzzerControl?relay,0203H
+        PUBLIC ??Dimmer?relay
+        FUNCTION ??Dimmer?relay,0203H
+        PUBLIC ??GetUserDipSw?relay
+        FUNCTION ??GetUserDipSw?relay,0203H
+        PUBLIC ??InitBoard?relay
+        FUNCTION ??InitBoard?relay,0203H
+        PUBLIC ??OnBoard_KeyCallback?relay
+        FUNCTION ??OnBoard_KeyCallback?relay,0203H
+        PUBLIC ??OnBoard_SendKeys?relay
+        FUNCTION ??OnBoard_SendKeys?relay,0203H
+        PUBLIC ??OnBoard_stack_used?relay
+        FUNCTION ??OnBoard_stack_used?relay,0203H
+        PUBLIC ??Onboard_rand?relay
+        FUNCTION ??Onboard_rand?relay,0203H
+        PUBLIC ??Onboard_wait?relay
+        FUNCTION ??Onboard_wait?relay,0203H
+        PUBLIC ??RegisterForKeys?relay
+        FUNCTION ??RegisterForKeys?relay,0203H
+        PUBLIC ??_itoa?relay
+        FUNCTION ??_itoa?relay,0203H
+        PUBLIC ??restore_factory_setting?relay
+        FUNCTION ??restore_factory_setting?relay,0203H
+        PUBLIC BigLight_Off
+        FUNCTION BigLight_Off,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC BigLight_On
+        FUNCTION BigLight_On,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC BuzzerControl
+        FUNCTION BuzzerControl,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBWEAK DMAARM
+        PUBLIC Dimmer
+        FUNCTION Dimmer,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC GetUserDipSw
+        FUNCTION GetUserDipSw,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC InitBoard
+        FUNCTION InitBoard,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC OnBoard_KeyCallback
+        FUNCTION OnBoard_KeyCallback,021603H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        PUBLIC OnBoard_SendKeys
+        FUNCTION OnBoard_SendKeys,021203H
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC OnBoard_stack_used
+        FUNCTION OnBoard_stack_used,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC Onboard_rand
+        FUNCTION Onboard_rand,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC Onboard_soft_reset
+        FUNCTION Onboard_soft_reset,080203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC Onboard_wait
+        FUNCTION Onboard_wait,080203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC RegisterForKeys
+        FUNCTION RegisterForKeys,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBWEAK SLEEPSTA
+        PUBWEAK WDCTL
+        PUBWEAK _A_IEN0
+        PUBLIC _itoa
+        FUNCTION _itoa,0203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 19, STACK
+        PUBLIC _lockBits
+        PUBLIC _nvIEEE
+        PUBLIC _reserved
+        PUBLIC aExtendedAddress
+        PUBLIC restore_factory_setting
+        FUNCTION restore_factory_setting,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-2
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT SameValue
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon1
+        
+osal_int_disable    SYMBOL "osal_int_disable"
+halAssertHandler    SYMBOL "halAssertHandler"
+HalKeyConfig        SYMBOL "HalKeyConfig"
+osal_msg_allocate   SYMBOL "osal_msg_allocate"
+osal_msg_send       SYMBOL "osal_msg_send"
+macMcuRandomWord    SYMBOL "macMcuRandomWord"
+NLME_InitNV         SYMBOL "NLME_InitNV"
+NLME_SetDefaultNV   SYMBOL "NLME_SetDefaultNV"
+zgWriteStartupOptions SYMBOL "zgWriteStartupOptions"
+osal_nv_write       SYMBOL "osal_nv_write"
+??HalKeyConfig?relay SYMBOL "?relay", HalKeyConfig
+??NLME_InitNV?relay SYMBOL "?relay", NLME_InitNV
+??NLME_SetDefaultNV?relay SYMBOL "?relay", NLME_SetDefaultNV
+??halAssertHandler?relay SYMBOL "?relay", halAssertHandler
+??macMcuRandomWord?relay SYMBOL "?relay", macMcuRandomWord
+??osal_int_disable?relay SYMBOL "?relay", osal_int_disable
+??osal_msg_allocate?relay SYMBOL "?relay", osal_msg_allocate
+??osal_msg_send?relay SYMBOL "?relay", osal_msg_send
+??osal_nv_write?relay SYMBOL "?relay", osal_nv_write
+??zgWriteStartupOptions?relay SYMBOL "?relay", zgWriteStartupOptions
+BigLight_Off        SYMBOL "BigLight_Off"
+??BigLight_Off?relay SYMBOL "?relay", BigLight_Off
+BigLight_On         SYMBOL "BigLight_On"
+??BigLight_On?relay SYMBOL "?relay", BigLight_On
+BuzzerControl       SYMBOL "BuzzerControl"
+??BuzzerControl?relay SYMBOL "?relay", BuzzerControl
+Dimmer              SYMBOL "Dimmer"
+??Dimmer?relay      SYMBOL "?relay", Dimmer
+GetUserDipSw        SYMBOL "GetUserDipSw"
+??GetUserDipSw?relay SYMBOL "?relay", GetUserDipSw
+InitBoard           SYMBOL "InitBoard"
+??InitBoard?relay   SYMBOL "?relay", InitBoard
+OnBoard_KeyCallback SYMBOL "OnBoard_KeyCallback"
+??OnBoard_KeyCallback?relay SYMBOL "?relay", OnBoard_KeyCallback
+OnBoard_SendKeys    SYMBOL "OnBoard_SendKeys"
+??OnBoard_SendKeys?relay SYMBOL "?relay", OnBoard_SendKeys
+OnBoard_stack_used  SYMBOL "OnBoard_stack_used"
+??OnBoard_stack_used?relay SYMBOL "?relay", OnBoard_stack_used
+Onboard_rand        SYMBOL "Onboard_rand"
+??Onboard_rand?relay SYMBOL "?relay", Onboard_rand
+Onboard_wait        SYMBOL "Onboard_wait"
+??Onboard_wait?relay SYMBOL "?relay", Onboard_wait
+RegisterForKeys     SYMBOL "RegisterForKeys"
+??RegisterForKeys?relay SYMBOL "?relay", RegisterForKeys
+_itoa               SYMBOL "_itoa"
+??_itoa?relay       SYMBOL "?relay", _itoa
+restore_factory_setting SYMBOL "restore_factory_setting"
+??restore_factory_setting?relay SYMBOL "?relay", restore_factory_setting
+
+        EXTERN osal_int_disable
+        FUNCTION osal_int_disable,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN halAssertHandler
+        FUNCTION halAssertHandler,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN HalKeyConfig
+        FUNCTION HalKeyConfig,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_allocate
+        FUNCTION osal_msg_allocate,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_msg_send
+        FUNCTION osal_msg_send,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN macMcuRandomWord
+        FUNCTION macMcuRandomWord,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN NLME_InitNV
+        FUNCTION NLME_InitNV,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN NLME_SetDefaultNV
+        FUNCTION NLME_SetDefaultNV,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN zgWriteStartupOptions
+        FUNCTION zgWriteStartupOptions,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_nv_write
+        FUNCTION osal_nv_write,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??HalKeyConfig?relay
+        FUNCTION ??HalKeyConfig?relay,00H
+        EXTERN ??NLME_InitNV?relay
+        FUNCTION ??NLME_InitNV?relay,00H
+        EXTERN ??NLME_SetDefaultNV?relay
+        FUNCTION ??NLME_SetDefaultNV?relay,00H
+        EXTERN ??halAssertHandler?relay
+        FUNCTION ??halAssertHandler?relay,00H
+        EXTERN ??macMcuRandomWord?relay
+        FUNCTION ??macMcuRandomWord?relay,00H
+        EXTERN ??osal_int_disable?relay
+        FUNCTION ??osal_int_disable?relay,00H
+        EXTERN ??osal_msg_allocate?relay
+        FUNCTION ??osal_msg_allocate?relay,00H
+        EXTERN ??osal_msg_send?relay
+        FUNCTION ??osal_msg_send?relay,00H
+        EXTERN ??osal_nv_write?relay
+        FUNCTION ??osal_nv_write?relay,00H
+        EXTERN ??zgWriteStartupOptions?relay
+        FUNCTION ??zgWriteStartupOptions?relay,00H
+        EXTERN znpCfg1
+
+// C:\Documents and Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zstack\ZMain\TI2530ZNP\OnBoard.c
+//    1 /**************************************************************************************************
+//    2   Filename:       OnBoard.c
+//    3   Revised:        $Date: 2012-03-29 12:09:02 -0700 (Thu, 29 Mar 2012) $
+//    4   Revision:       $Revision: 29943 $
+//    5 
+//    6   Description:    This file contains the UI and control for the
+//    7                   peripherals on the EVAL development board
+//    8   Notes:          This file targets the Chipcon CC2530/31ZNP
+//    9 
+//   10 
+//   11   Copyright 2005-2010 Texas Instruments Incorporated. All rights reserved.
+//   12 
+//   13   IMPORTANT: Your use of this Software is limited to those specific rights
+//   14   granted under the terms of a software license agreement between the user
+//   15   who downloaded the software, his/her employer (which must be your employer)
+//   16   and Texas Instruments Incorporated (the "License").  You may not use this
+//   17   Software unless you agree to abide by the terms of the License. The License
+//   18   limits your use, and you acknowledge, that the Software may not be modified,
+//   19   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   20   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   21   frequency transceiver, which is integrated into your product.  Other than for
+//   22   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   23   works of, modify, distribute, perform, display or sell this Software and/or
+//   24   its documentation for any purpose.
+//   25 
+//   26   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   27   PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   28   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   29   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   30   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   31   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   32   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   33   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   34   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   35   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   36   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   37 
+//   38   Should you have any questions regarding your right to use this Software,
+//   39   contact Texas Instruments Incorporated at www.TI.com.
+//   40 **************************************************************************************************/
+//   41 
+//   42 /*********************************************************************
+//   43  * INCLUDES
+//   44  */
+//   45 
+//   46 #include "ZComDef.h"
+//   47 #include "ZGlobals.h"
+//   48 #include "OnBoard.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,09dH
+// unsigned char volatile __sfr SLEEPSTA
+SLEEPSTA:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0a8H
+// union <unnamed> volatile __sfr _A_IEN0
+_A_IEN0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0c9H
+// unsigned char volatile __sfr WDCTL
+WDCTL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0d6H
+// unsigned char volatile __sfr DMAARM
+DMAARM:
+        DATA8
+        DS 1
+//   49 #include "OSAL.h"
+//   50 #include "MT.h"
+//   51 #include "MT_SYS.h"
+//   52 #include "DebugTrace.h"
+//   53 
+//   54 /* Hal */
+//   55 #include "hal_lcd.h"
+//   56 #include "hal_mcu.h"
+//   57 #include "hal_timer.h"
+//   58 #include "hal_key.h"
+//   59 #include "hal_led.h"
+//   60 
+//   61 /* Allow access macRandomByte() */
+//   62 #include "mac_radio_defs.h"
+//   63 
+//   64 #include "NLMEDE.h"
+//   65 #include "OSAL_Nv.h"
+//   66 /*********************************************************************
+//   67  * CONSTANTS
+//   68  */
+//   69 
+//   70 // Task ID not initialized
+//   71 #define NO_TASK_ID 0xFF
+//   72 
+//   73 // Minimum length RAM "pattern" for Stack check
+//   74 #define MIN_RAM_INIT 12
+//   75 
+//   76 /*********************************************************************
+//   77  * GLOBAL VARIABLES
+//   78  */
+//   79 
+//   80 #if defined MAKE_CRC_SHDW
+//   81 #pragma location="CRC_SHDW"
+//   82 const CODE uint16 _crcShdw = 0xFFFF;
+//   83 #pragma required=_crcShdw
+//   84 
+//   85 #else  // if !defined MAKE_CRC_SHDW
+//   86 
+//   87 #if defined FAKE_CRC_SHDW
+//   88 #pragma location="CRC_SHDW"
+//   89 const CODE uint16 _crcShdw = 0x2010;
+//   90 #pragma required=_crcShdw
+//   91 #pragma location="CHECKSUM"
+//   92 const CODE uint16 _crcFake = 0x2010;
+//   93 #pragma required=_crcFake
+//   94 #endif
+//   95 
+//   96 #pragma location="LOCK_BITS_ADDRESS_SPACE"
+
+        RSEG LOCK_BITS_ADDRESS_SPACE:XDATA:REORDER:NOROOT(0)
+        DATA8
+//   97 __no_init uint8 _lockBits[16];
+_lockBits:
+        DS 16
+//   98 #pragma required=_lockBits
+//   99 
+//  100 #if defined ZCL_KEY_ESTABLISH
+//  101 #include "zcl_cert_data.c"
+//  102 #else
+//  103 #pragma location="IEEE_ADDRESS_SPACE"
+
+        RSEG IEEE_ADDRESS_SPACE:XDATA:REORDER:NOROOT(0)
+        DATA8
+//  104 __no_init uint8 _nvIEEE[Z_EXTADDR_LEN];
+_nvIEEE:
+        DS 8
+        REQUIRE _lockBits
+//  105 #pragma required=_nvIEEE
+//  106 #endif
+//  107 
+//  108 #pragma location="RESERVED_ADDRESS_SPACE"
+
+        RSEG RESERVED_ADDRESS_SPACE:XDATA:REORDER:NOROOT(0)
+        DATA8
+//  109 __no_init uint8 _reserved[1932];
+_reserved:
+        DS 1932
+        REQUIRE _nvIEEE
+//  110 #pragma required=_reserved
+//  111 #endif
+//  112 
+//  113 // 64-bit Extended Address of this device
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//  114 uint8 aExtendedAddress[8];
+aExtendedAddress:
+        DS 8
+        REQUIRE __INIT_XDATA_Z
+        REQUIRE _reserved
+//  115 
+//  116 /*********************************************************************
+//  117  * LOCAL VARIABLES
+//  118  */
+//  119 
+//  120 // Registered keys task ID, initialized to NOT USED.
+
+        RSEG XDATA_I:XDATA:NOROOT(0)
+//  121 static uint8 registeredKeysTaskID = NO_TASK_ID;
+registeredKeysTaskID:
+        DATA8
+        DS 1
+        REQUIRE `?<Initializer for registeredKeysTaskID>`
+        REQUIRE __INIT_XDATA_I
+//  122 
+//  123 /*********************************************************************
+//  124  * LOCAL FUNCTIONS
+//  125  */
+//  126 
+//  127 static void ChkReset( void );
+//  128 
+//  129 /*********************************************************************
+//  130  * @fn      InitBoard()
+//  131  * @brief   Initialize the CC2420DB Board Peripherals
+//  132  * @param   level: COLD,WARM,READY
+//  133  * @return  None
+//  134  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  135 void InitBoard( uint8 level )
+InitBoard:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function InitBoard
+        CODE
+//  136 {
+        FUNCALL InitBoard, osal_int_disable
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL InitBoard, halAssertHandler
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL InitBoard, HalKeyConfig
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV     A,R1
+//  137   if ( level == OB_COLD )
+        JNZ     ??InitBoard_0
+//  138   {
+//  139     // IAR does not zero-out this byte below the XSTACK.
+//  140     *(uint8 *)0x0 = 0;
+        MOV     DPTR,#0x0
+        CLR     A
+        MOVX    @DPTR,A
+//  141     // Interrupts off
+//  142     osal_int_disable( INTS_ALL );
+        ; Setup parameters for call to function osal_int_disable
+        MOV     R1,#-0x1
+        LCALL   ??osal_int_disable?relay
+//  143     // Check for Brown-Out reset
+//  144     ChkReset();
+        MOV     A,0x9d
+        ANL     A,#0x18
+        MOV     R0,A
+        JZ      ??InitBoard_1
+        MOV     A,#0x8
+        XRL     A,R0
+        JZ      ??InitBoard_1
+        MOV     A,#0x10
+        XRL     A,R0
+        JZ      ??InitBoard_1
+        ; Setup parameters for call to function halAssertHandler
+        LCALL   ??halAssertHandler?relay
+//  145 
+//  146     // Special ZNP CFG1 (CFG0 handled in hal_board_cfg.h.
+//  147 #if defined CC2531ZNP
+//  148     znpCfg1 = ZNP_CFG1_UART;
+//  149 #elif defined CC2530_MK
+//  150     znpCfg1 = ZNP_CFG1_SPI;
+//  151     znpCfg0 = ZNP_CFG0_32K_OSC;
+//  152 #else
+//  153 /*    znpCfg1 = P2_0;
+//  154     znpCfg0 = P1_2;
+//  155     // Tri-state the 2 CFG inputs after being read (see hal_board_cfg_xxx.h for CFG0.)
+//  156     P1INP |= BV(2);
+//  157     P2INP |= BV(0);*/
+//  158     znpCfg1 = ZNP_CFG1_UART;
+??InitBoard_1:
+        MOV     DPTR,#znpCfg1
+        CLR     A
+        MOVX    @DPTR,A
+        SJMP    ??InitBoard_2
+//  159 #endif
+//  160   }
+//  161   else  // !OB_COLD
+//  162   {
+//  163     /* Initialize Key stuff */
+//  164     HalKeyConfig(HAL_KEY_INTERRUPT_DISABLE, OnBoard_KeyCallback);
+??InitBoard_0:
+        ; Setup parameters for call to function HalKeyConfig
+        MOV     R2,#??OnBoard_KeyCallback?relay & 0xff
+        MOV     R3,#(??OnBoard_KeyCallback?relay >> 8) & 0xff
+        MOV     R1,#0x0
+        LCALL   ??HalKeyConfig?relay
+        CFI EndBlock cfiBlock0
+//  165   }
+//  166 }
+??InitBoard_2:
+        REQUIRE ?Subroutine0
+        REQUIRE SLEEPSTA
+        ; // Fall through to label ?Subroutine0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 9)
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV     R7,#0x1
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock1
+//  167 
+//  168 /*********************************************************************
+//  169  * @fn      ChkReset()
+//  170  * @brief   Check reset bits - if reset cause is unknown, assume a
+//  171  *          brown-out (low power), assume batteries are not reliable,
+//  172  *          hang in a loop and sequence through the LEDs.
+//  173  * @param   None
+//  174  * @return  None
+//  175  *********************************************************************/
+//  176 void ChkReset( void )
+//  177 {
+//  178   uint8 rib;
+//  179 
+//  180   // Isolate reset indicator bits
+//  181   rib = SLEEPSTA & LRESET;
+//  182 
+//  183   if ( rib == RESETPO )
+//  184   {
+//  185     // Put code here to handle Power-On reset
+//  186   }
+//  187   else if ( rib == RESETEX )
+//  188   {
+//  189     // Put code here to handle External reset
+//  190   }
+//  191   else if ( rib == RESETWD )
+//  192   {
+//  193     // Put code here to handle WatchDog reset
+//  194   }
+//  195   else  // Unknown reason - not expected.
+//  196   {
+//  197     HAL_ASSERT(0);
+//  198   }
+//  199 }
+//  200 
+//  201 /*********************************************************************
+//  202  *                        "Keyboard" Support
+//  203  *********************************************************************/
+//  204 
+//  205 /*********************************************************************
+//  206  * Keyboard Register function
+//  207  *
+//  208  * The keyboard handler is setup to send all keyboard changes to
+//  209  * one task (if a task is registered).
+//  210  *
+//  211  * If a task registers, it will get all the keys. You can change this
+//  212  * to register for individual keys.
+//  213  *********************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  214 uint8 RegisterForKeys( uint8 task_id )
+RegisterForKeys:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function RegisterForKeys
+        CODE
+//  215 {
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+        MOV     A,R1
+        MOV     R0,A
+//  216   // Allow only the first task
+//  217   if ( registeredKeysTaskID == NO_TASK_ID )
+        MOV     DPTR,#registeredKeysTaskID
+        MOVX    A,@DPTR
+        CPL     A
+        JNZ     ??RegisterForKeys_0
+//  218   {
+//  219     registeredKeysTaskID = task_id;
+        MOV     A,R0
+        MOVX    @DPTR,A
+//  220     return ( true );
+        MOV     R1,#0x1
+        SJMP    ??RegisterForKeys_1
+//  221   }
+//  222   else
+//  223     return ( false );
+??RegisterForKeys_0:
+        MOV     R1,#0x0
+        CFI EndBlock cfiBlock2
+??RegisterForKeys_1:
+        REQUIRE ?Subroutine1
+        ; // Fall through to label ?Subroutine1
+//  224 }
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine1:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+-5
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI DPH0 Frame(CFA_SP, 5)
+        POP     DPH
+        CFI CFA_SP SP+-4
+        CFI DPH0 SameValue
+        POP     DPL
+        CFI CFA_SP SP+-3
+        CFI DPL0 SameValue
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock3
+//  225 
+//  226 /*********************************************************************
+//  227  * @fn      OnBoard_SendKeys
+//  228  *
+//  229  * @brief   Send "Key Pressed" message to application.
+//  230  *
+//  231  * @param   keys  - keys that were pressed
+//  232  *          state - shifted
+//  233  *
+//  234  * @return  status
+//  235  *********************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  236 uint8 OnBoard_SendKeys( uint8 keys, uint8 state )
+OnBoard_SendKeys:
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function OnBoard_SendKeys
+        CODE
+//  237 {
+        FUNCALL OnBoard_SendKeys, osal_msg_allocate
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL OnBoard_SendKeys, osal_msg_send
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 10, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+        MOV     A,R1
+        MOV     R6,A
+        MOV     A,R2
+        MOV     R7,A
+//  238   keyChange_t *msgPtr;
+//  239 
+//  240   if ( registeredKeysTaskID != NO_TASK_ID )
+        MOV     DPTR,#registeredKeysTaskID
+        MOVX    A,@DPTR
+        CPL     A
+        JZ      ??OnBoard_SendKeys_0
+//  241   {
+//  242     // Send the address to the task
+//  243     msgPtr = (keyChange_t *)osal_msg_allocate( sizeof(keyChange_t) );
+        ; Setup parameters for call to function osal_msg_allocate
+        MOV     R2,#0x4
+        MOV     R3,#0x0
+        LCALL   ??osal_msg_allocate?relay
+//  244     if ( msgPtr )
+        MOV     A,R2
+        ORL     A,R3
+        JZ      ??OnBoard_SendKeys_1
+//  245     {
+//  246       msgPtr->hdr.event = KEY_CHANGE;
+        MOV     DPL,R2
+        MOV     DPH,R3
+        MOV     A,#-0x40
+        MOVX    @DPTR,A
+//  247       msgPtr->state = state;
+        MOV     A,R7
+        INC     DPTR
+        INC     DPTR
+        MOVX    @DPTR,A
+//  248       msgPtr->keys = keys;
+        MOV     A,R6
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        MOVX    @DPTR,A
+//  249 
+//  250       osal_msg_send( registeredKeysTaskID, (uint8 *)msgPtr );
+        ; Setup parameters for call to function osal_msg_send
+        MOV     DPTR,#registeredKeysTaskID
+        MOVX    A,@DPTR
+        MOV     R1,A
+        LCALL   ??osal_msg_send?relay
+//  251     }
+//  252     return ( ZSuccess );
+??OnBoard_SendKeys_1:
+        MOV     R1,#0x0
+        SJMP    ??OnBoard_SendKeys_2
+//  253   }
+//  254   else
+//  255     return ( ZFailure );
+??OnBoard_SendKeys_0:
+        MOV     R1,#0x1
+??OnBoard_SendKeys_2:
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock4
+//  256 }
+//  257 
+//  258 /*********************************************************************
+//  259  * @fn      OnBoard_KeyCallback
+//  260  *
+//  261  * @brief   Callback service for keys
+//  262  *
+//  263  * @param   keys  - keys that were pressed
+//  264  *          state - shifted
+//  265  *
+//  266  * @return  void
+//  267  *********************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  268 void OnBoard_KeyCallback ( uint8 keys, uint8 state )
+OnBoard_KeyCallback:
+        CFI Block cfiBlock5 Using cfiCommon0
+        CFI Function OnBoard_KeyCallback
+        CODE
+//  269 {
+        FUNCALL OnBoard_KeyCallback, OnBoard_SendKeys
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 9, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 9, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0x9
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 9)
+        ; Saved register size: 9
+        ; Auto size: 0
+        MOV     A,R1
+//  270   uint8 shift;
+//  271   (void)state;
+//  272 
+//  273   shift = (keys & HAL_KEY_SW_6) ? true : false;
+//  274 
+//  275   if ( OnBoard_SendKeys( keys, shift ) != ZSuccess )
+        ; Setup parameters for call to function OnBoard_SendKeys
+        MOV     C,0xE0 /* A   */.5
+        CLR     A
+        RLC     A
+        MOV     R2,A
+        LCALL   ??OnBoard_SendKeys?relay
+//  276   {
+//  277     // Process SW1 here
+//  278     if ( keys & HAL_KEY_SW_1 )  // Switch 1
+//  279     {
+//  280     }
+//  281     // Process SW2 here
+//  282     if ( keys & HAL_KEY_SW_2 )  // Switch 2
+//  283     {
+//  284     }
+//  285     // Process SW3 here
+//  286     if ( keys & HAL_KEY_SW_3 )  // Switch 3
+//  287     {
+//  288     }
+//  289     // Process SW4 here
+//  290     if ( keys & HAL_KEY_SW_4 )  // Switch 4
+//  291     {
+//  292     }
+//  293     // Process SW5 here
+//  294     if ( keys & HAL_KEY_SW_5 )  // Switch 5
+//  295     {
+//  296     }
+//  297     // Process SW6 here
+//  298     if ( keys & HAL_KEY_SW_6 )  // Switch 6
+//  299     {
+//  300     }
+//  301   }
+//  302 }
+        SJMP    ?Subroutine0
+        CFI EndBlock cfiBlock5
+//  303 
+//  304 /*********************************************************************
+//  305  * @fn      OnBoard_stack_used
+//  306  *
+//  307  * @brief   Runs through the stack looking for touched memory.
+//  308  *
+//  309  * @param   none
+//  310  *
+//  311  * @return  Maximum number of bytes used by the stack.
+//  312  *********************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  313 uint16 OnBoard_stack_used(void)
+OnBoard_stack_used:
+        CFI Block cfiBlock6 Using cfiCommon0
+        CFI Function OnBoard_stack_used
+        CODE
+//  314 {
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  315   uint8 const *ptr;
+//  316   uint8 cnt = 0;
+        MOV     R0,#0x0
+//  317 
+//  318   for (ptr = CSTACK_END; ptr > CSTACK_BEG; ptr--)
+        MOV     DPL,#(SFE(XSTACK) + 255) & 0xff
+        MOV     DPH,#((SFE(XSTACK) - 1) >> 8) & 0xff
+        SJMP    ??OnBoard_stack_used_0
+//  319   {
+//  320     if (STACK_INIT_VALUE == *ptr)
+//  321     {
+//  322       if (++cnt >= MIN_RAM_INIT)
+//  323       {
+//  324         ptr += MIN_RAM_INIT;
+//  325         break;
+//  326       }
+//  327     }
+//  328     else
+//  329     {
+//  330       cnt = 0;
+??OnBoard_stack_used_1:
+        MOV     R0,#0x0
+//  331     }
+??OnBoard_stack_used_2:
+        MOV     A,DPL
+        ADD     A,#-0x1
+        MOV     DPL,A
+        MOV     A,DPH
+        ADDC    A,#-0x1
+        MOV     DPH,A
+??OnBoard_stack_used_0:
+        CLR     C
+        MOV     A,#SFB(XSTACK) & 0xff
+        SUBB    A,DPL
+        MOV     A,#(SFB(XSTACK) >> 8) & 0xff
+        SUBB    A,DPH
+        JNC     ??OnBoard_stack_used_3
+        MOVX    A,@DPTR
+        XRL     A,#0xcd
+        JNZ     ??OnBoard_stack_used_1
+        INC     R0
+        MOV     A,R0
+        CLR     C
+        SUBB    A,#0xc
+        JC      ??OnBoard_stack_used_2
+        MOV     A,DPL
+        ADD     A,#0xc
+        MOV     DPL,A
+        MOV     A,DPH
+        ADDC    A,#0x0
+        MOV     DPH,A
+//  332   }
+//  333 
+//  334   return (uint16)(CSTACK_END - ptr + 1);
+??OnBoard_stack_used_3:
+        MOV     A,#(SFE(XSTACK) + 255) & 0xff
+        CLR     C
+        SUBB    A,DPL
+        MOV     R0,A
+        MOV     A,#((SFE(XSTACK) - 1) >> 8) & 0xff
+        SUBB    A,DPH
+        MOV     R1,A
+        MOV     A,R0
+        ADD     A,#0x1
+        MOV     R2,A
+        MOV     A,R1
+        ADDC    A,#0x0
+        MOV     R3,A
+        LJMP    ?Subroutine1 & 0xFFFF
+        CFI EndBlock cfiBlock6
+//  335 }
+//  336 
+//  337 /*********************************************************************
+//  338  * @fn      _itoa
+//  339  *
+//  340  * @brief   convert a 16bit number to ASCII
+//  341  *
+//  342  * @param   num -
+//  343  *          buf -
+//  344  *          radix -
+//  345  *
+//  346  * @return  void
+//  347  *
+//  348  *********************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  349 void _itoa(uint16 num, uint8 *buf, uint8 radix)
+_itoa:
+        CFI Block cfiBlock7 Using cfiCommon0
+        CFI Function _itoa
+        CODE
+//  350 {
+        MOV     A,#-0xe
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V5 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V4 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-13)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 14)
+        ; Saved register size: 14
+        ; Auto size: 5
+        MOV     A,#-0x5
+        LCALL   ?ALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 19)
+        MOV     A,R2
+        MOV     R6,A
+        MOV     A,R3
+        MOV     R7,A
+        MOV     ?V0 + 0,R4
+        MOV     ?V0 + 1,R5
+        MOV     ?V0 + 4,R1
+//  351   char c,i;
+//  352   uint8 *p, rst[5];
+//  353 
+//  354   p = rst;
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     R4,DPL
+        MOV     R5,DPH
+//  355   for ( i=0; i<5; i++,p++ )
+        MOV     ?V0 + 5,#0x0
+//  356   {
+//  357     c = num % radix;  // Isolate a digit
+??_itoa_0:
+        MOV     A,R6
+        MOV     R0,A
+        MOV     A,R7
+        MOV     R1,A
+        MOV     ?V0 + 2,?V0 + 4
+        MOV     R2,?V0 + 2
+        MOV     R3,#0x0
+        LCALL   ?US_DIV_MOD
+        MOV     A,R2
+//  358     *p = c + (( c < 10 ) ? '0' : '7');  // Convert to Ascii
+        SUBB    A,#0xa
+        JNC     ??_itoa_1
+        MOV     R0,#0x30
+        SJMP    ??_itoa_2
+??_itoa_1:
+        MOV     R0,#0x37
+??_itoa_2:
+        MOV     A,R0
+        ADD     A,R2
+        MOV     DPL,R4
+        MOV     DPH,R5
+        MOVX    @DPTR,A
+//  359     num /= radix;
+        MOV     A,R6
+        MOV     R0,A
+        MOV     A,R7
+        MOV     R1,A
+        MOV     R2,?V0 + 2
+        MOV     R3,#0x0
+        LCALL   ?US_DIV_MOD
+        MOV     ?V0 + 2,R0
+        MOV     ?V0 + 3,R1
+        MOV     R6,?V0 + 2
+        MOV     R7,?V0 + 3
+//  360     if ( !num )
+        MOV     A,R6
+        ORL     A,R7
+        JZ      ??_itoa_3
+//  361       break;
+//  362   }
+        INC     ?V0 + 5
+        INC     DPTR
+        MOV     R4,DPL
+        MOV     R5,DPH
+        MOV     A,?V0 + 5
+        SUBB    A,#0x5
+        JC      ??_itoa_0
+//  363 
+//  364   for ( c=0 ; c<=i; c++ )
+??_itoa_3:
+        MOV     R2,#0x0
+//  365     *buf++ = *p--;  // Reverse character order
+??_itoa_4:
+        MOV     DPL,R4
+        MOV     DPH,R5
+        MOVX    A,@DPTR
+        MOV     DPL,?V0 + 0
+        MOV     DPH,?V0 + 1
+        MOVX    @DPTR,A
+        MOV     A,R4
+        ADD     A,#-0x1
+        DEC     R4
+        MOV     A,R5
+        ADDC    A,#-0x1
+        MOV     R5,A
+        INC     DPTR
+        MOV     ?V0 + 0,DPL
+        MOV     ?V0 + 1,DPH
+        INC     R2
+        MOV     A,?V0 + 5
+        CLR     C
+        SUBB    A,R2
+        JNC     ??_itoa_4
+//  366 
+//  367   *buf = '\0';
+        CLR     A
+        MOVX    @DPTR,A
+//  368 }
+        MOV     A,#0x5
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 14)
+        MOV     R7,#0x6
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock7
+//  369 
+//  370 /*********************************************************************
+//  371  * @fn        Onboard_rand
+//  372  *
+//  373  * @brief    Random number generator
+//  374  *
+//  375  * @param   none
+//  376  *
+//  377  * @return  uint16 - new random number
+//  378  *
+//  379  *********************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  380 uint16 Onboard_rand( void )
+Onboard_rand:
+        CFI Block cfiBlock8 Using cfiCommon0
+        CFI Function Onboard_rand
+        CODE
+//  381 {
+        FUNCALL Onboard_rand, macMcuRandomWord
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  382   return ( MAC_RADIO_RANDOM_WORD() );
+        ; Setup parameters for call to function macMcuRandomWord
+        LCALL   ??macMcuRandomWord?relay
+        LJMP    ?Subroutine1 & 0xFFFF
+        CFI EndBlock cfiBlock8
+//  383 }
+//  384 
+//  385 /*********************************************************************
+//  386  * @fn        Onboard_wait
+//  387  *
+//  388  * @brief    Delay wait
+//  389  *
+//  390  * @param   uint16 - time to wait
+//  391  *
+//  392  * @return  none
+//  393  *
+//  394  *********************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  395 void Onboard_wait( uint16 timeout )
+Onboard_wait:
+        CFI Block cfiBlock9 Using cfiCommon0
+        CFI Function Onboard_wait
+        CODE
+//  396 {
+        ; Saved register size: 0
+        ; Auto size: 0
+        SJMP    ??Onboard_wait_0
+//  397   while (timeout--)
+//  398   {
+//  399     asm("NOP");
+??Onboard_wait_1:
+        NOP
+//  400     asm("NOP");
+        NOP
+//  401     asm("NOP");
+        NOP
+//  402   }
+??Onboard_wait_0:
+        MOV     A,R2
+        MOV     R0,A
+        MOV     A,R3
+        MOV     R1,A
+        MOV     A,R0
+        ADD     A,#-0x1
+        DEC     R2
+        MOV     A,R1
+        ADDC    A,#-0x1
+        MOV     R3,A
+        MOV     A,R0
+        ORL     A,R1
+        JNZ     ??Onboard_wait_1
+//  403 }
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock9
+//  404 
+//  405 /*********************************************************************
+//  406  * @fn      Onboard_soft_reset
+//  407  *
+//  408  * @brief   Effect a soft reset.
+//  409  *
+//  410  * @param   none
+//  411  *
+//  412  * @return  none
+//  413  *
+//  414  *********************************************************************/
+
+        RSEG NEAR_CODE:CODE:NOROOT(0)
+//  415 __near_func void Onboard_soft_reset( void )
+Onboard_soft_reset:
+        CFI Block cfiBlock10 Using cfiCommon1
+        CFI Function Onboard_soft_reset
+        CODE
+//  416 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  417   HAL_DISABLE_INTERRUPTS();
+        CLR     0xa8.7
+//  418   // Abort all DMA channels to insure that ongoing operations do not
+//  419   // interfere with re-configuration.
+//  420   DMAARM = 0x80 | 0x1F;
+        MOV     0xd6,#-0x61
+//  421   asm("LJMP 0x0");
+        LJMP 0x0
+//  422 }
+        RET
+        CFI EndBlock cfiBlock10
+        REQUIRE _A_IEN0
+        REQUIRE DMAARM
+//  423 
+//  424 /*********************************************************************
+//  425  *                    EXTERNAL I/O FUNCTIONS
+//  426  *
+//  427  * User defined functions to control external devices. Add your code
+//  428  * to the following functions to control devices wired to DB outputs.
+//  429  *
+//  430  *********************************************************************/
+//  431 
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  432 void BigLight_On( void )
+BigLight_On:
+        CFI Block cfiBlock11 Using cfiCommon0
+        CFI Function BigLight_On
+        CODE
+//  433 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  434   // Put code here to turn on an external light
+//  435 }
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock11
+//  436 
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  437 void BigLight_Off( void )
+BigLight_Off:
+        CFI Block cfiBlock12 Using cfiCommon0
+        CFI Function BigLight_Off
+        CODE
+//  438 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  439   // Put code here to turn off an external light
+//  440 }
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock12
+//  441 
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  442 void BuzzerControl( uint8 on )
+BuzzerControl:
+        CFI Block cfiBlock13 Using cfiCommon0
+        CFI Function BuzzerControl
+        CODE
+//  443 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  444   // Put code here to turn a buzzer on/off
+//  445   (void)on;
+//  446 }
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock13
+//  447 
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  448 void Dimmer( uint8 lvl )
+Dimmer:
+        CFI Block cfiBlock14 Using cfiCommon0
+        CFI Function Dimmer
+        CODE
+//  449 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  450   // Put code here to control a dimmer
+//  451   (void)lvl;
+//  452 }
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock14
+//  453 
+//  454 // No dip switches on this board
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  455 uint8 GetUserDipSw( void )
+GetUserDipSw:
+        CFI Block cfiBlock15 Using cfiCommon0
+        CFI Function GetUserDipSw
+        CODE
+//  456 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//  457   return 0;
+        MOV     R1,#0x0
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock15
+//  458 }
+//  459 
+//  460 
+//  461 /*********************************************************************
+//  462  * @fn      restore_factory_setting
+//  463  *
+//  464  * @brief   Restore the device to factory settings.
+//  465  *
+//  466  * @param   none
+//  467  *
+//  468  * @return  none
+//  469  *
+//  470  *********************************************************************/
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  471 void restore_factory_setting( void)
+restore_factory_setting:
+        CFI Block cfiBlock16 Using cfiCommon0
+        CFI Function restore_factory_setting
+        CODE
+//  472 {
+        FUNCALL restore_factory_setting, NLME_InitNV
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL restore_factory_setting, NLME_SetDefaultNV
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL restore_factory_setting, zgWriteStartupOptions
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL restore_factory_setting, osal_nv_write
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 15, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 15, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 1
+        MOV     A,#-0x1
+        LCALL   ?ALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 11)
+//  473   uint8 startOptions;
+//  474   
+//  475   NLME_InitNV();
+        ; Setup parameters for call to function NLME_InitNV
+        LCALL   ??NLME_InitNV?relay
+//  476   NLME_SetDefaultNV();
+        ; Setup parameters for call to function NLME_SetDefaultNV
+        LCALL   ??NLME_SetDefaultNV?relay
+//  477   
+//  478   zgWriteStartupOptions( ZG_STARTUP_SET,ZCD_STARTOPT_DEFAULT_NETWORK_STATE );
+        ; Setup parameters for call to function zgWriteStartupOptions
+        MOV     R2,#0x2
+        MOV     R1,#-0x1
+        LCALL   ??zgWriteStartupOptions?relay
+//  479   startOptions = ZCD_STARTOPT_CLEAR_STATE | ZCD_STARTOPT_CLEAR_CONFIG;
+        MOV     DPL,?XSP + 0
+        MOV     DPH,?XSP + 1
+        MOV     A,#0x3
+        MOVX    @DPTR,A
+//  480   osal_nv_write(ZCD_NV_STARTUP_OPTION, 0, sizeof(uint8),&startOptions);
+        ; Setup parameters for call to function osal_nv_write
+        MOV     ?V0 + 0,DPL
+        MOV     ?V0 + 1,DPH
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 13)
+        MOV     ?V0 + 0,#0x1
+        MOV     ?V0 + 1,#0x0
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_TWO
+        CFI CFA_XSP16 add(XSP16, 15)
+        MOV     R4,#0x0
+        MOV     R5,#0x0
+        MOV     R2,#0x3
+        MOV     R3,#0x0
+        LCALL   ??osal_nv_write?relay
+        MOV     A,#0x4
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 11)
+//  481 
+//  482   SystemReset();
+        CLR     0xa8.7
+        CLR     0xa8.7
+        MOV     0xc9,#-0x55
+        MOV     0xc9,#0x5b
+??restore_factory_setting_0:
+        SJMP    ??restore_factory_setting_0
+        CFI EndBlock cfiBlock16
+        REQUIRE _A_IEN0
+        REQUIRE WDCTL
+//  483  // Onboard_soft_reset();
+//  484 }
+
+        RSEG XDATA_ID:CODE:NOROOT(0)
+`?<Initializer for registeredKeysTaskID>`:
+        DATA8
+        DB 255
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??InitBoard?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    InitBoard
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??RegisterForKeys?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    RegisterForKeys
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??OnBoard_SendKeys?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    OnBoard_SendKeys
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??OnBoard_KeyCallback?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    OnBoard_KeyCallback
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??OnBoard_stack_used?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    OnBoard_stack_used
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??_itoa?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    _itoa
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??Onboard_rand?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    Onboard_rand
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??Onboard_wait?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    Onboard_wait
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??BigLight_On?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    BigLight_On
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??BigLight_Off?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    BigLight_Off
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??BuzzerControl?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    BuzzerControl
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??Dimmer?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    Dimmer
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??GetUserDipSw?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    GetUserDipSw
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??restore_factory_setting?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    restore_factory_setting
+
+        RSEG XSTACK:DATA:REORDER:NOROOT(0)
+
+        END
+//  485 /*********************************************************************
+//  486 *********************************************************************/
+// 
+//   536 bytes in segment BANKED_CODE
+//    84 bytes in segment BANK_RELAYS
+//     8 bytes in segment IEEE_ADDRESS_SPACE
+//    16 bytes in segment LOCK_BITS_ADDRESS_SPACE
+//     9 bytes in segment NEAR_CODE
+// 1 932 bytes in segment RESERVED_ADDRESS_SPACE
+//     4 bytes in segment SFR_AN
+//     1 byte  in segment XDATA_I
+//     1 byte  in segment XDATA_ID
+//     8 bytes in segment XDATA_Z
+// 
+//   630 bytes of CODE  memory
+//     0 bytes of DATA  memory (+ 4 bytes shared)
+// 1 965 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

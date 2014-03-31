@@ -1,0 +1,1932 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         25/Mar/2014  17:40:12 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  C:\Documents and Settings\Administrator\×ÀÃæ\1\Tem #
+#                          coZNP\Projects\zstack\ZNP\Source\temcoAPI.c        #
+#    Command line       =  -f "C:\Documents and Settings\Administrator\×ÀÃæ\1 #
+#                          \TemcoZNP\Projects\zstack\ZNP\CC253x\..\Source\znp #
+#                          .cfg" (-DMAC_CFG_APP_PENDING_QUEUE=TRUE            #
+#                          "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR   #
+#                          | DEVICE_BUILD_ROUTER | DEVICE_BUILD_ENDDEVICE)"   #
+#                          -DNWK_AUTO_POLL -DZNP_RUN_WDOG=FALSE -DZIGBEEPRO   #
+#                          -DZIGBEE_FRAGMENTATION -DOSAL_CLOCK                #
+#                          -DOSAL_SAPI=FALSE -DSAPI_CB_FUNC=FALSE -DNV_INIT   #
+#                          -DNUM_DISC_ATTEMPTS=0) -f "C:\Documents and        #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.cfg #
+#                          " (-DZIGBEEPRO -DSECURE=0 -DZG_SECURE_DYNAMIC=0    #
+#                          -DREFLECTOR -DDEFAULT_CHANLIST=0x00001000          #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100    #
+#                          -DREJOIN_POLL_RATE=440) -f "C:\Documents and       #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg"   #
+#                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\Te #
+#                          mcoZNP\Projects\zstack\ZNP\Source\temcoAPI.c" -D   #
+#                          xPOWER_SAVING -D NV_RESTORE -lC "C:\Documents and  #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\CC2530-Debug\List\" -lA            #
+#                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\Te #
+#                          mcoZNP\Projects\zstack\ZNP\CC253x\CC2530-Debug\Lis #
+#                          t\" --diag_suppress Pe001,Pa010 -o "C:\Documents   #
+#                          and Settings\Administrator\×ÀÃæ\1\TemcoZNP\Project #
+#                          s\zstack\ZNP\CC253x\CC2530-Debug\Obj\" -e          #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I "C:\Documents and Settings\Administrator\×ÀÃæ\1 #
+#                          \TemcoZNP\Projects\zstack\ZNP\CC253x\" -I          #
+#                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\Te #
+#                          mcoZNP\Projects\zstack\ZNP\CC253x\Source\" -I      #
+#                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\Te #
+#                          mcoZNP\Projects\zstack\ZNP\CC253x\..\Source\" -I   #
+#                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\Te #
+#                          mcoZNP\Projects\zstack\ZNP\CC253x\..\..\SE\Source\ #
+#                          " -I "C:\Documents and Settings\Administrator\×ÀÃæ #
+#                          \1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\..\ZMain #
+#                          \TI2530ZNP\" -I "C:\Documents and                  #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\..\..\Components\hal\include #
+#                          \" -I "C:\Documents and Settings\Administrator\×ÀÃ #
+#                          æ\1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\. #
+#                          .\Components\hal\target\CC2530ZNP\" -I             #
+#                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\Te #
+#                          mcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\..\Comp #
+#                          onents\mac\include\" -I "C:\Documents and          #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\..\..\Components\mac\high_le #
+#                          vel\" -I "C:\Documents and                         #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\..\..\Components\mac\low_lev #
+#                          el\srf04\" -I "C:\Documents and                    #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\..\..\Components\mac\low_lev #
+#                          el\srf04\single_chip\" -I "C:\Documents and        #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\..\..\Components\mt\" -I     #
+#                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\Te #
+#                          mcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\..\Comp #
+#                          onents\osal\include\" -I "C:\Documents and         #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\..\..\Components\services\sa #
+#                          ddr\" -I "C:\Documents and                         #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\..\..\Components\services\sd #
+#                          ata\" -I "C:\Documents and                         #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\..\..\Components\stack\af\"  #
+#                          -I "C:\Documents and Settings\Administrator\×ÀÃæ\1 #
+#                          \TemcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\..\C #
+#                          omponents\stack\nwk\" -I "C:\Documents and         #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\..\..\Components\stack\sapi\ #
+#                          " -I "C:\Documents and Settings\Administrator\×ÀÃæ #
+#                          \1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\.. #
+#                          \Components\stack\sec\" -I "C:\Documents and       #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\..\..\Components\stack\sys\" #
+#                           -I "C:\Documents and Settings\Administrator\×ÀÃæ\ #
+#                          1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\..\ #
+#                          Components\stack\zcl\" -I "C:\Documents and        #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\..\..\Components\stack\zdo\" #
+#                           -I "C:\Documents and Settings\Administrator\×ÀÃæ\ #
+#                          1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\..\ #
+#                          Components\zmac\" -I "C:\Documents and             #
+#                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zs #
+#                          tack\ZNP\CC253x\..\..\..\..\Components\zmac\f8w\"  #
+#                          -Ohz --require_prototypes                          #
+#    List file          =  C:\Documents and Settings\Administrator\×ÀÃæ\1\Tem #
+#                          coZNP\Projects\zstack\ZNP\CC253x\CC2530-Debug\List #
+#                          \temcoAPI.lst                                      #
+#    Object file        =  C:\Documents and Settings\Administrator\×ÀÃæ\1\Tem #
+#                          coZNP\Projects\zstack\ZNP\CC253x\CC2530-Debug\Obj\ #
+#                          temcoAPI.r51                                       #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Documents and Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zstack\ZNP\Source\temcoAPI.c
+      1          /******************************************************************************
+      2           * INCLUDES
+      3           */
+      4          
+      5          #include "ZComDef.h"
+      6          #include "ZDApp.h"
+      7          #include "OSAL.h"
+      8          #include "OSAL_Tasks.h"
+      9          
+     10          #include "AF.h"
+     11          #include "hal_uart.h"
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xc9
+   \   unsigned char volatile __sfr WDCTL
+   \                     WDCTL:
+   \   000000                DS 1
+     12          
+     13          #include "temcoAPI.h"
+     14          #include "OnBoard.h"
+     15          #include "modbus.h"
+     16          #include "OSAL_nv.h"
+     17          #include "hal_led.h"
+     18          /*********************************************************************
+     19           * CONSTANTS
+     20           */
+     21          #define TYPE_ASSERT_TIMEOUT     6
+     22          
+     23          #define ACK_CHECK_TIMEOUT        8000     // 10000 means 1 minute
+     24          #define RSSI_REQ_TIMEOUT         10000
+     25          
+     26          #define RSSI_NODE_LEAVE_NUM   2    
+     27          /*********************************************************************
+     28           * TYPEDEFS
+     29           */
+     30          
+     31          /*********************************************************************
+     32           * GLOBAL VARIABLES
+     33           */
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     34          const cId_t temcoClusterList[TEMCO_MAX_CLUSTERS] =
+   \                     temcoClusterList:
+   \   000000   0200         DW 2
+     35          {
+     36            TEMCO_CLUSTERID,
+     37            
+     38          };
+     39          
+
+   \                                 In  segment XDATA_ROM_C, align 1
+     40          const SimpleDescriptionFormat_t temcoSimpleDesc =
+   \                     temcoSimpleDesc:
+   \   000000   0A           DB 10
+   \   000001   100F         DW 3856
+   \   000003   0100         DW 1
+   \   000005   00           DB 0
+   \   000006   01           DB 1
+   \   000007   ....         DW temcoClusterList
+   \   000009   01           DB 1
+   \   00000A   ....         DW temcoClusterList
+     41          {
+     42            TEMCO_ENDPOINT,              //  int Endpoint;
+     43            TEMCO_PROFID,                //  uint16 AppProfId[2];
+     44            TEMCO_DEVICEID,              //  uint16 AppDeviceId[2];
+     45            TEMCO_DEVICE_VERSION,        //  int   AppDevVer:4;
+     46            TEMCO_FLAGS,                 //  int   AppFlags:4;
+     47            TEMCO_MAX_CLUSTERS,          //  byte  AppNumInClusters;
+     48            (cId_t *)temcoClusterList,  //  byte *pAppInClusterList;
+     49            TEMCO_MAX_CLUSTERS,          //  byte  AppNumInClusters;
+     50            (cId_t *)temcoClusterList   //  byte *pAppInClusterList;
+     51          };
+     52          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     53          endPointDesc_t temco_epDesc;
+   \                     temco_epDesc:
+   \   000000                DS 6
+   \   000006                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     54          bool ack_exist = TRUE;
+   \                     ack_exist:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for ack_exist>`
+   \   000001                REQUIRE __INIT_XDATA_I
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+     55          uint8 ask_modbus_id[8] = { 0xff, 0x03, 0x00, 0x06, 0x00, 0x02, 0x31, 0xd4};//0x01, 0x71, 0xd5};
+   \                     ask_modbus_id:
+   \   000000                DS 8
+   \   000008                REQUIRE `?<Initializer for ask_modbus_id>`
+   \   000008                REQUIRE __INIT_XDATA_I
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     56          uint8 tstat_id = 0;
+   \                     tstat_id:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     57          uint8 product_id = 0;
+   \                     product_id:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     58          uint8 type_assert = 0;
+   \                     type_assert:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     59          signalStrength_t *pSignalStren;
+   \                     pSignalStren:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     60          uint8 numSignalStren = 0;
+   \                     numSignalStren:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     61          /*********************************************************************
+     62           * LOCAL VARIABLES
+     63           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     64          byte temcoAPP_TaskID;
+   \                     temcoAPP_TaskID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     65          byte temcoApp_TransID;
+   \                     temcoApp_TransID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     66          /*********************************************************************
+     67           * LOCAL FUNCTIONS
+     68           */
+     69          static void temcoApp_MessageMSGCB(afIncomingMSGPacket_t *pkt);
+     70          static Status_t register_signalStrength( uint8 modbus_id, int8 rssi);
+     71          static signalStrength_t *findSignalStrength( uint8 modbus_id);
+     72          static uint8 checkNodeAlive( void);
+     73          static void deleteSignalStrength( uint8 modbus_id);
+     74          static void sendAllSignalStren( void);
+     75          static void restart_to_other_type(void);
+     76          /*********************************************************************
+     77           * @fn      temcoApp_Init
+     78           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     79          void temcoApp_Init(uint8 task_id)
+   \                     temcoApp_Init:
+     80          {
+   \   000000   74F7         MOV     A,#-0x9
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+   \   000005   E9           MOV     A,R1
+     81            temcoAPP_TaskID = task_id;
+   \   000006   90....       MOV     DPTR,#temcoAPP_TaskID
+   \   000009   F0           MOVX    @DPTR,A
+     82            
+     83            temco_epDesc.endPoint = TEMCO_ENDPOINT;
+   \   00000A   90....       MOV     DPTR,#temco_epDesc
+   \   00000D   740A         MOV     A,#0xa
+   \   00000F   F0           MOVX    @DPTR,A
+     84            temco_epDesc.task_id = &temcoAPP_TaskID;
+   \   000010   A3           INC     DPTR
+   \   000011   74..         MOV     A,#temcoAPP_TaskID & 0xff
+   \   000013   F0           MOVX    @DPTR,A
+   \   000014   A3           INC     DPTR
+   \   000015   74..         MOV     A,#(temcoAPP_TaskID >> 8) & 0xff
+   \   000017   F0           MOVX    @DPTR,A
+     85            temco_epDesc.simpleDesc = (SimpleDescriptionFormat_t *)&temcoSimpleDesc;
+   \   000018   A3           INC     DPTR
+   \   000019   74..         MOV     A,#temcoSimpleDesc & 0xff
+   \   00001B   F0           MOVX    @DPTR,A
+   \   00001C   A3           INC     DPTR
+   \   00001D   74..         MOV     A,#(temcoSimpleDesc >> 8) & 0xff
+   \   00001F   F0           MOVX    @DPTR,A
+     86            temco_epDesc.latencyReq = noLatencyReqs;
+   \   000020   A3           INC     DPTR
+   \   000021   E4           CLR     A
+   \   000022   F0           MOVX    @DPTR,A
+     87            
+     88            // register the endpoint description with the AF
+     89            afRegister( &temco_epDesc);
+   \   000023                ; Setup parameters for call to function afRegister
+   \   000023   7A..         MOV     R2,#temco_epDesc & 0xff
+   \   000025   7B..         MOV     R3,#(temco_epDesc >> 8) & 0xff
+   \   000027   12....       LCALL   ??afRegister?relay
+     90            
+     91            if( zgDeviceLogicalType == ZG_DEVICETYPE_COORDINATOR)
+   \   00002A   90....       MOV     DPTR,#zgDeviceLogicalType
+   \   00002D   E0           MOVX    A,@DPTR
+   \   00002E   7006         JNZ     ??temcoApp_Init_0
+     92            {
+     93               tstat_id = 9;        // NC's modbus id always is 9
+   \   000030   90....       MOV     DPTR,#tstat_id
+   \   000033   7409         MOV     A,#0x9
+   \   000035   F0           MOVX    @DPTR,A
+     94            }
+     95            osal_set_event( temcoAPP_TaskID, ASK_MODBUS_ID);
+   \                     ??temcoApp_Init_0:
+   \   000036                ; Setup parameters for call to function osal_set_event
+   \   000036   7A08         MOV     R2,#0x8
+   \   000038   7B00         MOV     R3,#0x0
+   \   00003A   90....       MOV     DPTR,#temcoAPP_TaskID
+   \   00003D   E0           MOVX    A,@DPTR
+   \   00003E   F9           MOV     R1,A
+   \   00003F   12....       LCALL   ??osal_set_event?relay
+     96          }
+   \   000042   7F01         MOV     R7,#0x1
+   \   000044   02....       LJMP    ?BANKED_LEAVE_XDATA
+     97          
+     98          /*********************************************************************
+     99           * @fn      temcoApp_ProcessEvent
+    100           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    101          uint16 temcoApp_ProcessEvent(uint8 task_id, uint16 events)
+   \                     temcoApp_ProcessEvent:
+    102          {
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   89..         MOV     ?V0 + 0,R1
+   \   00000C   EA           MOV     A,R2
+   \   00000D   FE           MOV     R6,A
+   \   00000E   EB           MOV     A,R3
+   \   00000F   FF           MOV     R7,A
+    103            osal_event_hdr_t *pMsg;
+    104            afIncomingMSGPacket_t *pMSGpkt;
+    105            
+    106            if( events & SYS_EVENT_MSG)
+   \   000010   5480         ANL     A,#0x80
+   \   000012   6059         JZ      ??temcoApp_ProcessEvent_0
+    107            {
+    108              pMsg = (osal_event_hdr_t *) osal_msg_receive( task_id );
+   \   000014                ; Setup parameters for call to function osal_msg_receive
+   \   000014   8027         SJMP    ??temcoApp_ProcessEvent_1
+    109              while(pMsg)
+    110              {
+    111                switch( pMsg->event)
+    112                {
+    113                  case AF_INCOMING_MSG_CMD:
+    114                    pMSGpkt = (afIncomingMSGPacket_t *)pMsg;
+    115                    temcoApp_MessageMSGCB(pMSGpkt);
+    116                    break;
+    117                    
+    118                  case ZDO_STATE_CHANGE:
+    119                    if (pMsg->status == DEV_END_DEVICE ||
+    120                        pMsg->status == DEV_ROUTER )
+   \                     ??temcoApp_ProcessEvent_2:
+   \   000016   A3           INC     DPTR
+   \   000017   E0           MOVX    A,@DPTR
+   \   000018   6406         XRL     A,#0x6
+   \   00001A   600C         JZ      ??temcoApp_ProcessEvent_3
+   \   00001C   85..82       MOV     DPL,?V0 + 2
+   \   00001F   85..83       MOV     DPH,?V0 + 3
+   \   000022   A3           INC     DPTR
+   \   000023   E0           MOVX    A,@DPTR
+   \   000024   6407         XRL     A,#0x7
+   \   000026   700C         JNZ     ??temcoApp_ProcessEvent_4
+    121                       // ||pMsg->status == DEV_ZB_COORD )
+    122                    {
+    123                      osal_set_event( temcoAPP_TaskID, ACK_CHECK);
+   \                     ??temcoApp_ProcessEvent_3:
+   \   000028                ; Setup parameters for call to function osal_set_event
+   \   000028   7A04         MOV     R2,#0x4
+   \   00002A   7B00         MOV     R3,#0x0
+   \   00002C   90....       MOV     DPTR,#temcoAPP_TaskID
+   \   00002F   E0           MOVX    A,@DPTR
+   \   000030   F9           MOV     R1,A
+   \   000031   12....       LCALL   ??osal_set_event?relay
+    124          //            HalLedSet ( HAL_LED_1, HAL_LED_MODE_FLASH );
+    125          //            HalLedBlink ( HAL_LED_1, 0, 50, 500 );
+    126                    }
+    127                    break;
+    128                    
+    129                  default:
+    130                    
+    131                    break;
+    132                }
+    133                // Release the memory
+    134                osal_msg_deallocate( (uint8 *) pMsg );
+   \                     ??temcoApp_ProcessEvent_4:
+   \   000034                ; Setup parameters for call to function osal_msg_deallocate
+   \   000034   AA..         MOV     R2,?V0 + 2
+   \   000036   AB..         MOV     R3,?V0 + 3
+   \   000038   12....       LCALL   ??osal_msg_deallocate?relay
+    135                
+    136                // Next
+    137                pMsg = (osal_event_hdr_t *) osal_msg_receive( task_id );
+   \   00003B                ; Setup parameters for call to function osal_msg_receive
+   \   00003B   A9..         MOV     R1,?V0 + 0
+   \                     ??temcoApp_ProcessEvent_1:
+   \   00003D   12....       LCALL   ??osal_msg_receive?relay
+   \   000040   8A..         MOV     ?V0 + 2,R2
+   \   000042   8B..         MOV     ?V0 + 3,R3
+   \   000044   E5..         MOV     A,?V0 + 2
+   \   000046   45..         ORL     A,?V0 + 3
+   \   000048   601A         JZ      ??temcoApp_ProcessEvent_5
+   \   00004A   85..82       MOV     DPL,?V0 + 2
+   \   00004D   85..83       MOV     DPH,?V0 + 3
+   \   000050   E0           MOVX    A,@DPTR
+   \   000051   24E6         ADD     A,#-0x1a
+   \   000053   6006         JZ      ??temcoApp_ProcessEvent_6
+   \   000055   2449         ADD     A,#0x49
+   \   000057   60BD         JZ      ??temcoApp_ProcessEvent_2
+   \   000059   80D9         SJMP    ??temcoApp_ProcessEvent_4
+   \                     ??temcoApp_ProcessEvent_6:
+   \   00005B                ; Setup parameters for call to function temcoApp_MessageMSGCB
+   \   00005B   AA..         MOV     R2,?V0 + 2
+   \   00005D   AB..         MOV     R3,?V0 + 3
+   \   00005F   12....       LCALL   ??temcoApp_MessageMSGCB?relay
+   \   000062   80D0         SJMP    ??temcoApp_ProcessEvent_4
+    138              }
+    139              // Return unprocessed events
+    140              return (events ^ SYS_EVENT_MSG);
+   \                     ??temcoApp_ProcessEvent_5:
+   \   000064   EE           MOV     A,R6
+   \   000065   FA           MOV     R2,A
+   \   000066   EF           MOV     A,R7
+   \   000067   6480         XRL     A,#0x80
+   \                     ??temcoApp_ProcessEvent_7:
+   \   000069   FB           MOV     R3,A
+   \   00006A   02....       LJMP    ??temcoApp_ProcessEvent_8 & 0xFFFF
+    141            }
+    142            
+    143            if (events & ACK_CHECK)
+   \                     ??temcoApp_ProcessEvent_0:
+   \   00006D   EE           MOV     A,R6
+   \   00006E   5404         ANL     A,#0x4
+   \   000070   606A         JZ      ??temcoApp_ProcessEvent_9
+    144            {
+    145              uint8 ack_byte = 0;
+   \   000072   85..82       MOV     DPL,?XSP + 0
+   \   000075   85..83       MOV     DPH,?XSP + 1
+   \   000078   E4           CLR     A
+   \   000079   F0           MOVX    @DPTR,A
+    146              if( ack_exist == TRUE)
+   \   00007A   90....       MOV     DPTR,#ack_exist
+   \   00007D   E0           MOVX    A,@DPTR
+   \   00007E   6401         XRL     A,#0x1
+   \   000080   703C         JNZ     ??temcoApp_ProcessEvent_10
+    147              {
+    148                zb_SendDataRequest( 0, ACK_CMD_CLUSTERID, 1, &ack_byte,
+    149                                   0, AF_ACK_REQUEST, 0);
+   \   000082                ; Setup parameters for call to function zb_SendDataRequest
+   \   000082   75..00       MOV     ?V0 + 1,#0x0
+   \   000085   78..         MOV     R0,#?V0 + 1
+   \   000087   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00008A   75..10       MOV     ?V0 + 1,#0x10
+   \   00008D   78..         MOV     R0,#?V0 + 1
+   \   00008F   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000092   75..00       MOV     ?V0 + 1,#0x0
+   \   000095   78..         MOV     R0,#?V0 + 1
+   \   000097   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00009A   7403         MOV     A,#0x3
+   \   00009C   12....       LCALL   ?XSTACK_DISP0_8
+   \   00009F   8582..       MOV     ?V0 + 2,DPL
+   \   0000A2   8583..       MOV     ?V0 + 3,DPH
+   \   0000A5   78..         MOV     R0,#?V0 + 2
+   \   0000A7   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000AA   7901         MOV     R1,#0x1
+   \   0000AC   7C03         MOV     R4,#0x3
+   \   0000AE   7D00         MOV     R5,#0x0
+   \   0000B0   7A00         MOV     R2,#0x0
+   \   0000B2   7B00         MOV     R3,#0x0
+   \   0000B4   12....       LCALL   ??zb_SendDataRequest?relay
+   \   0000B7   7405         MOV     A,#0x5
+   \   0000B9   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000BC   8003         SJMP    ??temcoApp_ProcessEvent_11
+    150              }
+    151              else
+    152              {
+    153                restore_factory_setting();
+   \                     ??temcoApp_ProcessEvent_10:
+   \   0000BE                ; Setup parameters for call to function restore_factory_setting
+   \   0000BE   12....       LCALL   ??restore_factory_setting?relay
+    154              }
+    155              ack_exist = FALSE;
+   \                     ??temcoApp_ProcessEvent_11:
+   \   0000C1   90....       MOV     DPTR,#ack_exist
+   \   0000C4   E4           CLR     A
+   \   0000C5   F0           MOVX    @DPTR,A
+    156              osal_start_timerEx( temcoAPP_TaskID, ACK_CHECK, ACK_CHECK_TIMEOUT);   // Every minute check ack, if no receive, restart to join a new network
+   \   0000C6                ; Setup parameters for call to function osal_start_timerEx
+   \   0000C6   7C40         MOV     R4,#0x40
+   \   0000C8   7D1F         MOV     R5,#0x1f
+   \   0000CA   7A04         MOV     R2,#0x4
+   \   0000CC   FB           MOV     R3,A
+   \   0000CD   90....       MOV     DPTR,#temcoAPP_TaskID
+   \   0000D0   E0           MOVX    A,@DPTR
+   \   0000D1   F9           MOV     R1,A
+   \   0000D2   12....       LCALL   ??osal_start_timerEx?relay
+    157              return ( events ^ ACK_CHECK);
+   \   0000D5   EE           MOV     A,R6
+   \   0000D6   6404         XRL     A,#0x4
+   \                     ??temcoApp_ProcessEvent_12:
+   \   0000D8   FA           MOV     R2,A
+   \   0000D9   EF           MOV     A,R7
+   \   0000DA   808D         SJMP    ??temcoApp_ProcessEvent_7
+    158            }
+    159            
+    160            // Send the command to check TSTAT modbus id
+    161            if( events & ASK_MODBUS_ID)
+   \                     ??temcoApp_ProcessEvent_9:
+   \   0000DC   EE           MOV     A,R6
+   \   0000DD   5408         ANL     A,#0x8
+   \   0000DF   7003         JNZ     $+5
+   \   0000E1   02....       LJMP    ??temcoApp_ProcessEvent_13 & 0xFFFF
+    162            {
+    163              uint8 rssi_byte = 0;
+   \   0000E4   85..82       MOV     DPL,?XSP + 0
+   \   0000E7   85..83       MOV     DPH,?XSP + 1
+   \   0000EA   E4           CLR     A
+   \   0000EB   F0           MOVX    @DPTR,A
+    164              uint8 deleteId;
+    165              
+    166              // To read register6 of TSTAT
+    167              if( tstat_id != 0)
+   \   0000EC   90....       MOV     DPTR,#tstat_id
+   \   0000EF   E0           MOVX    A,@DPTR
+   \   0000F0   7003         JNZ     $+5
+   \   0000F2   02....       LJMP    ??temcoApp_ProcessEvent_14 & 0xFFFF
+    168              {
+    169                //if( zgDeviceLogicalType != ZG_DEVICETYPE_COORDINATOR)
+    170                // Send a command asking other nodes' modbus id, the response message carry rssi 
+    171                zb_SendDataRequest( 0xffff, RSSI_REQ_CLUSTERID, 1, &rssi_byte,
+    172                                     0, AF_ACK_REQUEST, 0);
+   \   0000F5                ; Setup parameters for call to function zb_SendDataRequest
+   \   0000F5   75..00       MOV     ?V0 + 1,#0x0
+   \   0000F8   78..         MOV     R0,#?V0 + 1
+   \   0000FA   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0000FD   75..10       MOV     ?V0 + 1,#0x10
+   \   000100   78..         MOV     R0,#?V0 + 1
+   \   000102   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000105   75..00       MOV     ?V0 + 1,#0x0
+   \   000108   78..         MOV     R0,#?V0 + 1
+   \   00010A   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00010D   7403         MOV     A,#0x3
+   \   00010F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000112   8582..       MOV     ?V0 + 2,DPL
+   \   000115   8583..       MOV     ?V0 + 3,DPH
+   \   000118   78..         MOV     R0,#?V0 + 2
+   \   00011A   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00011D   7901         MOV     R1,#0x1
+   \   00011F   7C04         MOV     R4,#0x4
+   \   000121   7D00         MOV     R5,#0x0
+   \   000123   7AFF         MOV     R2,#-0x1
+   \   000125   7BFF         MOV     R3,#-0x1
+   \   000127   12....       LCALL   ??zb_SendDataRequest?relay
+   \   00012A   7405         MOV     A,#0x5
+   \   00012C   12....       LCALL   ?DEALLOC_XSTACK8
+    173                
+    174                deleteId = checkNodeAlive();   // check if there are any nodes not alive
+   \   00012F   90....       MOV     DPTR,#pSignalStren
+   \   000132   8004         SJMP    ??temcoApp_ProcessEvent_15
+   \                     ??temcoApp_ProcessEvent_16:
+   \   000134   8882         MOV     DPL,R0
+   \   000136   8983         MOV     DPH,R1
+   \                     ??temcoApp_ProcessEvent_15:
+   \   000138   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_10:
+   \   00013B   E8           MOV     A,R0
+   \   00013C   49           ORL     A,R1
+   \   00013D   7003         JNZ     $+5
+   \   00013F   02....       LJMP    ??temcoApp_ProcessEvent_17 & 0xFFFF
+   \   000142   E8           MOV     A,R0
+   \   000143   2404         ADD     A,#0x4
+   \   000145   F582         MOV     DPL,A
+   \   000147   E9           MOV     A,R1
+   \   000148   12....       LCALL   ??Subroutine16_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_30:
+   \   00014B   04           INC     A
+   \   00014C   F0           MOVX    @DPTR,A
+   \   00014D   C3           CLR     C
+   \   00014E   9402         SUBB    A,#0x2
+   \   000150   40E2         JC      ??temcoApp_ProcessEvent_16
+   \   000152   90....       MOV     DPTR,#pSignalStren
+   \   000155   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_8:
+   \   000158   E0           MOVX    A,@DPTR
+   \   000159   FC           MOV     R4,A
+    175                if( deleteId != 255)
+   \   00015A   74FF         MOV     A,#-0x1
+   \   00015C   6C           XRL     A,R4
+   \   00015D   6078         JZ      ??temcoApp_ProcessEvent_17
+    176                  deleteSignalStrength(deleteId);        // delete the dead id
+   \   00015F   12....       LCALL   ?Subroutine5 & 0xFFFF
+    177              }
+   \                     ??CrossCallReturnLabel_28:
+   \   000162   F583         MOV     DPH,A
+   \   000164   8882         MOV     DPL,R0
+   \   000166   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_11:
+   \   000169   EA           MOV     A,R2
+   \   00016A   4B           ORL     A,R3
+   \   00016B   606A         JZ      ??temcoApp_ProcessEvent_17
+   \   00016D   8A82         MOV     DPL,R2
+   \   00016F   8B83         MOV     DPH,R3
+   \   000171   A3           INC     DPTR
+   \   000172   A3           INC     DPTR
+   \   000173   E0           MOVX    A,@DPTR
+   \   000174   6C           XRL     A,R4
+   \   000175   7027         JNZ     ??CrossCallReturnLabel_12
+   \   000177   90....       MOV     DPTR,#numSignalStren
+   \   00017A   E0           MOVX    A,@DPTR
+   \   00017B   14           DEC     A
+   \   00017C   F0           MOVX    @DPTR,A
+   \   00017D   E8           MOV     A,R0
+   \   00017E   49           ORL     A,R1
+   \   00017F   90....       MOV     DPTR,#pSignalStren
+   \   000182   6006         JZ      ??temcoApp_ProcessEvent_18
+   \   000184   E8           MOV     A,R0
+   \   000185   F0           MOVX    @DPTR,A
+   \   000186   A3           INC     DPTR
+   \   000187   E9           MOV     A,R1
+   \   000188   8003         SJMP    ??temcoApp_ProcessEvent_19
+   \                     ??temcoApp_ProcessEvent_18:
+   \   00018A   E4           CLR     A
+   \   00018B   F0           MOVX    @DPTR,A
+   \   00018C   A3           INC     DPTR
+   \                     ??temcoApp_ProcessEvent_19:
+   \   00018D   F0           MOVX    @DPTR,A
+   \                     ??temcoApp_ProcessEvent_20:
+   \   00018E                ; Setup parameters for call to function osal_mem_free
+   \   00018E   12....       LCALL   ??osal_mem_free?relay
+   \   000191   8044         SJMP    ??temcoApp_ProcessEvent_17
+   \                     ??temcoApp_ProcessEvent_21:
+   \   000193   E8           MOV     A,R0
+   \   000194   FA           MOV     R2,A
+   \   000195   E9           MOV     A,R1
+   \   000196   FB           MOV     R3,A
+   \   000197   8A82         MOV     DPL,R2
+   \   000199   8B83         MOV     DPH,R3
+   \   00019B   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_12:
+   \   00019E   E8           MOV     A,R0
+   \   00019F   49           ORL     A,R1
+   \   0001A0   6035         JZ      ??temcoApp_ProcessEvent_17
+   \   0001A2   8882         MOV     DPL,R0
+   \   0001A4   8983         MOV     DPH,R1
+   \   0001A6   A3           INC     DPTR
+   \   0001A7   A3           INC     DPTR
+   \   0001A8   E0           MOVX    A,@DPTR
+   \   0001A9   6C           XRL     A,R4
+   \   0001AA   70E7         JNZ     ??temcoApp_ProcessEvent_21
+   \   0001AC   90....       MOV     DPTR,#numSignalStren
+   \   0001AF   E0           MOVX    A,@DPTR
+   \   0001B0   14           DEC     A
+   \   0001B1   F0           MOVX    @DPTR,A
+   \   0001B2   8882         MOV     DPL,R0
+   \   0001B4   8983         MOV     DPH,R1
+   \   0001B6   E0           MOVX    A,@DPTR
+   \   0001B7   FC           MOV     R4,A
+   \   0001B8   A3           INC     DPTR
+   \   0001B9   E0           MOVX    A,@DPTR
+   \   0001BA   FD           MOV     R5,A
+   \   0001BB   8A82         MOV     DPL,R2
+   \   0001BD   8B83         MOV     DPH,R3
+   \   0001BF   EC           MOV     A,R4
+   \   0001C0   F0           MOVX    @DPTR,A
+   \   0001C1   A3           INC     DPTR
+   \   0001C2   ED           MOV     A,R5
+   \   0001C3   F0           MOVX    @DPTR,A
+   \   0001C4                ; Setup parameters for call to function osal_mem_free
+   \   0001C4   E8           MOV     A,R0
+   \   0001C5   FA           MOV     R2,A
+   \   0001C6   E9           MOV     A,R1
+   \   0001C7   FB           MOV     R3,A
+   \   0001C8   80C4         SJMP    ??temcoApp_ProcessEvent_20
+    178              else
+    179              {
+    180                HalUARTWrite ( 0, ask_modbus_id, 8 );
+   \                     ??temcoApp_ProcessEvent_14:
+   \   0001CA                ; Setup parameters for call to function HalUARTWrite
+   \   0001CA   7C08         MOV     R4,#0x8
+   \   0001CC   7D00         MOV     R5,#0x0
+   \   0001CE   7A..         MOV     R2,#ask_modbus_id & 0xff
+   \   0001D0   7B..         MOV     R3,#(ask_modbus_id >> 8) & 0xff
+   \   0001D2   7900         MOV     R1,#0x0
+   \   0001D4   12....       LCALL   ??HalUARTWrite?relay
+    181              }
+    182              
+    183              if( type_assert >= TYPE_ASSERT_TIMEOUT)  // Decide which type to start up
+   \                     ??temcoApp_ProcessEvent_17:
+   \   0001D7   90....       MOV     DPTR,#type_assert
+   \   0001DA   E0           MOVX    A,@DPTR
+   \   0001DB   C3           CLR     C
+   \   0001DC   9406         SUBB    A,#0x6
+   \   0001DE   4023         JC      ??temcoApp_ProcessEvent_22
+    184              {
+    185                if( (product_id == 0) || (product_id == 100))   
+   \   0001E0   90....       MOV     DPTR,#product_id
+   \   0001E3   E0           MOVX    A,@DPTR
+   \   0001E4   6004         JZ      ??temcoApp_ProcessEvent_23
+   \   0001E6   6464         XRL     A,#0x64
+   \   0001E8   700F         JNZ     ??temcoApp_ProcessEvent_24
+    186                {
+    187                  if( zgDeviceLogicalType == ZG_DEVICETYPE_ROUTER)
+   \                     ??temcoApp_ProcessEvent_23:
+   \   0001EA   90....       MOV     DPTR,#zgDeviceLogicalType
+   \   0001ED   E0           MOVX    A,@DPTR
+   \   0001EE   6401         XRL     A,#0x1
+   \   0001F0   7014         JNZ     ??temcoApp_ProcessEvent_25
+    188                  {
+    189                    zgDeviceLogicalType = ZG_DEVICETYPE_COORDINATOR;
+   \   0001F2   E4           CLR     A
+   \                     ??temcoApp_ProcessEvent_26:
+   \   0001F3   F0           MOVX    @DPTR,A
+    190                    restart_to_other_type();
+   \   0001F4                ; Setup parameters for call to function restart_to_other_type
+   \   0001F4   12....       LCALL   ??restart_to_other_type?relay
+   \   0001F7   800D         SJMP    ??temcoApp_ProcessEvent_25
+    191                  }
+    192                }
+    193                else
+    194                {
+    195                  if( zgDeviceLogicalType == ZG_DEVICETYPE_COORDINATOR)
+   \                     ??temcoApp_ProcessEvent_24:
+   \   0001F9   90....       MOV     DPTR,#zgDeviceLogicalType
+   \   0001FC   E0           MOVX    A,@DPTR
+   \   0001FD   7007         JNZ     ??temcoApp_ProcessEvent_25
+    196                  {
+    197                    zgDeviceLogicalType = ZG_DEVICETYPE_ROUTER;
+   \   0001FF   7401         MOV     A,#0x1
+   \   000201   80F0         SJMP    ??temcoApp_ProcessEvent_26
+    198                    restart_to_other_type();
+    199                  }
+    200                }
+    201              }
+    202              else
+    203                type_assert ++;
+   \                     ??temcoApp_ProcessEvent_22:
+   \   000203   E0           MOVX    A,@DPTR
+   \   000204   04           INC     A
+   \   000205   F0           MOVX    @DPTR,A
+    204              
+    205              
+    206              // if not received, send again X seconds later
+    207              osal_start_timerEx( temcoAPP_TaskID, ASK_MODBUS_ID, RSSI_REQ_TIMEOUT);
+   \                     ??temcoApp_ProcessEvent_25:
+   \   000206                ; Setup parameters for call to function osal_start_timerEx
+   \   000206   7C10         MOV     R4,#0x10
+   \   000208   7D27         MOV     R5,#0x27
+   \   00020A   7A08         MOV     R2,#0x8
+   \   00020C   7B00         MOV     R3,#0x0
+   \   00020E   90....       MOV     DPTR,#temcoAPP_TaskID
+   \   000211   E0           MOVX    A,@DPTR
+   \   000212   F9           MOV     R1,A
+   \   000213   12....       LCALL   ??osal_start_timerEx?relay
+    208              return ( events ^ ASK_MODBUS_ID);
+   \   000216   EE           MOV     A,R6
+   \   000217   6408         XRL     A,#0x8
+   \   000219   02....       LJMP    ??temcoApp_ProcessEvent_12 & 0xFFFF
+    209            }
+    210            
+    211            // Discard unknown events
+    212            return 0;
+   \                     ??temcoApp_ProcessEvent_13:
+   \   00021C   7A00         MOV     R2,#0x0
+   \   00021E   7B00         MOV     R3,#0x0
+   \                     ??temcoApp_ProcessEvent_8:
+   \   000220   7401         MOV     A,#0x1
+   \   000222                REQUIRE ?Subroutine0
+   \   000222                ; // Fall through to label ?Subroutine0
+    213          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000003   7F06         MOV     R7,#0x6
+   \   000005   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   90....       MOV     DPTR,#pSignalStren
+   \   000003                REQUIRE ??Subroutine14_0
+   \   000003                ; // Fall through to label ??Subroutine14_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine14_0:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   FA           MOV     R2,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   FB           MOV     R3,A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F9           MOV     R1,A
+   \   000005   22           RET
+    214          
+    215          /*********************************************************************
+    216           * @fn          zb_SendDataRequest
+    217           *
+    218           * @brief       The function initiates transmission of data
+    219           *              to a peer device
+    220           * 
+    221           * @return      none
+    222           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    223          afStatus_t zb_SendDataRequest( uint16 destination, uint16 commandId, uint8 len,
+   \                     zb_SendDataRequest:
+    224                                    uint8 *pData, uint8 handle, uint8 txOptions, uint8 radius )
+    225          {
+   \   000000   74F2         MOV     A,#-0xe
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 12
+   \   000005   74F4         MOV     A,#-0xc
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   8C..         MOV     ?V0 + 2,R4
+   \   00000C   8D..         MOV     ?V0 + 3,R5
+   \   00000E   E9           MOV     A,R1
+   \   00000F   FE           MOV     R6,A
+   \   000010   741A         MOV     A,#0x1a
+   \   000012   12....       LCALL   ?XSTACK_DISP0_8
+   \   000015   E0           MOVX    A,@DPTR
+   \   000016   F5..         MOV     ?V0 + 4,A
+   \   000018   A3           INC     DPTR
+   \   000019   E0           MOVX    A,@DPTR
+   \   00001A   F5..         MOV     ?V0 + 5,A
+   \   00001C   741D         MOV     A,#0x1d
+   \   00001E   12....       LCALL   ?XSTACK_DISP0_8
+   \   000021   E0           MOVX    A,@DPTR
+   \   000022   F9           MOV     R1,A
+   \   000023   741E         MOV     A,#0x1e
+   \   000025   12....       LCALL   ?XSTACK_DISP0_8
+   \   000028   E0           MOVX    A,@DPTR
+   \   000029   F8           MOV     R0,A
+    226            afStatus_t status;
+    227            afAddrType_t dstAddr;
+    228          
+    229            txOptions |= AF_DISCV_ROUTE;
+   \   00002A   E9           MOV     A,R1
+   \   00002B   D2E5         SETB    0xE0 /* A   */.5
+   \   00002D   F9           MOV     R1,A
+    230          
+    231            // Set the destination address
+    232            if (destination == INVALID_NODE_ADDR)
+   \   00002E   74FE         MOV     A,#-0x2
+   \   000030   6A           XRL     A,R2
+   \   000031   7003         JNZ     ??zb_SendDataRequest_0
+   \   000033   74FF         MOV     A,#-0x1
+   \   000035   6B           XRL     A,R3
+   \                     ??zb_SendDataRequest_0:
+   \   000036   7008         JNZ     ??zb_SendDataRequest_1
+    233            {
+    234              // Binding
+    235              dstAddr.addrMode = afAddrNotPresent;
+   \   000038   7408         MOV     A,#0x8
+   \   00003A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00003D   E4           CLR     A
+   \   00003E   802A         SJMP    ??zb_SendDataRequest_2
+    236            }
+    237            
+    238            else if( destination == MAC_SHORT_ADDR_BROADCAST)
+   \                     ??zb_SendDataRequest_1:
+   \   000040   74FF         MOV     A,#-0x1
+   \   000042   6A           XRL     A,R2
+   \   000043   7003         JNZ     ??zb_SendDataRequest_3
+   \   000045   74FF         MOV     A,#-0x1
+   \   000047   6B           XRL     A,R3
+   \                     ??zb_SendDataRequest_3:
+   \   000048   85..82       MOV     DPL,?XSP + 0
+   \   00004B   85..83       MOV     DPH,?XSP + 1
+   \   00004E   700E         JNZ     ??zb_SendDataRequest_4
+    239            {
+    240              dstAddr.addr.shortAddr = destination;
+   \   000050   74FF         MOV     A,#-0x1
+   \   000052   F0           MOVX    @DPTR,A
+   \   000053   A3           INC     DPTR
+   \   000054   F0           MOVX    @DPTR,A
+    241              dstAddr.addrMode = afAddrBroadcast;
+   \   000055   7408         MOV     A,#0x8
+   \   000057   12....       LCALL   ?XSTACK_DISP0_8
+   \   00005A   740F         MOV     A,#0xf
+   \   00005C   800C         SJMP    ??zb_SendDataRequest_2
+    242            }
+    243            else
+    244            {
+    245              // Use short address
+    246              dstAddr.addr.shortAddr = destination;
+   \                     ??zb_SendDataRequest_4:
+   \   00005E   EA           MOV     A,R2
+   \   00005F   F0           MOVX    @DPTR,A
+   \   000060   A3           INC     DPTR
+   \   000061   EB           MOV     A,R3
+   \   000062   F0           MOVX    @DPTR,A
+    247              dstAddr.addrMode = afAddr16Bit;
+   \   000063   7408         MOV     A,#0x8
+   \   000065   12....       LCALL   ?XSTACK_DISP0_8
+   \   000068   7402         MOV     A,#0x2
+   \                     ??zb_SendDataRequest_2:
+   \   00006A   F0           MOVX    @DPTR,A
+    248            }
+    249          
+    250            dstAddr.panId = 0;                                    // Not an inter-pan message.
+   \   00006B   740A         MOV     A,#0xa
+   \   00006D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000070   E4           CLR     A
+   \   000071   F0           MOVX    @DPTR,A
+   \   000072   A3           INC     DPTR
+   \   000073   F0           MOVX    @DPTR,A
+    251            dstAddr.endPoint = temco_epDesc.simpleDesc->EndPoint;  // Set the endpoint.
+   \   000074   90....       MOV     DPTR,#temco_epDesc + 3
+   \   000077   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_14:
+   \   00007A   E0           MOVX    A,@DPTR
+   \   00007B   C0E0         PUSH    A
+   \   00007D   7409         MOV     A,#0x9
+   \   00007F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000082   D0E0         POP     A
+   \   000084   F0           MOVX    @DPTR,A
+    252          
+    253            // Send the message
+    254            status = AF_DataRequest(&dstAddr, &temco_epDesc, commandId, len,
+    255                                    pData, &handle, txOptions, radius);
+    256          
+    257            return status;
+   \   000085                ; Setup parameters for call to function AF_DataRequest
+   \   000085   E8           MOV     A,R0
+   \   000086   F5..         MOV     ?V0 + 0,A
+   \   000088   78..         MOV     R0,#?V0 + 0
+   \   00008A   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00008D   741D         MOV     A,#0x1d
+   \   00008F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000092   8582..       MOV     ?V0 + 0,DPL
+   \   000095   8583..       MOV     ?V0 + 1,DPH
+   \   000098   78..         MOV     R0,#?V0 + 0
+   \   00009A   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00009D   78..         MOV     R0,#?V0 + 4
+   \   00009F   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000A2   8E..         MOV     ?V0 + 0,R6
+   \   0000A4   75..00       MOV     ?V0 + 1,#0x0
+   \   0000A7   78..         MOV     R0,#?V0 + 0
+   \   0000A9   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000AC   78..         MOV     R0,#?V0 + 2
+   \   0000AE   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0000B1   7C..         MOV     R4,#temco_epDesc & 0xff
+   \   0000B3   7D..         MOV     R5,#(temco_epDesc >> 8) & 0xff
+   \   0000B5   7409         MOV     A,#0x9
+   \   0000B7   12....       LCALL   ?XSTACK_DISP0_8
+   \   0000BA   AA82         MOV     R2,DPL
+   \   0000BC   AB83         MOV     R3,DPH
+   \   0000BE   12....       LCALL   ??AF_DataRequest?relay
+   \   0000C1   7409         MOV     A,#0x9
+   \   0000C3   12....       LCALL   ?DEALLOC_XSTACK8
+   \   0000C6   740C         MOV     A,#0xc
+   \   0000C8   02....       LJMP    ?Subroutine0 & 0xFFFF
+    258          }
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine8:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   FA           MOV     R2,A
+   \   000002   A3           INC     DPTR
+   \   000003   E0           MOVX    A,@DPTR
+   \   000004   F583         MOV     DPH,A
+   \   000006   8A82         MOV     DPL,R2
+   \   000008   22           RET
+    259          
+    260          
+    261          /*********************************************************************
+    262           * @fn      temcoApp_MessageMSGCB
+    263           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    264          static void temcoApp_MessageMSGCB(afIncomingMSGPacket_t *pkt)
+   \                     temcoApp_MessageMSGCB:
+    265          {
+   \   000000   74F4         MOV     A,#-0xc
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   EA           MOV     A,R2
+   \   00000B   FE           MOV     R6,A
+   \   00000C   EB           MOV     A,R3
+   \   00000D   FF           MOV     R7,A
+    266            switch(pkt->clusterId)
+   \   00000E   8E82         MOV     DPL,R6
+   \   000010   8F83         MOV     DPH,R7
+   \   000012   A3           INC     DPTR
+   \   000013   A3           INC     DPTR
+   \   000014   A3           INC     DPTR
+   \   000015   A3           INC     DPTR
+   \   000016   E0           MOVX    A,@DPTR
+   \   000017   F5..         MOV     ?V0 + 0,A
+   \   000019   A3           INC     DPTR
+   \   00001A   E0           MOVX    A,@DPTR
+   \   00001B   F5..         MOV     ?V0 + 1,A
+   \   00001D   78..         MOV     R0,#?V0 + 0
+   \   00001F   12....       LCALL   ?US_SWITCH_DENSE
+   \                     `?<Jumptable for temcoApp_MessageMSGCB>_0`:
+   \   000022   0200         DW        2
+   \   000024   03           DB        3
+   \   000025   ....         DW        ??temcoApp_MessageMSGCB_0
+   \   000027   ....         DW        ??temcoApp_MessageMSGCB_1
+   \   000029   ....         DW        ??temcoApp_MessageMSGCB_2
+   \   00002B   ....         DW        ??temcoApp_MessageMSGCB_3
+   \   00002D   ....         DW        ??temcoApp_MessageMSGCB_4
+    267            {
+    268              case TEMCO_CLUSTERID:
+    269                if( zgDeviceLogicalType == ZG_DEVICETYPE_ROUTER)  // Prepare to insert modbus message into TSTAT's
+   \                     ??temcoApp_MessageMSGCB_1:
+   \   00002F   90....       MOV     DPTR,#zgDeviceLogicalType
+   \   000032   E0           MOVX    A,@DPTR
+   \   000033   6401         XRL     A,#0x1
+   \   000035   6003         JZ      $+5
+   \   000037   02....       LJMP    ??temcoApp_MessageMSGCB_5 & 0xFFFF
+    270                {
+    271                  if( (pkt->cmd.Data[1] == MODBUS_SINGLE_READ) && (pkt->cmd.DataLength == 8))
+   \   00003A   12....       LCALL   ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_16:
+   \   00003D   E0           MOVX    A,@DPTR
+   \   00003E   F8           MOV     R0,A
+   \   00003F   12....       LCALL   ??Subroutine18_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_35:
+   \   000042   6403         XRL     A,#0x3
+   \   000044   6003         JZ      $+5
+   \   000046   02....       LJMP    ??temcoApp_MessageMSGCB_6 & 0xFFFF
+   \   000049   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_33:
+   \   00004C   6408         XRL     A,#0x8
+   \   00004E   7002         JNZ     ??temcoApp_MessageMSGCB_7
+   \   000050   A3           INC     DPTR
+   \   000051   E0           MOVX    A,@DPTR
+   \                     ??temcoApp_MessageMSGCB_7:
+   \   000052   6003         JZ      $+5
+   \   000054   02....       LJMP    ??temcoApp_MessageMSGCB_6 & 0xFFFF
+    272                  {
+    273                    firstAddr = pkt->cmd.Data[3];
+   \   000057   EE           MOV     A,R6
+   \   000058   2422         ADD     A,#0x22
+   \   00005A   F8           MOV     R0,A
+   \   00005B   EF           MOV     A,R7
+   \   00005C   3400         ADDC    A,#0x0
+   \   00005E   F9           MOV     R1,A
+   \   00005F   8882         MOV     DPL,R0
+   \   000061   8983         MOV     DPH,R1
+   \   000063   12....       LCALL   ?Subroutine8 & 0xFFFF
+   \                     ??CrossCallReturnLabel_15:
+   \   000066   A3           INC     DPTR
+   \   000067   A3           INC     DPTR
+   \   000068   A3           INC     DPTR
+   \   000069   E0           MOVX    A,@DPTR
+   \   00006A   90....       MOV     DPTR,#firstAddr
+   \   00006D   F0           MOVX    @DPTR,A
+    274                    uint8 length = pkt->cmd.Data[5];
+   \   00006E   8882         MOV     DPL,R0
+   \   000070   8983         MOV     DPH,R1
+   \   000072   12....       LCALL   ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   000075   A3           INC     DPTR
+   \   000076   A3           INC     DPTR
+   \   000077   A3           INC     DPTR
+   \   000078   E0           MOVX    A,@DPTR
+   \   000079   FA           MOV     R2,A
+    275                    
+    276                    if( (firstAddr<21)&&((firstAddr+length)>21))
+   \   00007A   90....       MOV     DPTR,#firstAddr
+   \   00007D   E0           MOVX    A,@DPTR
+   \   00007E   C3           CLR     C
+   \   00007F   9415         SUBB    A,#0x15
+   \   000081   5026         JNC     ??temcoApp_MessageMSGCB_8
+   \   000083   E0           MOVX    A,@DPTR
+   \   000084   8A..         MOV     ?V0 + 0,R2
+   \   000086   25..         ADD     A,?V0 + 0
+   \   000088   F8           MOV     R0,A
+   \   000089   E4           CLR     A
+   \   00008A   3400         ADDC    A,#0x0
+   \   00008C   F9           MOV     R1,A
+   \   00008D   E8           MOV     A,R0
+   \   00008E   9416         SUBB    A,#0x16
+   \   000090   E9           MOV     A,R1
+   \   000091   9400         SUBB    A,#0x0
+   \   000093   C3           CLR     C
+   \   000094   65D0         XRL     A,PSW
+   \   000096   33           RLC     A
+   \   000097   4010         JC      ??temcoApp_MessageMSGCB_8
+    277                    {
+    278                      modbusDataLength = firstAddr+length-21;
+   \   000099   E0           MOVX    A,@DPTR
+   \   00009A   2A           ADD     A,R2
+   \   00009B   24EB         ADD     A,#-0x15
+   \   00009D   90....       MOV     DPTR,#modbusDataLength
+   \   0000A0   F0           MOVX    @DPTR,A
+    279                      modbusStartAddr = 21;
+   \   0000A1   90....       MOV     DPTR,#modbusStartAddr
+   \   0000A4   7415         MOV     A,#0x15
+   \                     ??temcoApp_MessageMSGCB_9:
+   \   0000A6   F0           MOVX    @DPTR,A
+   \   0000A7   805A         SJMP    ??temcoApp_MessageMSGCB_5
+    280                    }
+    281                    else if( (firstAddr>=21) && (firstAddr <100))
+   \                     ??temcoApp_MessageMSGCB_8:
+   \   0000A9   E0           MOVX    A,@DPTR
+   \   0000AA   24EB         ADD     A,#-0x15
+   \   0000AC   C3           CLR     C
+   \   0000AD   944F         SUBB    A,#0x4f
+   \   0000AF   502F         JNC     ??temcoApp_MessageMSGCB_10
+    282                    {
+    283                      modbusStartAddr = firstAddr;
+   \   0000B1   E0           MOVX    A,@DPTR
+   \   0000B2   90....       MOV     DPTR,#modbusStartAddr
+   \   0000B5   F0           MOVX    @DPTR,A
+    284                      if(length <= (101-firstAddr))
+   \   0000B6   F8           MOV     R0,A
+   \   0000B7   7465         MOV     A,#0x65
+   \   0000B9   C3           CLR     C
+   \   0000BA   98           SUBB    A,R0
+   \   0000BB   F8           MOV     R0,A
+   \   0000BC   95E0         SUBB    A,0xE0 /* A   */
+   \   0000BE   F9           MOV     R1,A
+   \   0000BF   8A..         MOV     ?V0 + 0,R2
+   \   0000C1   C3           CLR     C
+   \   0000C2   E8           MOV     A,R0
+   \   0000C3   95..         SUBB    A,?V0 + 0
+   \   0000C5   E9           MOV     A,R1
+   \   0000C6   9400         SUBB    A,#0x0
+   \   0000C8   A2D2         MOV     C,0xD0 /* PSW */.2
+   \   0000CA   65D0         XRL     A,PSW
+   \   0000CC   33           RLC     A
+   \   0000CD   4006         JC      ??temcoApp_MessageMSGCB_11
+    285                        modbusDataLength = length;
+   \   0000CF   EA           MOV     A,R2
+   \                     ??temcoApp_MessageMSGCB_12:
+   \   0000D0   90....       MOV     DPTR,#modbusDataLength
+   \   0000D3   80D1         SJMP    ??temcoApp_MessageMSGCB_9
+    286                      else
+    287                        modbusDataLength = 101-firstAddr;
+   \                     ??temcoApp_MessageMSGCB_11:
+   \   0000D5   90....       MOV     DPTR,#firstAddr
+   \   0000D8   E0           MOVX    A,@DPTR
+   \   0000D9   F8           MOV     R0,A
+   \   0000DA   7465         MOV     A,#0x65
+   \   0000DC   C3           CLR     C
+   \   0000DD   98           SUBB    A,R0
+   \   0000DE   80F0         SJMP    ??temcoApp_MessageMSGCB_12
+    288                    }
+    289                    else
+    290                    {
+    291                      modbusStartAddr = 0;
+   \                     ??temcoApp_MessageMSGCB_10:
+   \   0000E0   90....       MOV     DPTR,#modbusStartAddr
+   \   0000E3   E4           CLR     A
+   \   0000E4   F0           MOVX    @DPTR,A
+    292                      modbusDataLength = 0;
+   \   0000E5   80E9         SJMP    ??temcoApp_MessageMSGCB_12
+    293                    }
+    294                  }
+    295                  else if( pkt->cmd.Data[1] == MODBUS_SINGLE_WRITE)
+   \                     ??temcoApp_MessageMSGCB_6:
+   \   0000E7   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_36:
+   \   0000EA   6406         XRL     A,#0x6
+   \   0000EC   7008         JNZ     ??temcoApp_MessageMSGCB_13
+    296                  {
+    297                    modbus_single_write(pkt->cmd.Data, pkt->cmd.DataLength);
+   \   0000EE                ; Setup parameters for call to function modbus_single_write
+   \   0000EE   12....       LCALL   ?Subroutine3 & 0xFFFF
+    298                  }
+   \                     ??CrossCallReturnLabel_6:
+   \   0000F1   12....       LCALL   ??modbus_single_write?relay
+   \   0000F4   800D         SJMP    ??temcoApp_MessageMSGCB_5
+    299                  else if( pkt->cmd.Data[1] == MODBUS_MULTI_WRITE)
+   \                     ??temcoApp_MessageMSGCB_13:
+   \   0000F6   12....       LCALL   ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_37:
+   \   0000F9   6410         XRL     A,#0x10
+   \   0000FB   7006         JNZ     ??temcoApp_MessageMSGCB_5
+    300                  {
+    301                    modbus_multi_write(pkt->cmd.Data, pkt->cmd.DataLength);
+   \   0000FD                ; Setup parameters for call to function modbus_multi_write
+   \   0000FD   12....       LCALL   ?Subroutine3 & 0xFFFF
+    302                  }
+    303                }
+   \                     ??CrossCallReturnLabel_7:
+   \   000100   12....       LCALL   ??modbus_multi_write?relay
+    304                HalUARTWrite ( 0, pkt->cmd.Data, pkt->cmd.DataLength );
+   \                     ??temcoApp_MessageMSGCB_5:
+   \   000103                ; Setup parameters for call to function HalUARTWrite
+   \   000103   12....       LCALL   ?Subroutine10 & 0xFFFF
+   \                     ??CrossCallReturnLabel_34:
+   \   000106   FC           MOV     R4,A
+   \   000107   A3           INC     DPTR
+   \   000108   E0           MOVX    A,@DPTR
+   \   000109   FD           MOV     R5,A
+   \   00010A   12....       LCALL   ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_17:
+   \   00010D   12....       LCALL   ??Subroutine14_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_25:
+   \   000110   7900         MOV     R1,#0x0
+   \   000112   12....       LCALL   ??HalUARTWrite?relay
+    305                break;
+   \   000115   02....       LJMP    ??temcoApp_MessageMSGCB_0 & 0xFFFF
+    306                
+    307              case ACK_CMD_CLUSTERID:  // ´Ë´¦¸ÄÎª¶¨Ê±·¢¹ã²¥£¬ÊÕµ½ÈÎºÎ½ÚµãÏûÏ¢£¬²»ÂÛ¶Ô·½ÀàÐÍ£¬¶¼²»ÐèÒªÖØÆô
+    308                if(zgDeviceLogicalType == ZG_DEVICETYPE_COORDINATOR)
+   \                     ??temcoApp_MessageMSGCB_2:
+   \   000118   90....       MOV     DPTR,#zgDeviceLogicalType
+   \   00011B   E0           MOVX    A,@DPTR
+   \   00011C   704F         JNZ     ??temcoApp_MessageMSGCB_14
+    309                {
+    310                  uint8 ack_byte = 1;
+   \   00011E   85..82       MOV     DPL,?XSP + 0
+   \   000121   85..83       MOV     DPH,?XSP + 1
+   \   000124   7401         MOV     A,#0x1
+   \   000126   F0           MOVX    @DPTR,A
+    311                  zb_SendDataRequest( pkt->srcAddr.addr.shortAddr, ACK_CMD_CLUSTERID, 1, &ack_byte, 
+    312                                         0, AF_ACK_REQUEST, 0);
+   \   000127                ; Setup parameters for call to function zb_SendDataRequest
+   \   000127   75..00       MOV     ?V0 + 0,#0x0
+   \   00012A   78..         MOV     R0,#?V0 + 0
+   \   00012C   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00012F   75..10       MOV     ?V0 + 0,#0x10
+   \   000132   78..         MOV     R0,#?V0 + 0
+   \   000134   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000137   75..00       MOV     ?V0 + 0,#0x0
+   \   00013A   78..         MOV     R0,#?V0 + 0
+   \   00013C   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00013F   7403         MOV     A,#0x3
+   \   000141   12....       LCALL   ?XSTACK_DISP0_8
+   \   000144   8582..       MOV     ?V0 + 0,DPL
+   \   000147   8583..       MOV     ?V0 + 1,DPH
+   \   00014A   78..         MOV     R0,#?V0 + 0
+   \   00014C   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   00014F   7901         MOV     R1,#0x1
+   \   000151   7C03         MOV     R4,#0x3
+   \                     ??temcoApp_MessageMSGCB_15:
+   \   000153   7D00         MOV     R5,#0x0
+   \   000155   8E82         MOV     DPL,R6
+   \   000157   8F83         MOV     DPH,R7
+   \   000159   A3           INC     DPTR
+   \   00015A   A3           INC     DPTR
+   \   00015B   A3           INC     DPTR
+   \   00015C   A3           INC     DPTR
+   \   00015D   A3           INC     DPTR
+   \   00015E   A3           INC     DPTR
+    313                }
+   \   00015F   12....       LCALL   ??Subroutine14_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_26:
+   \   000162   12....       LCALL   ??zb_SendDataRequest?relay
+   \   000165   7405         MOV     A,#0x5
+   \   000167   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00016A   02....       LJMP    ??temcoApp_MessageMSGCB_0 & 0xFFFF
+    314                else
+    315                {
+    316                  if(pkt->cmd.Data[0] == 1)
+   \                     ??temcoApp_MessageMSGCB_14:
+   \   00016D   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   000170   6401         XRL     A,#0x1
+   \   000172   6003         JZ      $+5
+   \   000174   02....       LJMP    ??temcoApp_MessageMSGCB_0 & 0xFFFF
+    317                    ack_exist = TRUE;
+   \   000177   90....       MOV     DPTR,#ack_exist
+   \   00017A   7401         MOV     A,#0x1
+   \   00017C   02....       LJMP    ??temcoApp_MessageMSGCB_16 & 0xFFFF
+    318                }
+    319                break;
+    320                
+    321              case RSSI_REQ_CLUSTERID:
+    322                if( pkt->cmd.Data[0] == 0)
+   \                     ??temcoApp_MessageMSGCB_3:
+   \   00017F   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   000182   6003         JZ      $+5
+   \   000184   02....       LJMP    ??temcoApp_MessageMSGCB_0 & 0xFFFF
+    323                {
+    324                  if( zgDeviceLogicalType == ZG_DEVICETYPE_COORDINATOR)
+   \   000187   90....       MOV     DPTR,#zgDeviceLogicalType
+   \   00018A   E0           MOVX    A,@DPTR
+   \   00018B   7029         JNZ     ??temcoApp_MessageMSGCB_17
+    325                  {
+    326                    zb_SendDataRequest( pkt->srcAddr.addr.shortAddr, RSSI_RSP_CLUSTERID, 1, &tstat_id, 
+    327                                           0, AF_ACK_REQUEST, 0);
+   \                     ??temcoApp_MessageMSGCB_18:
+   \   00018D                ; Setup parameters for call to function zb_SendDataRequest
+   \   00018D   75..00       MOV     ?V0 + 0,#0x0
+   \   000190   78..         MOV     R0,#?V0 + 0
+   \   000192   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   000195   75..10       MOV     ?V0 + 0,#0x10
+   \   000198   78..         MOV     R0,#?V0 + 0
+   \   00019A   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   00019D   75..00       MOV     ?V0 + 0,#0x0
+   \   0001A0   78..         MOV     R0,#?V0 + 0
+   \   0001A2   12....       LCALL   ?PUSH_XSTACK_I_ONE
+   \   0001A5   75....       MOV     ?V0 + 0,#tstat_id & 0xff
+   \   0001A8   75....       MOV     ?V0 + 1,#(tstat_id >> 8) & 0xff
+   \   0001AB   78..         MOV     R0,#?V0 + 0
+   \   0001AD   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   0001B0   7901         MOV     R1,#0x1
+   \   0001B2   7C05         MOV     R4,#0x5
+   \   0001B4   809D         SJMP    ??temcoApp_MessageMSGCB_15
+    328                  }
+    329                  else
+    330                  {
+    331                    if( tstat_id != 0)
+   \                     ??temcoApp_MessageMSGCB_17:
+   \   0001B6   90....       MOV     DPTR,#tstat_id
+   \   0001B9   E0           MOVX    A,@DPTR
+   \   0001BA   70D1         JNZ     ??temcoApp_MessageMSGCB_18
+   \   0001BC   02....       LJMP    ??temcoApp_MessageMSGCB_0 & 0xFFFF
+    332                      zb_SendDataRequest( pkt->srcAddr.addr.shortAddr, RSSI_RSP_CLUSTERID, 1, &tstat_id, 
+    333                                             0, AF_ACK_REQUEST, 0);
+    334                  }
+    335                }
+    336                break;
+    337              case RSSI_RSP_CLUSTERID:
+    338                if( pkt->cmd.Data[0] != 0)
+   \                     ??temcoApp_MessageMSGCB_4:
+   \   0001BF   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   0001C2   7003         JNZ     $+5
+   \   0001C4   02....       LJMP    ??temcoApp_MessageMSGCB_0 & 0xFFFF
+    339                {
+    340                  
+    341                  signalStrength_t *pInSignal;
+    342                  pInSignal = findSignalStrength( pkt->cmd.Data[0]);
+   \   0001C7   12....       LCALL   ?Subroutine9 & 0xFFFF
+   \                     ??CrossCallReturnLabel_18:
+   \   0001CA   12....       LCALL   ??Subroutine17_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_38:
+   \   0001CD   E0           MOVX    A,@DPTR
+   \   0001CE   FA           MOV     R2,A
+   \   0001CF   90....       MOV     DPTR,#pSignalStren
+   \   0001D2   8004         SJMP    ??temcoApp_MessageMSGCB_19
+   \                     ??temcoApp_MessageMSGCB_20:
+   \   0001D4   8882         MOV     DPL,R0
+   \   0001D6   8983         MOV     DPH,R1
+   \                     ??temcoApp_MessageMSGCB_19:
+   \   0001D8   12....       LCALL   ?Subroutine7 & 0xFFFF
+   \                     ??CrossCallReturnLabel_13:
+   \   0001DB   E8           MOV     A,R0
+   \   0001DC   49           ORL     A,R1
+   \   0001DD   601C         JZ      ??temcoApp_MessageMSGCB_21
+   \   0001DF   8882         MOV     DPL,R0
+   \   0001E1   8983         MOV     DPH,R1
+   \   0001E3   A3           INC     DPTR
+   \   0001E4   A3           INC     DPTR
+   \   0001E5   E0           MOVX    A,@DPTR
+   \   0001E6   6A           XRL     A,R2
+   \   0001E7   70EB         JNZ     ??temcoApp_MessageMSGCB_20
+    343                  if( pInSignal != NULL)
+    344                  {
+    345                    pInSignal->rssi = pkt->rssi;
+   \   0001E9   EE           MOV     A,R6
+   \   0001EA   2418         ADD     A,#0x18
+   \   0001EC   12....       LCALL   ??Subroutine15_0 & 0xFFFF
+    346                    pInSignal->leaveTime = 0;
+    347                  }
+   \                     ??CrossCallReturnLabel_31:
+   \   0001EF   8882         MOV     DPL,R0
+   \   0001F1   8983         MOV     DPH,R1
+   \   0001F3   A3           INC     DPTR
+   \   0001F4   A3           INC     DPTR
+   \   0001F5   A3           INC     DPTR
+   \   0001F6   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   0001F9   8061         SJMP    ??temcoApp_MessageMSGCB_16
+    348                  else
+    349                  {
+    350                    register_signalStrength( pkt->cmd.Data[0], pkt->rssi);
+   \                     ??temcoApp_MessageMSGCB_21:
+   \   0001FB   EE           MOV     A,R6
+   \   0001FC   2418         ADD     A,#0x18
+   \   0001FE   12....       LCALL   ??Subroutine15_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_32:
+   \   000201   F5..         MOV     ?V0 + 0,A
+   \   000203   12....       LCALL   ?Subroutine2 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   000206   FE           MOV     R6,A
+   \   000207                ; Setup parameters for call to function osal_mem_alloc
+   \   000207   7A05         MOV     R2,#0x5
+   \   000209   7B00         MOV     R3,#0x0
+   \   00020B   12....       LCALL   ??osal_mem_alloc?relay
+   \   00020E   8A..         MOV     ?V0 + 2,R2
+   \   000210   8B..         MOV     ?V0 + 3,R3
+   \   000212   A8..         MOV     R0,?V0 + 2
+   \   000214   A9..         MOV     R1,?V0 + 3
+   \   000216   E8           MOV     A,R0
+   \   000217   49           ORL     A,R1
+   \   000218   603D         JZ      ??temcoApp_MessageMSGCB_22
+   \   00021A   8882         MOV     DPL,R0
+   \   00021C   8983         MOV     DPH,R1
+   \   00021E   E4           CLR     A
+   \   00021F   F0           MOVX    @DPTR,A
+   \   000220   A3           INC     DPTR
+   \   000221   F0           MOVX    @DPTR,A
+   \   000222   EE           MOV     A,R6
+   \   000223   8882         MOV     DPL,R0
+   \   000225   8983         MOV     DPH,R1
+   \   000227   A3           INC     DPTR
+   \   000228   A3           INC     DPTR
+   \   000229   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_19:
+   \   00022C   E5..         MOV     A,?V0 + 0
+   \   00022E   12....       LCALL   ?Subroutine1 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   000231   F0           MOVX    @DPTR,A
+   \   000232   12....       LCALL   ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_29:
+   \   000235   EA           MOV     A,R2
+   \   000236   4B           ORL     A,R3
+   \   000237   7008         JNZ     ??CrossCallReturnLabel_27
+   \   000239   90....       MOV     DPTR,#pSignalStren
+   \   00023C   8014         SJMP    ??temcoApp_MessageMSGCB_23
+   \                     ??temcoApp_MessageMSGCB_24:
+   \   00023E   12....       LCALL   ??Subroutine14_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_27:
+   \   000241   8A82         MOV     DPL,R2
+   \   000243   8B83         MOV     DPH,R3
+   \   000245   E0           MOVX    A,@DPTR
+   \   000246   FC           MOV     R4,A
+   \   000247   A3           INC     DPTR
+   \   000248   E0           MOVX    A,@DPTR
+   \   000249   FD           MOV     R5,A
+   \   00024A   EC           MOV     A,R4
+   \   00024B   4D           ORL     A,R5
+   \   00024C   8A82         MOV     DPL,R2
+   \   00024E   8B83         MOV     DPH,R3
+   \   000250   70EC         JNZ     ??temcoApp_MessageMSGCB_24
+   \                     ??temcoApp_MessageMSGCB_23:
+   \   000252   E8           MOV     A,R0
+   \   000253   F0           MOVX    @DPTR,A
+   \   000254   A3           INC     DPTR
+   \   000255   E9           MOV     A,R1
+   \   000256   F0           MOVX    @DPTR,A
+    351                    numSignalStren++;
+   \                     ??temcoApp_MessageMSGCB_22:
+   \   000257   90....       MOV     DPTR,#numSignalStren
+   \   00025A   E0           MOVX    A,@DPTR
+   \   00025B   04           INC     A
+   \                     ??temcoApp_MessageMSGCB_16:
+   \   00025C   F0           MOVX    @DPTR,A
+    352                  }
+    353                }
+    354                break;
+    355              default:
+    356                break;
+    357            }
+    358          }
+   \                     ??temcoApp_MessageMSGCB_0:
+   \   00025D   7401         MOV     A,#0x1
+   \   00025F   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000262   7F04         MOV     R7,#0x4
+   \   000264   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   EE           MOV     A,R6
+   \   000001   2420         ADD     A,#0x20
+   \   000003                REQUIRE ??Subroutine15_0
+   \   000003                ; // Fall through to label ??Subroutine15_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine15_0:
+   \   000000   F582         MOV     DPL,A
+   \   000002   EF           MOV     A,R7
+   \   000003                REQUIRE ??Subroutine16_0
+   \   000003                ; // Fall through to label ??Subroutine16_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine16_0:
+   \   000000   3400         ADDC    A,#0x0
+   \   000002   F583         MOV     DPH,A
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine9:
+   \   000000   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_24:
+   \   000003   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine13:
+   \   000000   EE           MOV     A,R6
+   \   000001   2422         ADD     A,#0x22
+   \   000003   F582         MOV     DPL,A
+   \   000005   EF           MOV     A,R7
+   \   000006   3400         ADDC    A,#0x0
+   \   000008   F583         MOV     DPH,A
+   \   00000A   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_40:
+   \   000003   A3           INC     DPTR
+   \   000004   A3           INC     DPTR
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine12:
+   \   000000   E0           MOVX    A,@DPTR
+   \   000001   F8           MOV     R0,A
+   \   000002                REQUIRE ??Subroutine17_0
+   \   000002                ; // Fall through to label ??Subroutine17_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine17_0:
+   \   000000   A3           INC     DPTR
+   \   000001   E0           MOVX    A,@DPTR
+   \   000002   F583         MOV     DPH,A
+   \   000004   8882         MOV     DPL,R0
+   \   000006   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_23:
+   \   000003                REQUIRE ??Subroutine18_0
+   \   000003                ; // Fall through to label ??Subroutine18_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine18_0:
+   \   000000   12....       LCALL   ??Subroutine17_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_41:
+   \   000003   A3           INC     DPTR
+   \   000004   E0           MOVX    A,@DPTR
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   EE           MOV     A,R6
+   \   000001   2420         ADD     A,#0x20
+   \   000003   F582         MOV     DPL,A
+   \   000005   EF           MOV     A,R7
+   \   000006   3400         ADDC    A,#0x0
+   \   000008   F583         MOV     DPH,A
+   \   00000A   E0           MOVX    A,@DPTR
+   \   00000B   F9           MOV     R1,A
+   \   00000C   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_22:
+   \   00000F   E0           MOVX    A,@DPTR
+   \   000010   FA           MOV     R2,A
+   \   000011   A3           INC     DPTR
+   \   000012   E0           MOVX    A,@DPTR
+   \   000013   FB           MOV     R3,A
+   \   000014   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   12....       LCALL   ?Subroutine13 & 0xFFFF
+   \                     ??CrossCallReturnLabel_21:
+   \   000003   12....       LCALL   ?Subroutine12 & 0xFFFF
+   \                     ??CrossCallReturnLabel_39:
+   \   000006   E0           MOVX    A,@DPTR
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   12....       LCALL   ?Subroutine11 & 0xFFFF
+   \                     ??CrossCallReturnLabel_20:
+   \   000003   A3           INC     DPTR
+   \   000004   E4           CLR     A
+   \   000005   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine11:
+   \   000000   F0           MOVX    @DPTR,A
+   \   000001   8882         MOV     DPL,R0
+   \   000003   8983         MOV     DPH,R1
+   \   000005   A3           INC     DPTR
+   \   000006   A3           INC     DPTR
+   \   000007   A3           INC     DPTR
+   \   000008   22           RET
+    359          
+    360          //*********************************************
+    361          static Status_t register_signalStrength( uint8 modbus_id, int8 rssi)
+    362          {
+    363            signalStrength_t *pNewItem;
+    364            signalStrength_t *pLoop;
+    365            
+    366            pNewItem = osal_mem_alloc( sizeof( signalStrength_t));
+    367            if( pNewItem == NULL)
+    368            {
+    369              return (ZMemError);
+    370            }
+    371            
+    372            pNewItem->next = (signalStrength_t *)NULL;
+    373            pNewItem->modbus_id = modbus_id;
+    374            pNewItem->rssi = rssi;
+    375            pNewItem->leaveTime = 0;
+    376            
+    377            if( pSignalStren == NULL)
+    378            {
+    379              pSignalStren = pNewItem;
+    380            }
+    381            else
+    382            {
+    383              pLoop = pSignalStren;
+    384              while( pLoop->next != NULL)
+    385              {
+    386                pLoop = pLoop->next;
+    387              }
+    388              pLoop->next = pNewItem;
+    389            }
+    390            
+    391            return SUCCESS;
+    392          }
+    393          //*********************************************
+    394          static signalStrength_t *findSignalStrength( uint8 modbus_id)
+    395          {
+    396            signalStrength_t *pLoop = pSignalStren;
+    397            
+    398            while( pLoop != NULL)
+    399            {
+    400              if( modbus_id == pLoop->modbus_id)
+    401              {
+    402                return (pLoop);
+    403              }
+    404              pLoop = pLoop->next;
+    405            }
+    406            
+    407            return ( (signalStrength_t*)NULL);
+    408          }
+    409          //*********************************************
+    410          static void deleteSignalStrength( uint8 modbus_id)
+    411          {
+    412            signalStrength_t *pLoop, *pNext;
+    413            
+    414            pLoop = pSignalStren;
+    415            pNext = pSignalStren->next;
+    416            
+    417            if( pLoop != NULL)
+    418            {
+    419              if(pLoop->modbus_id == modbus_id)
+    420              {
+    421                numSignalStren--;
+    422                if(pNext != NULL)
+    423                  pSignalStren = pNext;
+    424                else
+    425                  pSignalStren = NULL;
+    426                osal_mem_free( pLoop);
+    427              }
+    428              else
+    429              {
+    430                while( pNext != NULL)
+    431                {
+    432                  if(pNext->modbus_id == modbus_id)
+    433                  {
+    434                    numSignalStren--;
+    435                    pLoop->next = pNext->next;
+    436                    osal_mem_free(pNext);
+    437                    return;
+    438                  }
+    439                  pLoop = pNext;
+    440                  pNext = pLoop->next;
+    441                }
+    442              }
+    443            }
+    444          }
+    445          //*********************************************
+    446          static uint8 checkNodeAlive( void)
+    447          {
+    448            signalStrength_t *pLoop = pSignalStren;
+    449            uint8 modbus_id = 255;
+    450            
+    451            while(pLoop != NULL)
+    452            {
+    453              pLoop->leaveTime++;
+    454              if(pLoop->leaveTime >= RSSI_NODE_LEAVE_NUM)
+    455              {
+    456                modbus_id = pSignalStren->modbus_id;
+    457                return modbus_id;
+    458              }
+    459              pLoop = pLoop->next;
+    460            }
+    461            return modbus_id;
+    462          }
+    463          //*********************************************
+    464          static void sendAllSignalStren( void)
+                             ^
+Warning[Pe177]: function "sendAllSignalStren" was declared but never referenced
+    465          {
+    466            signalStrength_t *pLoop = pSignalStren;
+    467            while( pLoop != NULL)
+    468            {
+    469              send_char_Uart( pLoop->modbus_id, 0);
+    470              send_char_Uart( pLoop->rssi, 0);
+    471              pLoop = pLoop->next;
+    472            }
+    473          }
+    474          //*********************************************
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    475          static void restart_to_other_type(void)
+   \                     restart_to_other_type:
+    476          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+    477            NLME_InitNV();
+   \   000005                ; Setup parameters for call to function NLME_InitNV
+   \   000005   12....       LCALL   ??NLME_InitNV?relay
+    478            NLME_SetDefaultNV();
+   \   000008                ; Setup parameters for call to function NLME_SetDefaultNV
+   \   000008   12....       LCALL   ??NLME_SetDefaultNV?relay
+    479            osal_nv_write( ZCD_NV_LOGICAL_TYPE, 0, sizeof(zgDeviceLogicalType), &zgDeviceLogicalType);
+   \   00000B                ; Setup parameters for call to function osal_nv_write
+   \   00000B   75....       MOV     ?V0 + 0,#zgDeviceLogicalType & 0xff
+   \   00000E   75....       MOV     ?V0 + 1,#(zgDeviceLogicalType >> 8) & 0xff
+   \   000011   78..         MOV     R0,#?V0 + 0
+   \   000013   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000016   75..01       MOV     ?V0 + 0,#0x1
+   \   000019   75..00       MOV     ?V0 + 1,#0x0
+   \   00001C   78..         MOV     R0,#?V0 + 0
+   \   00001E   12....       LCALL   ?PUSH_XSTACK_I_TWO
+   \   000021   7C00         MOV     R4,#0x0
+   \   000023   7D00         MOV     R5,#0x0
+   \   000025   7A87         MOV     R2,#-0x79
+   \   000027   7B00         MOV     R3,#0x0
+   \   000029   12....       LCALL   ??osal_nv_write?relay
+   \   00002C   7404         MOV     A,#0x4
+   \   00002E   12....       LCALL   ?DEALLOC_XSTACK8
+    480            SystemReset();
+   \   000031   C2AF         CLR     0xa8.7
+   \   000033   C2AF         CLR     0xa8.7
+   \   000035   75C9AB       MOV     0xc9,#-0x55
+   \   000038   75C95B       MOV     0xc9,#0x5b
+   \                     ??restart_to_other_type_0:
+   \   00003B   80FE         SJMP    ??restart_to_other_type_0
+   \   00003D                REQUIRE _A_IEN0
+   \   00003D                REQUIRE WDCTL
+    481          }
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for ack_exist>`:
+   \   000000   01           DB 1
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for ask_modbus_id>`:
+   \   000000   FF           DB 255
+   \   000001   03           DB 3
+   \   000002   00           DB 0
+   \   000003   06           DB 6
+   \   000004   00           DB 0
+   \   000005   02           DB 2
+   \   000006   31           DB 49
+   \   000007   D4           DB 212
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??temcoApp_Init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    temcoApp_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??temcoApp_ProcessEvent?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    temcoApp_ProcessEvent
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??zb_SendDataRequest?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zb_SendDataRequest
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??temcoApp_MessageMSGCB?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    temcoApp_MessageMSGCB
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??restart_to_other_type?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    restart_to_other_type
+
+   Maximum stack usage in bytes:
+
+     Function                     ISTACK PSTACK XSTACK
+     --------                     ------ ------ ------
+     restart_to_other_type            0      0     29
+       -> NLME_InitNV                 0      0     20
+       -> NLME_SetDefaultNV           0      0     20
+       -> osal_nv_write               0      0     28
+     temcoApp_Init                    0      0      9
+       -> afRegister                  0      0     18
+       -> osal_set_event              0      0     18
+     temcoApp_MessageMSGCB            1      0     33
+       -> modbus_single_write         0      0     26
+       -> modbus_multi_write          0      0     26
+       -> HalUARTWrite                0      0     26
+       -> zb_SendDataRequest          0      0     36
+       -> zb_SendDataRequest          0      0     36
+       -> osal_mem_alloc              0      0     26
+     temcoApp_ProcessEvent            0      0     20
+       -> osal_msg_receive            0      0     30
+       -> osal_set_event              0      0     30
+       -> osal_msg_deallocate         0      0     30
+       -> osal_msg_receive            0      0     30
+       -> temcoApp_MessageMSGCB       0      0     30
+       -> zb_SendDataRequest          0      0     40
+       -> restore_factory_setting     0      0     30
+       -> osal_start_timerEx          0      0     30
+       -> zb_SendDataRequest          0      0     40
+       -> osal_mem_free               0      0     30
+       -> osal_mem_free               0      0     30
+       -> HalUARTWrite                0      0     30
+       -> restart_to_other_type       0      0     30
+       -> restart_to_other_type       0      0     30
+       -> osal_start_timerEx          0      0     30
+     zb_SendDataRequest               1      0     55
+       -> AF_DataRequest              0      0     70
+
+
+   Segment part sizes:
+
+     Function/Label                   Bytes
+     --------------                   -----
+     _A_IEN0                             1
+     WDCTL                               1
+     temcoClusterList                    2
+     temcoSimpleDesc                    12
+     temco_epDesc                        6
+     ack_exist                           1
+     ask_modbus_id                       8
+     tstat_id                            1
+     product_id                          1
+     type_assert                         1
+     pSignalStren                        2
+     numSignalStren                      1
+     temcoAPP_TaskID                     1
+     temcoApp_TransID                    1
+     temcoApp_Init                      71
+     temcoApp_ProcessEvent             546
+     ?Subroutine0                        8
+     ?Subroutine5                        3
+     ??Subroutine14_0                    6
+     ?Subroutine7                        6
+     zb_SendDataRequest                203
+     ?Subroutine8                        9
+     temcoApp_MessageMSGCB             615
+     ?Subroutine10                       3
+     ??Subroutine15_0                    3
+     ??Subroutine16_0                    6
+     ?Subroutine9                        4
+     ?Subroutine13                      11
+     ?Subroutine6                        6
+     ?Subroutine12                       2
+     ??Subroutine17_0                    7
+     ?Subroutine4                        3
+     ??Subroutine18_0                    6
+     ?Subroutine3                       21
+     ?Subroutine2                        8
+     ?Subroutine1                        6
+     ?Subroutine11                       9
+     restart_to_other_type              61
+     ?<Initializer for ack_exist>        1
+     ?<Initializer for ask_modbus_id>    8
+     ??temcoApp_Init?relay               6
+     ??temcoApp_ProcessEvent?relay       6
+     ??zb_SendDataRequest?relay          6
+     ??temcoApp_MessageMSGCB?relay       6
+     ??restart_to_other_type?relay       6
+
+ 
+ 1 623 bytes in segment BANKED_CODE
+    30 bytes in segment BANK_RELAYS
+     2 bytes in segment SFR_AN
+     9 bytes in segment XDATA_I
+     9 bytes in segment XDATA_ID
+    14 bytes in segment XDATA_ROM_C
+    14 bytes in segment XDATA_Z
+ 
+ 1 662 bytes of CODE  memory
+    14 bytes of CONST memory
+     0 bytes of DATA  memory (+ 2 bytes shared)
+    23 bytes of XDATA memory
+
+Errors: none
+Warnings: 1
