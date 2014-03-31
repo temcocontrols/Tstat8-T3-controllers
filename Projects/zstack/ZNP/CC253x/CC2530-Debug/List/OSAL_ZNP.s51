@@ -1,0 +1,1270 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        24/Mar/2014  09:41:37 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  C:\Documents and Settings\Administrator\×ÀÃæ\1\Te /
+//                          mcoZNP\Projects\zstack\ZNP\Source\OSAL_ZNP.c      /
+//    Command line       =  -f "C:\Documents and Settings\Administrator\×ÀÃæ\ /
+//                          1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\Source\z /
+//                          np.cfg" (-DMAC_CFG_APP_PENDING_QUEUE=TRUE         /
+//                          "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR  /
+//                          | DEVICE_BUILD_ROUTER | DEVICE_BUILD_ENDDEVICE)"  /
+//                          -DNWK_AUTO_POLL -DZNP_RUN_WDOG=FALSE -DZIGBEEPRO  /
+//                          -DZIGBEE_FRAGMENTATION -DOSAL_CLOCK               /
+//                          -DOSAL_SAPI=FALSE -DSAPI_CB_FUNC=FALSE -DNV_INIT  /
+//                          -DNUM_DISC_ATTEMPTS=0) -f "C:\Documents and       /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.c /
+//                          fg" (-DZIGBEEPRO -DSECURE=0                       /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00001000                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100   /
+//                          -DREJOIN_POLL_RATE=440) -f "C:\Documents and      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg" /
+//                           "C:\Documents and Settings\Administrator\×ÀÃæ\1\ /
+//                          TemcoZNP\Projects\zstack\ZNP\Source\OSAL_ZNP.c"   /
+//                          -D xPOWER_SAVING -D NV_RESTORE -lC "C:\Documents  /
+//                          and Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projec /
+//                          ts\zstack\ZNP\CC253x\CC2530-Debug\List\" -lA      /
+//                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\T /
+//                          emcoZNP\Projects\zstack\ZNP\CC253x\CC2530-Debug\L /
+//                          ist\" --diag_suppress Pe001,Pa010 -o              /
+//                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\T /
+//                          emcoZNP\Projects\zstack\ZNP\CC253x\CC2530-Debug\O /
+//                          bj\" -e --no_code_motion --debug --core=plain     /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I "C:\Documents and         /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\" -I "C:\Documents and           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\Source\" -I "C:\Documents and    /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\Source\" -I "C:\Documents     /
+//                          and Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projec /
+//                          ts\zstack\ZNP\CC253x\..\..\SE\Source\" -I         /
+//                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\T /
+//                          emcoZNP\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI /
+//                          2530ZNP\" -I "C:\Documents and                    /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\hal\inclu /
+//                          de\" -I "C:\Documents and                         /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\hal\targe /
+//                          t\CC2530ZNP\" -I "C:\Documents and                /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mac\inclu /
+//                          de\" -I "C:\Documents and                         /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mac\high_ /
+//                          level\" -I "C:\Documents and                      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mac\low_l /
+//                          evel\srf04\" -I "C:\Documents and                 /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mac\low_l /
+//                          evel\srf04\single_chip\" -I "C:\Documents and     /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mt\" -I   /
+//                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\T /
+//                          emcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\..\Co /
+//                          mponents\osal\include\" -I "C:\Documents and      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\services\ /
+//                          saddr\" -I "C:\Documents and                      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\services\ /
+//                          sdata\" -I "C:\Documents and                      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\af\ /
+//                          " -I "C:\Documents and Settings\Administrator\×ÀÃ /
+//                          æ\1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\ /
+//                          ..\Components\stack\nwk\" -I "C:\Documents and    /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\sap /
+//                          i\" -I "C:\Documents and                          /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\sec /
+//                          \" -I "C:\Documents and                           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\sys /
+//                          \" -I "C:\Documents and                           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\zcl /
+//                          \" -I "C:\Documents and                           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\zdo /
+//                          \" -I "C:\Documents and                           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\zmac\"    /
+//                          -I "C:\Documents and Settings\Administrator\×ÀÃæ\ /
+//                          1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\.. /
+//                          \Components\zmac\f8w\" -Ohz --require_prototypes  /
+//    List file          =  C:\Documents and Settings\Administrator\×ÀÃæ\1\Te /
+//                          mcoZNP\Projects\zstack\ZNP\CC253x\CC2530-Debug\Li /
+//                          st\OSAL_ZNP.s51                                   /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME OSAL_ZNP
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?CALL_IND
+        EXTERN ?V0
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC ??osalInitTasks?relay
+        FUNCTION ??osalInitTasks?relay,0203H
+        FUNCTION ??osal_run_task?relay,0203H
+        PUBLIC ??osal_start_znp?relay
+        FUNCTION ??osal_start_znp?relay,0203H
+        PUBWEAK _A_IEN0
+        PUBLIC osalInitTasks
+        FUNCTION osalInitTasks,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        FUNCTION osal_run_task,0203H
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME XSTACK, 12, STACK
+        PUBLIC osal_start_znp
+        FUNCTION osal_start_znp,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC tasksArr
+        PUBLIC tasksCnt
+        PUBLIC tasksEvents
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-2
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B SameValue
+        CFI A SameValue
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 SameValue
+        CFI R1 SameValue
+        CFI R2 SameValue
+        CFI R3 SameValue
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT SameValue
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon1
+        
+osal_mem_alloc      SYMBOL "osal_mem_alloc"
+osal_memset         SYMBOL "osal_memset"
+temcoTaskInit       SYMBOL "temcoTaskInit"
+macTaskInit         SYMBOL "macTaskInit"
+nwk_init            SYMBOL "nwk_init"
+APS_Init            SYMBOL "APS_Init"
+APSF_Init           SYMBOL "APSF_Init"
+ZDApp_Init          SYMBOL "ZDApp_Init"
+ZDNwkMgr_Init       SYMBOL "ZDNwkMgr_Init"
+temcoApp_Init       SYMBOL "temcoApp_Init"
+Hal_Init            SYMBOL "Hal_Init"
+osalTimeUpdate      SYMBOL "osalTimeUpdate"
+Hal_ProcessPoll     SYMBOL "Hal_ProcessPoll"
+??APSF_Init?relay   SYMBOL "?relay", APSF_Init
+`?<Name APSF_ProcessEvent 14>` SYMBOL "APSF_ProcessEvent"
+??APSF_ProcessEvent?relay SYMBOL "?relay", `?<Name APSF_ProcessEvent 14>`
+??APS_Init?relay    SYMBOL "?relay", APS_Init
+`?<Name APS_event_loop 17>` SYMBOL "APS_event_loop"
+??APS_event_loop?relay SYMBOL "?relay", `?<Name APS_event_loop 17>`
+??Hal_Init?relay    SYMBOL "?relay", Hal_Init
+`?<Name Hal_ProcessEvent 20>` SYMBOL "Hal_ProcessEvent"
+??Hal_ProcessEvent?relay SYMBOL "?relay", `?<Name Hal_ProcessEvent 20>`
+??Hal_ProcessPoll?relay SYMBOL "?relay", Hal_ProcessPoll
+??ZDApp_Init?relay  SYMBOL "?relay", ZDApp_Init
+`?<Name ZDApp_event_loop 24>` SYMBOL "ZDApp_event_loop"
+??ZDApp_event_loop?relay SYMBOL "?relay", `?<Name ZDApp_event_loop 24>`
+??ZDNwkMgr_Init?relay SYMBOL "?relay", ZDNwkMgr_Init
+`?<Name ZDNwkMgr_event_loop 27>` SYMBOL "ZDNwkMgr_event_loop"
+??ZDNwkMgr_event_loop?relay SYMBOL "?relay", `?<Name ZDNwkMgr_event_loop 27>`
+`?<Name macEventLoop 29>` SYMBOL "macEventLoop"
+??macEventLoop?relay SYMBOL "?relay", `?<Name macEventLoop 29>`
+??macTaskInit?relay SYMBOL "?relay", macTaskInit
+`?<Name nwk_event_loop 32>` SYMBOL "nwk_event_loop"
+??nwk_event_loop?relay SYMBOL "?relay", `?<Name nwk_event_loop 32>`
+??nwk_init?relay    SYMBOL "?relay", nwk_init
+??osalTimeUpdate?relay SYMBOL "?relay", osalTimeUpdate
+??osal_mem_alloc?relay SYMBOL "?relay", osal_mem_alloc
+??osal_memset?relay SYMBOL "?relay", osal_memset
+??temcoApp_Init?relay SYMBOL "?relay", temcoApp_Init
+`?<Name temcoApp_ProcessEven 39>` SYMBOL "temcoApp_ProcessEvent"
+??temcoApp_ProcessEvent?relay SYMBOL "?relay", `?<Name temcoApp_ProcessEven 39>`
+`?<Name temcoEventLoop 41>` SYMBOL "temcoEventLoop"
+??temcoEventLoop?relay SYMBOL "?relay", `?<Name temcoEventLoop 41>`
+??temcoTaskInit?relay SYMBOL "?relay", temcoTaskInit
+osalInitTasks       SYMBOL "osalInitTasks"
+??osalInitTasks?relay SYMBOL "?relay", osalInitTasks
+osal_start_znp      SYMBOL "osal_start_znp"
+??osal_start_znp?relay SYMBOL "?relay", osal_start_znp
+
+        EXTERN osal_mem_alloc
+        FUNCTION osal_mem_alloc,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osal_memset
+        FUNCTION osal_memset,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN temcoTaskInit
+        FUNCTION temcoTaskInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN macTaskInit
+        FUNCTION macTaskInit,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN nwk_init
+        FUNCTION nwk_init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN APS_Init
+        FUNCTION APS_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN APSF_Init
+        FUNCTION APSF_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDApp_Init
+        FUNCTION ZDApp_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ZDNwkMgr_Init
+        FUNCTION ZDNwkMgr_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN temcoApp_Init
+        FUNCTION temcoApp_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN Hal_Init
+        FUNCTION Hal_Init,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN osalTimeUpdate
+        FUNCTION osalTimeUpdate,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN Hal_ProcessPoll
+        FUNCTION Hal_ProcessPoll,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??APSF_Init?relay
+        FUNCTION ??APSF_Init?relay,00H
+        EXTERN ??APSF_ProcessEvent?relay
+        FUNCTION ??APSF_ProcessEvent?relay,00H
+        EXTERN ??APS_Init?relay
+        FUNCTION ??APS_Init?relay,00H
+        EXTERN ??APS_event_loop?relay
+        FUNCTION ??APS_event_loop?relay,00H
+        EXTERN ??Hal_Init?relay
+        FUNCTION ??Hal_Init?relay,00H
+        EXTERN ??Hal_ProcessEvent?relay
+        FUNCTION ??Hal_ProcessEvent?relay,00H
+        EXTERN ??Hal_ProcessPoll?relay
+        FUNCTION ??Hal_ProcessPoll?relay,00H
+        EXTERN ??ZDApp_Init?relay
+        FUNCTION ??ZDApp_Init?relay,00H
+        EXTERN ??ZDApp_event_loop?relay
+        FUNCTION ??ZDApp_event_loop?relay,00H
+        EXTERN ??ZDNwkMgr_Init?relay
+        FUNCTION ??ZDNwkMgr_Init?relay,00H
+        EXTERN ??ZDNwkMgr_event_loop?relay
+        FUNCTION ??ZDNwkMgr_event_loop?relay,00H
+        EXTERN ??macEventLoop?relay
+        FUNCTION ??macEventLoop?relay,00H
+        EXTERN ??macTaskInit?relay
+        FUNCTION ??macTaskInit?relay,00H
+        EXTERN ??nwk_event_loop?relay
+        FUNCTION ??nwk_event_loop?relay,00H
+        EXTERN ??nwk_init?relay
+        FUNCTION ??nwk_init?relay,00H
+        EXTERN ??osalTimeUpdate?relay
+        FUNCTION ??osalTimeUpdate?relay,00H
+        EXTERN ??osal_mem_alloc?relay
+        FUNCTION ??osal_mem_alloc?relay,00H
+        EXTERN ??osal_memset?relay
+        FUNCTION ??osal_memset?relay,00H
+        EXTERN ??temcoApp_Init?relay
+        FUNCTION ??temcoApp_Init?relay,00H
+        EXTERN ??temcoApp_ProcessEvent?relay
+        FUNCTION ??temcoApp_ProcessEvent?relay,00H
+        EXTERN ??temcoEventLoop?relay
+        FUNCTION ??temcoEventLoop?relay,00H
+        EXTERN ??temcoTaskInit?relay
+        FUNCTION ??temcoTaskInit?relay,00H
+
+// C:\Documents and Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zstack\ZNP\Source\OSAL_ZNP.c
+//    1 /**************************************************************************************************
+//    2   Filename:       OSAL_ZNP.c
+//    3   Revised:        $Date: 2010-08-12 16:15:23 -0700 (Thu, 12 Aug 2010) $
+//    4   Revision:       $Revision: 23398 $
+//    5 
+//    6   Description:    This file is the Application-specific mandatory OSAL file.
+//    7 
+//    8 
+//    9   Copyright 2009-2010 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, 
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE, 
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com. 
+//   38 **************************************************************************************************/
+//   39 
+//   40 /*********************************************************************
+//   41  * INCLUDES
+//   42  */
+//   43 
+//   44 #include "ZComDef.h"
+//   45 #include "hal_drivers.h"
+//   46 #include "hal_mcu.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,0a8H
+// union <unnamed> volatile __sfr _A_IEN0
+_A_IEN0:
+        DATA8
+        DS 1
+//   47 #include "OSAL.h"
+//   48 #include "OSAL_Clock.h"
+//   49 #include "OSAL_PwrMgr.h"
+//   50 #include "OSAL_Tasks.h"
+//   51 
+//   52 #include "MT.h"
+//   53 #include "MT_TASK.h"
+//   54 
+//   55 #include "nwk.h"
+//   56 #include "APS.h"
+//   57 #include "ZDApp.h"
+//   58 #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+//   59 #include "ZDNwkMgr.h"
+//   60 #endif
+//   61 #if defined ( ZIGBEE_FRAGMENTATION )
+//   62 #include "aps_frag.h"
+//   63 #endif
+//   64 #if defined ( INTER_PAN )
+//   65 #include "stub_aps.h"
+//   66 #endif
+//   67 // #include "sapi.h"
+//   68 // #include "znp_app.h"
+//   69 #if defined ( ZCL_KEY_ESTABLISH )
+//   70   #include "zcl_key_establish.h"
+//   71 #endif
+//   72 
+//   73 #include "temcoDevice.h"
+//   74 #include "temcoAPI.h"
+//   75 /*********************************************************************
+//   76  * GLOBAL VARIABLES
+//   77  */
+//   78 
+//   79 // The order in this table must be identical to the task initialization calls below in osalInitTask.
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//   80 const pTaskEventHandlerFn tasksArr[] = {
+tasksArr:
+        DATA16
+        DW ??temcoEventLoop?relay
+        DW ??macEventLoop?relay
+        DW ??nwk_event_loop?relay
+        DW ??APS_event_loop?relay
+        DW ??APSF_ProcessEvent?relay
+        DW ??ZDApp_event_loop?relay
+        DW ??ZDNwkMgr_event_loop?relay
+        DW ??temcoApp_ProcessEvent?relay
+        DW ??Hal_ProcessEvent?relay
+//   81   temcoEventLoop,
+//   82   macEventLoop,
+//   83   nwk_event_loop,
+//   84   APS_event_loop,
+//   85 #if defined ( ZIGBEE_FRAGMENTATION )
+//   86   APSF_ProcessEvent,
+//   87 #endif
+//   88   ZDApp_event_loop,
+//   89 #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+//   90   ZDNwkMgr_event_loop,
+//   91 #endif
+//   92 #if defined( INTER_PAN )
+//   93   StubAPS_ProcessEvent,
+//   94 #endif
+//   95   temcoApp_ProcessEvent,
+//   96 #if defined ( TC_LINKKEY_JOIN )
+//   97   zclKeyEstablish_event_loop,
+//   98 #endif
+//   99   Hal_ProcessEvent
+//  100 };
+//  101 
+
+        RSEG XDATA_ROM_C:CONST:REORDER:NOROOT(0)
+        DATA8
+//  102 const uint8 tasksCnt = sizeof( tasksArr ) / sizeof( tasksArr[0] );
+tasksCnt:
+        DB 9
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA16
+//  103 uint16 *tasksEvents;
+tasksEvents:
+        DS 2
+        REQUIRE __INIT_XDATA_Z
+//  104 
+//  105 /*********************************************************************
+//  106  * FUNCTIONS
+//  107  *********************************************************************/
+//  108 
+//  109 void osal_start_znp(void);
+//  110 static void osal_run_task(uint8 idx);
+//  111 
+//  112 /*********************************************************************
+//  113  * @fn      osalInitTasks
+//  114  *
+//  115  * @brief   This function invokes the initialization function for each task.
+//  116  *
+//  117  * @param   void
+//  118  *
+//  119  * @return  none
+//  120  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  121 void osalInitTasks( void )
+osalInitTasks:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function osalInitTasks
+        CODE
+//  122 {
+        FUNCALL osalInitTasks, osal_mem_alloc
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, osal_memset
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, temcoTaskInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, macTaskInit
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, nwk_init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, APS_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, APSF_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, ZDApp_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, ZDNwkMgr_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, temcoApp_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osalInitTasks, Hal_Init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//  123   uint8 taskID = 0;
+//  124 
+//  125   tasksEvents = (uint16 *)osal_mem_alloc( sizeof( uint16 ) * tasksCnt);
+        ; Setup parameters for call to function osal_mem_alloc
+        MOV     R2,#0x12
+        MOV     R3,#0x0
+        LCALL   ??osal_mem_alloc?relay
+        MOV     DPTR,#tasksEvents
+        MOV     A,R2
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R3
+        MOVX    @DPTR,A
+//  126   osal_memset( tasksEvents, 0, (sizeof( uint16 ) * tasksCnt));
+        ; Setup parameters for call to function osal_memset
+        MOV     R4,#0x12
+        MOV     R5,#0x0
+        MOV     R1,#0x0
+        LCALL   ??osal_memset?relay
+//  127 
+//  128   temcoTaskInit(taskID++);
+        ; Setup parameters for call to function temcoTaskInit
+        MOV     R1,#0x0
+        LCALL   ??temcoTaskInit?relay
+//  129 //  znpInit( taskID++ );
+//  130   macTaskInit( taskID++ );
+        ; Setup parameters for call to function macTaskInit
+        MOV     R1,#0x1
+        LCALL   ??macTaskInit?relay
+//  131   nwk_init( taskID++ );
+        ; Setup parameters for call to function nwk_init
+        MOV     R1,#0x2
+        LCALL   ??nwk_init?relay
+//  132   APS_Init( taskID++ );
+        ; Setup parameters for call to function APS_Init
+        MOV     R1,#0x3
+        LCALL   ??APS_Init?relay
+//  133 #if defined ( ZIGBEE_FRAGMENTATION )
+//  134   APSF_Init( taskID++ );
+        ; Setup parameters for call to function APSF_Init
+        MOV     R1,#0x4
+        LCALL   ??APSF_Init?relay
+//  135 #endif
+//  136   ZDApp_Init( taskID++ );
+        ; Setup parameters for call to function ZDApp_Init
+        MOV     R1,#0x5
+        LCALL   ??ZDApp_Init?relay
+//  137 #if defined ( ZIGBEE_FREQ_AGILITY ) || defined ( ZIGBEE_PANID_CONFLICT )
+//  138   ZDNwkMgr_Init( taskID++ );
+        ; Setup parameters for call to function ZDNwkMgr_Init
+        MOV     R1,#0x6
+        LCALL   ??ZDNwkMgr_Init?relay
+//  139 #endif
+//  140 #if defined( INTER_PAN )
+//  141   StubAPS_Init( taskID++ );
+//  142 #endif
+//  143   temcoApp_Init( taskID++ );
+        ; Setup parameters for call to function temcoApp_Init
+        MOV     R1,#0x7
+        LCALL   ??temcoApp_Init?relay
+//  144 
+//  145 #if defined ( TC_LINKKEY_JOIN )
+//  146   zclGeneral_KeyEstablish_Init( taskID++ );
+//  147 #endif
+//  148   Hal_Init( taskID );
+        ; Setup parameters for call to function Hal_Init
+        MOV     R1,#0x8
+        LCALL   ??Hal_Init?relay
+//  149 }
+        POP     DPH
+        CFI DPH0 SameValue
+        CFI CFA_SP SP+-4
+        POP     DPL
+        CFI DPL0 SameValue
+        CFI CFA_SP SP+-3
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock0
+//  150 
+//  151 /*********************************************************************
+//  152  * @fn      osal_start_znp
+//  153  *
+//  154  * @brief
+//  155  *
+//  156  *   This function is the main loop function of the task system.  It
+//  157  *   will look through all task events and call the task_event_processor()
+//  158  *   function for the task with the event.  If there are no events (for
+//  159  *   all tasks), this function puts the processor into Sleep.
+//  160  *   This Function doesn't return.
+//  161  *
+//  162  * @param   void
+//  163  *
+//  164  * @return  none
+//  165  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  166 void osal_start_znp( void )
+osal_start_znp:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function osal_start_znp
+        CODE
+//  167 {
+        FUNCALL osal_start_znp, osal_run_task
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osal_start_znp, osalTimeUpdate
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osal_start_znp, Hal_ProcessPoll
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL osal_start_znp, osal_run_task
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+        SJMP    ??osal_start_znp_0
+//  168 #if !defined ( ZBIT ) && !defined ( UBIT )
+//  169   for(;;)  // Forever Loop
+//  170 #endif
+//  171   {
+//  172 #if defined( POWER_SAVING )
+//  173     uint8 busy = FALSE;
+//  174 #endif
+//  175     uint8 idx;
+//  176 
+//  177     osalTimeUpdate();
+//  178     Hal_ProcessPoll();
+//  179 
+//  180     for (idx = 1; idx < tasksCnt; idx++)
+??osal_start_znp_1:
+        INC     R1
+        MOV     A,R1
+        CLR     C
+        SUBB    A,#0x9
+        JC      ??osal_start_znp_2
+//  181     {
+//  182       if (tasksEvents[idx])
+//  183       {
+//  184         osal_run_task(idx);
+//  185 #if defined( POWER_SAVING )
+//  186         busy = TRUE;
+//  187 #endif
+//  188         break;
+//  189       }
+//  190     }
+//  191 
+//  192     if (tasksEvents[0])  // Always run the ZNP task.
+??osal_start_znp_3:
+        MOV     DPTR,#tasksEvents
+        LCALL   ?Subroutine0 & 0xFFFF
+??CrossCallReturnLabel_0:
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,A
+        MOV     A,R0
+        ORL     A,R1
+        JZ      ??osal_start_znp_0
+//  193     {
+//  194       osal_run_task(0);
+        ; Setup parameters for call to function osal_run_task
+        MOV     R1,#0x0
+        LCALL   ??osal_run_task?relay
+//  195 #if defined( POWER_SAVING )
+//  196       busy = TRUE;
+//  197 #endif
+//  198     }
+??osal_start_znp_0:
+        ; Setup parameters for call to function osalTimeUpdate
+        LCALL   ??osalTimeUpdate?relay
+        ; Setup parameters for call to function Hal_ProcessPoll
+        LCALL   ??Hal_ProcessPoll?relay
+        MOV     R1,#0x1
+??osal_start_znp_2:
+        MOV     A,R1
+        CLR     C
+        RLC     A
+        MOV     R2,A
+        CLR     A
+        RLC     A
+        MOV     R3,A
+        MOV     DPTR,#tasksEvents
+        MOVX    A,@DPTR
+        ADD     A,R2
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        ADDC    A,R3
+        MOV     DPL,R0
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        MOV     R2,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R3,A
+        MOV     A,R2
+        ORL     A,R3
+        JZ      ??osal_start_znp_1
+        ; Setup parameters for call to function osal_run_task
+        LCALL   ??osal_run_task?relay
+        SJMP    ??osal_start_znp_3
+        CFI EndBlock cfiBlock1
+//  199 
+//  200 #if defined( POWER_SAVING )
+//  201     if (!busy)  // Complete pass through all task events with no activity?
+//  202     {
+//  203       osal_pwrmgr_powerconserve();  // Put the processor/system into sleep.
+//  204     }
+//  205 #endif
+//  206   }
+//  207 }
+//  208 
+//  209 /*********************************************************************
+//  210  * @fn      osal_run_task
+//  211  *
+//  212  * @brief
+//  213  *
+//  214  *   This function is the main loop function of the task system.  It
+//  215  *   will look through all task events and call the task_event_processor()
+//  216  *   function for the task with the event.  If there are no events (for
+//  217  *   all tasks), this function puts the processor into Sleep.
+//  218  *   This Function doesn't return.
+//  219  *
+//  220  * @param   void
+//  221  *
+//  222  * @return  none
+//  223  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  224 static void osal_run_task(uint8 idx)
+osal_run_task:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function osal_run_task
+        CODE
+//  225 {
+        MOV     A,#-0xc
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 12)
+        ; Saved register size: 12
+        ; Auto size: 0
+        MOV     ?V0 + 0,R1
+//  226   uint16 events;
+//  227   halIntState_t intState;
+//  228 
+//  229   HAL_ENTER_CRITICAL_SECTION(intState);
+        MOV     A,0xa8
+        MOV     R4,A
+        CLR     0xa8.7
+//  230   events = tasksEvents[idx];
+        MOV     A,R1
+        CLR     C
+        RLC     A
+        MOV     R6,A
+        CLR     A
+        RLC     A
+        MOV     R7,A
+        MOV     DPTR,#tasksEvents
+        MOVX    A,@DPTR
+        ADD     A,R6
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        ADDC    A,R7
+        MOV     R1,A
+        MOV     DPL,R0
+        MOV     DPH,R1
+        MOVX    A,@DPTR
+        MOV     R2,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R3,A
+//  231   tasksEvents[idx] = 0;  // Clear the Events for this task.
+        MOV     DPL,R0
+        MOV     DPH,R1
+        CLR     A
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    @DPTR,A
+//  232   HAL_EXIT_CRITICAL_SECTION(intState);
+        MOV     A,R4
+        MOV     C,0xE0 /* A   */.7
+        MOV     0xa8.7,C
+//  233 
+//  234   events = (tasksArr[idx])( idx, events );
+        ; Setup parameters for indirect call
+        MOV     R1,?V0 + 0
+        MOV     A,#tasksArr & 0xff
+        ADD     A,R6
+        MOV     DPL,A
+        MOV     A,#(tasksArr >> 8) & 0xff
+        ADDC    A,R7
+        MOV     DPH,A
+        LCALL   ?Subroutine0 & 0xFFFF
+??CrossCallReturnLabel_1:
+        LCALL   ?CALL_IND
+//  235 
+//  236   HAL_ENTER_CRITICAL_SECTION(intState);
+        MOV     A,0xa8
+        MOV     R1,A
+        CLR     0xa8.7
+//  237   tasksEvents[idx] |= events;  // Add back unprocessed events to the current task.
+        MOV     DPTR,#tasksEvents
+        MOVX    A,@DPTR
+        ADD     A,R6
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        ADDC    A,R7
+        MOV     DPL,R0
+        MOV     DPH,A
+        MOVX    A,@DPTR
+        ORL     A,R2
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        ORL     A,R3
+        MOVX    @DPTR,A
+//  238   HAL_EXIT_CRITICAL_SECTION(intState);
+        MOV     A,R1
+        MOV     C,0xE0 /* A   */.7
+        MOV     0xa8.7,C
+//  239 }
+        MOV     R7,#0x4
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock2
+        REQUIRE _A_IEN0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+        CFI Block cfiCond3 Using cfiCommon0
+        CFI NoFunction
+        CFI Conditional ??CrossCallReturnLabel_0
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        CFI Block cfiCond4 Using cfiCommon0
+        CFI (cfiCond4) NoFunction
+        CFI (cfiCond4) Conditional ??CrossCallReturnLabel_1
+        CFI (cfiCond4) R6 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+        CFI (cfiCond4) VB load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI (cfiCond4) V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond4) V1 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond4) V2 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond4) V3 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond4) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond4) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond4) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond4) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond4) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond4) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond4) CFA_SP SP+0
+        CFI (cfiCond4) CFA_XSP16 add(XSP16, 12)
+        CFI Block cfiPicker5 Using cfiCommon1
+        CFI (cfiPicker5) NoFunction
+        CFI (cfiPicker5) Picker
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     DPH,A
+        MOV     DPL,R0
+        RET
+        CFI EndBlock cfiCond3
+        CFI EndBlock cfiCond4
+        CFI EndBlock cfiPicker5
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??osalInitTasks?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    osalInitTasks
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??osal_start_znp?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    osal_start_znp
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??osal_run_task?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    osal_run_task
+
+        END
+//  240 
+//  241 /*********************************************************************
+//  242 *********************************************************************/
+// 
+// 268 bytes in segment BANKED_CODE
+//  18 bytes in segment BANK_RELAYS
+//   1 byte  in segment SFR_AN
+//  19 bytes in segment XDATA_ROM_C
+//   2 bytes in segment XDATA_Z
+// 
+// 286 bytes of CODE  memory
+//  19 bytes of CONST memory
+//   0 bytes of DATA  memory (+ 1 byte shared)
+//   2 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none

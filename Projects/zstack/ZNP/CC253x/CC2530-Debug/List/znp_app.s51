@@ -1,0 +1,860 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        24/Mar/2014  09:41:35 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  C:\Documents and Settings\Administrator\×ÀÃæ\1\Te /
+//                          mcoZNP\Projects\zstack\ZNP\Source\znp_app.c       /
+//    Command line       =  -f "C:\Documents and Settings\Administrator\×ÀÃæ\ /
+//                          1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\Source\z /
+//                          np.cfg" (-DMAC_CFG_APP_PENDING_QUEUE=TRUE         /
+//                          "-DZSTACK_DEVICE_BUILD=(DEVICE_BUILD_COORDINATOR  /
+//                          | DEVICE_BUILD_ROUTER | DEVICE_BUILD_ENDDEVICE)"  /
+//                          -DNWK_AUTO_POLL -DZNP_RUN_WDOG=FALSE -DZIGBEEPRO  /
+//                          -DZIGBEE_FRAGMENTATION -DOSAL_CLOCK               /
+//                          -DOSAL_SAPI=FALSE -DSAPI_CB_FUNC=FALSE -DNV_INIT  /
+//                          -DNUM_DISC_ATTEMPTS=0) -f "C:\Documents and       /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wConfig.c /
+//                          fg" (-DZIGBEEPRO -DSECURE=0                       /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00001000                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100   /
+//                          -DREJOIN_POLL_RATE=440) -f "C:\Documents and      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\Tools\CC2530DB\f8wZCL.cfg" /
+//                           "C:\Documents and Settings\Administrator\×ÀÃæ\1\ /
+//                          TemcoZNP\Projects\zstack\ZNP\Source\znp_app.c"    /
+//                          -D xPOWER_SAVING -D NV_RESTORE -lC "C:\Documents  /
+//                          and Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projec /
+//                          ts\zstack\ZNP\CC253x\CC2530-Debug\List\" -lA      /
+//                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\T /
+//                          emcoZNP\Projects\zstack\ZNP\CC253x\CC2530-Debug\L /
+//                          ist\" --diag_suppress Pe001,Pa010 -o              /
+//                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\T /
+//                          emcoZNP\Projects\zstack\ZNP\CC253x\CC2530-Debug\O /
+//                          bj\" -e --no_code_motion --debug --core=plain     /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I "C:\Documents and         /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\" -I "C:\Documents and           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\Source\" -I "C:\Documents and    /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\Source\" -I "C:\Documents     /
+//                          and Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projec /
+//                          ts\zstack\ZNP\CC253x\..\..\SE\Source\" -I         /
+//                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\T /
+//                          emcoZNP\Projects\zstack\ZNP\CC253x\..\..\ZMain\TI /
+//                          2530ZNP\" -I "C:\Documents and                    /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\hal\inclu /
+//                          de\" -I "C:\Documents and                         /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\hal\targe /
+//                          t\CC2530ZNP\" -I "C:\Documents and                /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mac\inclu /
+//                          de\" -I "C:\Documents and                         /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mac\high_ /
+//                          level\" -I "C:\Documents and                      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mac\low_l /
+//                          evel\srf04\" -I "C:\Documents and                 /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mac\low_l /
+//                          evel\srf04\single_chip\" -I "C:\Documents and     /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\mt\" -I   /
+//                          "C:\Documents and Settings\Administrator\×ÀÃæ\1\T /
+//                          emcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\..\Co /
+//                          mponents\osal\include\" -I "C:\Documents and      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\services\ /
+//                          saddr\" -I "C:\Documents and                      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\services\ /
+//                          sdata\" -I "C:\Documents and                      /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\af\ /
+//                          " -I "C:\Documents and Settings\Administrator\×ÀÃ /
+//                          æ\1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\ /
+//                          ..\Components\stack\nwk\" -I "C:\Documents and    /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\sap /
+//                          i\" -I "C:\Documents and                          /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\sec /
+//                          \" -I "C:\Documents and                           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\sys /
+//                          \" -I "C:\Documents and                           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\zcl /
+//                          \" -I "C:\Documents and                           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\stack\zdo /
+//                          \" -I "C:\Documents and                           /
+//                          Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\z /
+//                          stack\ZNP\CC253x\..\..\..\..\Components\zmac\"    /
+//                          -I "C:\Documents and Settings\Administrator\×ÀÃæ\ /
+//                          1\TemcoZNP\Projects\zstack\ZNP\CC253x\..\..\..\.. /
+//                          \Components\zmac\f8w\" -Ohz --require_prototypes  /
+//    List file          =  C:\Documents and Settings\Administrator\×ÀÃæ\1\Te /
+//                          mcoZNP\Projects\zstack\ZNP\CC253x\CC2530-Debug\Li /
+//                          st\znp_app.s51                                    /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME znp_app
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC znpCfg0
+        PUBLIC znpCfg1
+// C:\Documents and Settings\Administrator\×ÀÃæ\1\TemcoZNP\Projects\zstack\ZNP\Source\znp_app.c
+//    1 /**************************************************************************************************
+//    2   Filename:       znp_app.c
+//    3   Revised:        $Date: 2011-06-01 14:52:32 -0700 (Wed, 01 Jun 2011) $
+//    4   Revision:       $Revision: 26173 $
+//    5 
+//    6   Description:    This file is the Application implementation for the ZNP.
+//    7 
+//    8 
+//    9   Copyright 2009-2011 Texas Instruments Incorporated. All rights reserved.
+//   10 
+//   11   IMPORTANT: Your use of this Software is limited to those specific rights
+//   12   granted under the terms of a software license agreement between the user
+//   13   who downloaded the software, his/her employer (which must be your employer)
+//   14   and Texas Instruments Incorporated (the "License").  You may not use this
+//   15   Software unless you agree to abide by the terms of the License. The License
+//   16   limits your use, and you acknowledge, that the Software may not be modified,
+//   17   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   18   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   19   frequency transceiver, which is integrated into your product.  Other than for
+//   20   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   21   works of, modify, distribute, perform, display or sell this Software and/or
+//   22   its documentation for any purpose.
+//   23 
+//   24   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   25   PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   26   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   27   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   28   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   29   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   30   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   31   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   32   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   33   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   34   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   35 
+//   36   Should you have any questions regarding your right to use this Software,
+//   37   contact Texas Instruments Incorporated at www.TI.com.
+//   38 **************************************************************************************************/
+//   39 
+//   40 /* ------------------------------------------------------------------------------------------------
+//   41  *                                          Includes
+//   42  * ------------------------------------------------------------------------------------------------
+//   43  */
+//   44 
+//   45 #include "hal_board_cfg.h"
+//   46 #include "mac_radio_defs.h"
+//   47 #include "MT.h"
+//   48 #include "MT_AF.h"
+//   49 #include "MT_SYS.h"
+//   50 #include "MT_ZDO.h"
+//   51 #include "MT_UART.h"
+//   52 #include "MT_UTIL.h"
+//   53 #include "OSAL.h"
+//   54 #include "OSAL_Nv.h"
+//   55 #if defined POWER_SAVING || defined CC2531ZNP
+//   56 #include "OSAL_PwrMgr.h"
+//   57 #endif
+//   58 #include "ZComDef.h"
+//   59 #include "ZMAC.h"
+//   60 #include "znp_app.h"
+//   61 #include "znp_spi.h"
+//   62 
+//   63 /* ------------------------------------------------------------------------------------------------
+//   64  *                                           Local Functions
+//   65  * ------------------------------------------------------------------------------------------------
+//   66  */
+//   67 #if 0
+//   68 static void npInit(void);
+//   69 static void npInitNV(void);
+//   70 
+//   71 static void npUartCback(uint8 port, uint8 event);
+//   72 static void npUartTxReady(void);
+//   73 static uint8* npMtUartAlloc(uint8 cmd0, uint8 len);
+//   74 static void npMtUartSend(uint8 *pBuf);
+//   75 
+//   76 #if !defined CC2531ZNP
+//   77 static uint8* npMtSpiAlloc(uint8 cmd0, uint8 len);
+//   78 static void npMtSpiSend(uint8 *pBuf);
+//   79 uint8* npSpiPollCallback(void);
+//   80 bool npSpiReadyCallback(void);
+//   81 #endif
+//   82 #endif
+//   83 
+//   84 /* ------------------------------------------------------------------------------------------------
+//   85  *                                           Local Variables
+//   86  * ------------------------------------------------------------------------------------------------
+//   87  */
+//   88 
+//   89 static osal_msg_q_t npTxQueue;
+//   90 
+//   91 /* ------------------------------------------------------------------------------------------------
+//   92  *                                           Global Variables
+//   93  * ------------------------------------------------------------------------------------------------
+//   94  */
+//   95 
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   96 uint8 znpCfg1;
+znpCfg1:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+//   97 uint8 znpCfg0;
+znpCfg0:
+        DS 1
+        REQUIRE __INIT_XDATA_Z
+
+        END
+//   98 #if defined TC_LINKKEY_JOIN
+//   99 extern uint8 zcl_TaskID;
+//  100 extern void zclProcessMessageMSG(afIncomingMSGPacket_t *pkt);
+//  101 #endif
+//  102 
+//  103 #if 0
+//  104 /**************************************************************************************************
+//  105  * @fn          znpInit
+//  106  *
+//  107  * @brief       This function is the OSAL task initialization callback.
+//  108  *
+//  109  * input parameters
+//  110  *
+//  111  * @param taskId - The task ID assigned to this task by the OSAL.
+//  112  *
+//  113  * output parameters
+//  114  *
+//  115  * None.
+//  116  *
+//  117  * @return      None.
+//  118  **************************************************************************************************
+//  119  */
+//  120 void znpInit(uint8 taskId)
+//  121 {
+//  122   znpTaskId = taskId;
+//  123   osal_set_event(taskId, ZNP_SECONDARY_INIT_EVENT);
+//  124 }
+//  125 
+//  126 /**************************************************************************************************
+//  127  * @fn          znpEventLoop
+//  128  *
+//  129  * @brief       This function processes the OSAL events and messages for the application.
+//  130  *
+//  131  * input parameters
+//  132  *
+//  133  * @param taskId - The task ID assigned to this application by OSAL at system initialization.
+//  134  * @param events - A bit mask of the pending event(s).
+//  135  *
+//  136  * output parameters
+//  137  *
+//  138  * None.
+//  139  *
+//  140  * @return      The events bit map received via parameter with the bits cleared which correspond to
+//  141  *              the event(s) that were processed on this invocation.
+//  142  **************************************************************************************************
+//  143  */
+//  144 uint16 znpEventLoop(uint8 taskId, uint16 events)
+//  145 {
+//  146   osal_event_hdr_t  *pMsg;
+//  147 #if !defined CC2531ZNP
+//  148   uint8 *pBuf;
+//  149 #endif
+//  150 
+//  151   if (events & SYS_EVENT_MSG)
+//  152   {
+//  153     if ((pMsg = (osal_event_hdr_t *) osal_msg_receive(znpTaskId)) != NULL)
+//  154     {
+//  155       switch (pMsg->event)
+//  156       {
+//  157       /* incoming message from UART transport */
+//  158       case CMD_SERIAL_MSG:
+//  159         MT_ProcessIncoming(((mtOSALSerialData_t *)pMsg)->msg);
+//  160         break;
+//  161 
+//  162 #if defined TC_LINKKEY_JOIN
+//  163 #if defined (MT_UTIL_FUNC)
+//  164       case ZCL_KEY_ESTABLISH_IND:
+//  165         MT_UtilKeyEstablishInd((keyEstablishmentInd_t *)pMsg);
+//  166         break;
+//  167 #endif
+//  168 #endif
+//  169 
+//  170       case AF_INCOMING_MSG_CMD:
+//  171 #if defined TC_LINKKEY_JOIN
+//  172         if (ZCL_KEY_ESTABLISHMENT_ENDPOINT == (((afIncomingMSGPacket_t *)pMsg)->endPoint))
+//  173         {
+//  174           zclProcessMessageMSG((afIncomingMSGPacket_t *)pMsg);
+//  175         }
+//  176         else
+//  177 #endif
+//  178         {
+//  179           MT_AfIncomingMsg((afIncomingMSGPacket_t *)pMsg);
+//  180         }
+//  181         break;
+//  182 
+//  183 #ifdef MT_ZDO_FUNC
+//  184       case ZDO_STATE_CHANGE:
+//  185         MT_ZdoStateChangeCB(pMsg);
+//  186         break;
+//  187 
+//  188       case ZDO_CB_MSG:
+//  189         MT_ZdoSendMsgCB((zdoIncomingMsg_t *)pMsg);
+//  190         break;
+//  191 #endif
+//  192 
+//  193       case AF_DATA_CONFIRM_CMD:
+//  194         MT_AfDataConfirm((afDataConfirm_t *)pMsg);
+//  195         break;
+//  196 
+//  197       default:
+//  198         break;
+//  199       }
+//  200 
+//  201       osal_msg_deallocate((byte *)pMsg);
+//  202     }
+//  203 
+//  204     events ^= SYS_EVENT_MSG;
+//  205   }
+//  206 #if !defined CC2531ZNP
+//  207   else if (events & ZNP_SPI_RX_AREQ_EVENT)
+//  208   {
+//  209     if ((pBuf = npSpiGetReqBuf()) != NULL )
+//  210     {
+//  211       MT_ProcessIncoming(pBuf);
+//  212       npSpiAReqComplete();
+//  213     }
+//  214 
+//  215     events ^= ZNP_SPI_RX_AREQ_EVENT;
+//  216   }
+//  217   else if (events & ZNP_SPI_RX_SREQ_EVENT)
+//  218   {
+//  219     if ((pBuf = npSpiGetReqBuf()) != NULL)
+//  220     {
+//  221       MT_ProcessIncoming(pBuf);
+//  222     }
+//  223 
+//  224     events ^= ZNP_SPI_RX_SREQ_EVENT;
+//  225   }
+//  226 #endif
+//  227   else if (events & ZNP_UART_TX_READY_EVENT)
+//  228   {
+//  229     npUartTxReady();
+//  230     events ^= ZNP_UART_TX_READY_EVENT;
+//  231   }
+//  232 #if defined MT_SYS_FUNC
+//  233   else if (events & MT_SYS_OSAL_EVENT_0)
+//  234   {
+//  235     MT_SysOsalTimerExpired(0x00);
+//  236     events ^= MT_SYS_OSAL_EVENT_0;
+//  237   }
+//  238   else if (events & MT_SYS_OSAL_EVENT_1)
+//  239   {
+//  240     MT_SysOsalTimerExpired(0x01);
+//  241     events ^= MT_SYS_OSAL_EVENT_1;
+//  242   }
+//  243   else if (events & MT_SYS_OSAL_EVENT_2)
+//  244   {
+//  245     MT_SysOsalTimerExpired(0x02);
+//  246     events ^= MT_SYS_OSAL_EVENT_2;
+//  247   }
+//  248   else if (events & MT_SYS_OSAL_EVENT_3)
+//  249   {
+//  250     MT_SysOsalTimerExpired(0x03);
+//  251     events ^= MT_SYS_OSAL_EVENT_3;
+//  252   }
+//  253 #endif
+//  254 #if defined POWER_SAVING
+//  255   else if (events & ZNP_PWRMGR_CONSERVE_EVENT)
+//  256   {
+//  257     (void)osal_pwrmgr_task_state(znpTaskId, PWRMGR_CONSERVE);
+//  258     events ^= ZNP_PWRMGR_CONSERVE_EVENT;
+//  259   }
+//  260 #endif
+//  261   else if (events & ZNP_SECONDARY_INIT_EVENT)
+//  262   {
+//  263     npInit();
+//  264     events ^= ZNP_SECONDARY_INIT_EVENT;
+//  265   }
+//  266   else if (events & MT_AF_EXEC_EVT)
+//  267   {
+//  268     MT_AfExec();
+//  269     events ^= MT_AF_EXEC_EVT;
+//  270   }
+//  271   else
+//  272   {
+//  273     events = 0;  /* Discard unknown events. */
+//  274   }
+//  275 
+//  276   return ( events );
+//  277 }
+//  278 
+//  279 /**************************************************************************************************
+//  280  * @fn          MT_TransportAlloc
+//  281  *
+//  282  * @brief       This function is the definition of the physical transport API for allocation a msg.
+//  283  *
+//  284  * input parameters
+//  285  *
+//  286  * @param cmd0 - The RPC command byte 0.
+//  287  * @param len - The RPC data length.
+//  288  *
+//  289  * output parameters
+//  290  *
+//  291  * @param uint8 * - Pointer to the buffer to use build and send the RPC message.
+//  292  *
+//  293  * @return      None.
+//  294  **************************************************************************************************
+//  295  */
+//  296 uint8 *MT_TransportAlloc(uint8 cmd0, uint8 len)
+//  297 {
+//  298 #if !defined CC2531ZNP
+//  299   if (ZNP_CFG1_UART == znpCfg1)
+//  300 #endif
+//  301   {
+//  302     return npMtUartAlloc(cmd0, len);
+//  303   }
+//  304 #if !defined CC2531ZNP
+//  305   else
+//  306   {
+//  307     return npMtSpiAlloc(cmd0, len);
+//  308   }
+//  309 #endif
+//  310 }
+//  311 
+//  312 /**************************************************************************************************
+//  313  * @fn          MT_TransportSend
+//  314  *
+//  315  * @brief       This function is the definition of the physical transport API for sending a message.
+//  316  *
+//  317  * input parameters
+//  318  *
+//  319  * @param pBuf - Pointer to the buffer created with MT_TransportAlloc.
+//  320  *
+//  321  * output parameters
+//  322  *
+//  323  * None.
+//  324  *
+//  325  * @return      None.
+//  326  **************************************************************************************************
+//  327  */
+//  328 void MT_TransportSend(uint8 *pBuf)
+//  329 {
+//  330 #if !defined CC2531ZNP
+//  331   if (ZNP_CFG1_UART == znpCfg1)
+//  332 #endif
+//  333   {
+//  334     npMtUartSend(pBuf);
+//  335   }
+//  336 #if !defined CC2531ZNP
+//  337   else
+//  338   {
+//  339     npMtSpiSend(pBuf);
+//  340   }
+//  341 #endif
+//  342 }
+//  343 
+//  344 /**************************************************************************************************
+//  345  * @fn         npInit
+//  346  *
+//  347  * @brief      This function is the secondary initialization that resolves conflicts during
+//  348  *             osalInitTasks(). For example, since ZNP is the highest priority task, and
+//  349  *             specifically because the ZNP task is initialized before the ZDApp task, if znpInit()
+//  350  *             registers anything with ZDO_RegisterForZdoCB(), it is wiped out when ZDApp task
+//  351  *             initialization invokes ZDApp_InitZdoCBFunc().
+//  352  *             There may be other existing or future such races, so try to do all possible
+//  353  *             NP initialization here vice in znpInit().
+//  354  *
+//  355  * input parameters
+//  356  *
+//  357  * None.
+//  358  *
+//  359  * output parameters
+//  360  *
+//  361  * None.
+//  362  *
+//  363  * @return      None.
+//  364  **************************************************************************************************
+//  365  */
+//  366 static void npInit(void)
+//  367 {
+//  368   if (ZNP_CFG1_UART == znpCfg1)
+//  369   {
+//  370     halUARTCfg_t uartConfig;
+//  371 
+//  372     uartConfig.configured           = TRUE;
+//  373     uartConfig.baudRate             = HAL_UART_BR_19200;
+//  374     uartConfig.flowControl          = TRUE;
+//  375     uartConfig.flowControlThreshold = HAL_UART_FLOW_THRESHOLD;
+//  376     uartConfig.rx.maxBufSize        = HAL_UART_RX_BUF_SIZE;
+//  377     uartConfig.tx.maxBufSize        = HAL_UART_TX_BUF_SIZE;
+//  378     uartConfig.idleTimeout          = HAL_UART_IDLE_TIMEOUT;
+//  379     uartConfig.intEnable            = TRUE;
+//  380     uartConfig.callBackFunc         = npUartCback;
+//  381     HalUARTOpen(HAL_UART_PORT, &uartConfig);
+//  382     MT_UartRegisterTaskID(znpTaskId);
+//  383   }
+//  384   else
+//  385   {
+//  386     //npSpiInit() is called by hal_spi.c: HalSpiInit().
+//  387   }
+//  388 
+//  389   npInitNV();
+//  390   MT_Init();
+//  391 #if defined TC_LINKKEY_JOIN
+//  392   zcl_TaskID = znpTaskId;
+//  393 #endif
+//  394 #if LQI_ADJUST
+//  395   ZMacLqiAdjustMode(LQI_ADJ_MODE1);
+//  396 #endif
+//  397 #if defined CC2531ZNP
+//  398   (void)osal_pwrmgr_task_state(znpTaskId, PWRMGR_HOLD);
+//  399 #endif
+//  400 }
+//  401 
+//  402 /**************************************************************************************************
+//  403  * @fn         npInitNV
+//  404  *
+//  405  * @brief
+//  406  *
+//  407  * input parameters
+//  408  *
+//  409  * None.
+//  410  *
+//  411  * output parameters
+//  412  *
+//  413  * None.
+//  414  *
+//  415  * @return      None.
+//  416  **************************************************************************************************
+//  417  */
+//  418 static void npInitNV(void)
+//  419 {
+//  420   /* 4 x 2 bytes ZNP_NV_APP_ITEM_X */
+//  421   osal_nv_item_init(ZNP_NV_APP_ITEM_1, 2, NULL);
+//  422   osal_nv_item_init(ZNP_NV_APP_ITEM_2, 2, NULL);
+//  423   osal_nv_item_init(ZNP_NV_APP_ITEM_3, 2, NULL);
+//  424   osal_nv_item_init(ZNP_NV_APP_ITEM_4, 2, NULL);
+//  425 
+//  426   /* 2 x 16 bytes ZNP_NV_APP_ITEM_X */
+//  427   osal_nv_item_init(ZNP_NV_APP_ITEM_5, 16, NULL);
+//  428   osal_nv_item_init(ZNP_NV_APP_ITEM_6, 16, NULL);
+//  429 }
+//  430 
+//  431 /**************************************************************************************************
+//  432  * @fn          npUartCback
+//  433  *
+//  434  * @brief       This function is the UART callback processor.
+//  435  *
+//  436  * input parameters
+//  437  *
+//  438  * @param port - The port being used for UART.
+//  439  * @param event - The reason for the callback.
+//  440  *
+//  441  * output parameters
+//  442  *
+//  443  * None.
+//  444  *
+//  445  * @return      None.
+//  446  **************************************************************************************************
+//  447  */
+//  448 static void npUartCback(uint8 port, uint8 event)
+//  449 {
+//  450   switch (event) {
+//  451   case HAL_UART_RX_FULL:
+//  452   case HAL_UART_RX_ABOUT_FULL:
+//  453   case HAL_UART_RX_TIMEOUT:
+//  454     MT_UartProcessZToolData(port, znpTaskId);
+//  455     break;
+//  456 
+//  457   case HAL_UART_TX_EMPTY:
+//  458     osal_set_event(znpTaskId, ZNP_UART_TX_READY_EVENT);
+//  459     break;
+//  460 
+//  461   default:
+//  462     break;
+//  463   }
+//  464 }
+//  465 
+//  466 /**************************************************************************************************
+//  467  * @fn          npUartTxReady
+//  468  *
+//  469  * @brief       This function gets and writes the next chunk of data to the UART.
+//  470  *
+//  471  * input parameters
+//  472  *
+//  473  * None.
+//  474  *
+//  475  * output parameters
+//  476  *
+//  477  * None.
+//  478  *
+//  479  * @return      None.
+//  480  **************************************************************************************************
+//  481  */
+//  482 static void npUartTxReady(void)
+//  483 {
+//  484   static uint16 npUartTxCnt = 0;
+//  485   static uint8 *npUartTxMsg = NULL;
+//  486   static uint8 *pMsg = NULL;
+//  487 
+//  488   if (!npUartTxMsg)
+//  489   {
+//  490     if ((pMsg = npUartTxMsg = osal_msg_dequeue(&npTxQueue)))
+//  491     {
+//  492       /* | SOP | Data Length | CMD |  DATA   | FSC |
+//  493        * |  1  |     1       |  2  | as dLen |  1  |
+//  494        */
+//  495       npUartTxCnt = pMsg[1] + MT_UART_FRAME_OVHD + MT_RPC_FRAME_HDR_SZ;
+//  496     }
+//  497   }
+//  498 
+//  499   if (npUartTxMsg)
+//  500   {
+//  501     uint16 len = HalUARTWrite(HAL_UART_PORT, pMsg, npUartTxCnt);
+//  502     npUartTxCnt -= len;
+//  503 
+//  504     if (npUartTxCnt == 0)
+//  505     {
+//  506       osal_msg_deallocate(npUartTxMsg);
+//  507       npUartTxMsg = NULL;
+//  508     }
+//  509     else
+//  510     {
+//  511       pMsg += len;
+//  512     }
+//  513   }
+//  514 }
+//  515 
+//  516 /**************************************************************************************************
+//  517  * @fn          npMtUartAlloc
+//  518  *
+//  519  * @brief       This function allocates a buffer for Txing on UART.
+//  520  *
+//  521  * input parameters
+//  522  *
+//  523  * @param cmd0 - The first byte of the MT command id containing the command type and subsystem.
+//  524  * @param len - Data length required.
+//  525  *
+//  526  * output parameters
+//  527  *
+//  528  * None.
+//  529  *
+//  530  * @return      Pointer to the buffer obtained; possibly NULL if an allocation failed.
+//  531  **************************************************************************************************
+//  532  */
+//  533 static uint8* npMtUartAlloc(uint8 cmd0, uint8 len)
+//  534 {
+//  535   uint8 *p;
+//  536 
+//  537   if ((p = osal_msg_allocate(len + MT_RPC_FRAME_HDR_SZ + MT_UART_FRAME_OVHD)) != NULL)
+//  538   {
+//  539     return p + 1;
+//  540   }
+//  541 
+//  542   return NULL;
+//  543 }
+//  544 
+//  545 /**************************************************************************************************
+//  546  * @fn          npMtUartSend
+//  547  *
+//  548  * @brief       This function transmits or enqueues the buffer for transmitting on UART.
+//  549  *
+//  550  * input parameters
+//  551  *
+//  552  * @param pBuf - Pointer to the buffer to transmit on the UART.
+//  553  *
+//  554  * output parameters
+//  555  *
+//  556  * None.
+//  557  *
+//  558  * @return      None.
+//  559  **************************************************************************************************
+//  560  */
+//  561 static void npMtUartSend(uint8 *pBuf)
+//  562 {
+//  563   uint8 len = pBuf[0] + MT_RPC_FRAME_HDR_SZ;
+//  564 
+//  565   pBuf[len] = MT_UartCalcFCS(pBuf, len);
+//  566   pBuf--;
+//  567   pBuf[0] = MT_UART_SOF;
+//  568 
+//  569   osal_msg_enqueue(&npTxQueue, pBuf);
+//  570   osal_set_event(znpTaskId, ZNP_UART_TX_READY_EVENT);
+//  571 }
+//  572 
+//  573 #if !defined CC2531ZNP
+//  574 /**************************************************************************************************
+//  575  * @fn          npMtSpiAlloc
+//  576  *
+//  577  * @brief       This function gets or allocates a buffer for Txing on SPI.
+//  578  *
+//  579  * input parameters
+//  580  *
+//  581  * @param cmd0 - The first byte of the MT command id containing the command type and subsystem.
+//  582  * @param len - Data length required.
+//  583  *
+//  584  * output parameters
+//  585  *
+//  586  * None.
+//  587  *
+//  588  * @return      Pointer to the buffer obtained; possibly NULL if an allocation failed.
+//  589  **************************************************************************************************
+//  590  */
+//  591 static uint8* npMtSpiAlloc(uint8 cmd0, uint8 len)
+//  592 {
+//  593   if ((cmd0 & MT_RPC_CMD_TYPE_MASK) == MT_RPC_CMD_SRSP)
+//  594   {
+//  595     return npSpiSRspAlloc(len);
+//  596   }
+//  597   else
+//  598   {
+//  599     return npSpiAReqAlloc(len);
+//  600   }
+//  601 }
+//  602 
+//  603 /**************************************************************************************************
+//  604  * @fn          npMtSpiSend
+//  605  *
+//  606  * @brief       This function transmits or enqueues the buffer for transmitting on SPI.
+//  607  *
+//  608  * input parameters
+//  609  *
+//  610  * @param pBuf - Pointer to the buffer to transmit on the SPI.
+//  611  *
+//  612  * output parameters
+//  613  *
+//  614  * None.
+//  615  *
+//  616  * @return      None.
+//  617  **************************************************************************************************
+//  618  */
+//  619 static void npMtSpiSend(uint8 *pBuf)
+//  620 {
+//  621   if ((pBuf[1] & MT_RPC_CMD_TYPE_MASK) == MT_RPC_CMD_SRSP)
+//  622   {
+//  623     npSpiSRspReady(pBuf);
+//  624   }
+//  625   else
+//  626   {
+//  627     osal_msg_enqueue(&npTxQueue, pBuf);
+//  628     npSpiAReqReady();
+//  629   }
+//  630 }
+//  631 
+//  632 /**************************************************************************************************
+//  633  * @fn          npSpiPollCallback
+//  634  *
+//  635  * @brief       This function is called by the SPI driver when a POLL frame is received.
+//  636  *
+//  637  * input parameters
+//  638  *
+//  639  * None.
+//  640  *
+//  641  * output parameters
+//  642  *
+//  643  * None.
+//  644  *
+//  645  * @return      A pointer to an OSAL message buffer containing the next AREQ frame to transmit,
+//  646  *              if any; NULL otherwise.
+//  647  **************************************************************************************************
+//  648  */
+//  649 uint8* npSpiPollCallback(void)
+//  650 {
+//  651   return osal_msg_dequeue(&npTxQueue);
+//  652 }
+//  653 
+//  654 /**************************************************************************************************
+//  655  * @fn          npSpiReadyCallback
+//  656  *
+//  657  * @brief       This function is called by the SPI driver to check if any data is ready to send.
+//  658  *
+//  659  * input parameters
+//  660  *
+//  661  * None.
+//  662  *
+//  663  * output parameters
+//  664  *
+//  665  * None.
+//  666  *
+//  667  * @return      TRUE if data is ready to send; FALSE otherwise.
+//  668  **************************************************************************************************
+//  669  */
+//  670 bool npSpiReadyCallback(void)
+//  671 {
+//  672   return !OSAL_MSG_Q_EMPTY(&npTxQueue);
+//  673 }
+//  674 #endif
+//  675 
+//  676 /**************************************************************************************************
+//  677 */
+//  678 #endif
+// 
+// 2 bytes in segment XDATA_Z
+// 
+// 2 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: 1

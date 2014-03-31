@@ -23,7 +23,7 @@
   its documentation for any purpose.
 
   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-  PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+  PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -59,7 +59,7 @@
  *                        Note that only one of them can be defined
  * ------------------------------------------------------------------------------------------------
  */
-#define xHAL_PA_LNA
+#define HAL_PA_LNA
 #define xHAL_PA_LNA_CC2590
 
 
@@ -230,8 +230,8 @@ extern unsigned char znpCfg0;
  * ------------------------------------------------------------------------------------------------
  */
 
-#define ACTIVE_LOW        !
-#define ACTIVE_HIGH       !!    /* double negation forces result to be '1' */
+#define ACTIVE_LOW        !!
+#define ACTIVE_HIGH       !    /* double negation forces result to be '1' */
 
 /* S1 */
 #define PUSH1_BV          BV(1)
@@ -326,7 +326,11 @@ extern void MAC_RfFrontendSetup(void);
 /* Default powerup with P1_2 as input with pullup. P1_2 is read into znpCfg0 is in "init_board()".
  * 1->0x00 external 32 kHz xosc & 0->0x80 for internal. 
  */
-#define HAL_CLOCK_STABLE()    st( uint8 OSC_32KHZ = ((znpCfg0 == ZNP_CFG0_32K_XTAL) ? 0x00 : 0x80); \
+
+#define OSC_32KHZ  0x00 /* external 32 KHz xosc */
+#define HAL_CLOCK_STABLE()    st( while (CLKCONSTA != (CLKCONCMD_32MHZ | OSC_32KHZ)); )
+
+//st( uint8 OSC_32KHZ = ((znpCfg0 == ZNP_CFG0_32K_XTAL) ? 0x00 : 0x80); \
                                   while (CLKCONSTA != (CLKCONCMD_32MHZ | OSC_32KHZ)); )
 
 #if defined CC2530_MK
@@ -341,7 +345,6 @@ extern void MAC_RfFrontendSetup(void);
 
 #define HAL_BOARD_INIT() st                                      \
 (                                                                \
-  uint8 OSC_32KHZ = OSC_32KHZ_VALUE;                             \
   uint16 i;                                                      \
                                                                  \
   SLEEPCMD &= ~OSC_PD;                       /* turn on 16MHz RC and 32MHz XOSC */                \
@@ -360,7 +363,6 @@ extern void MAC_RfFrontendSetup(void);
 
 #define HAL_BOARD_INIT() st                                      \
 (                                                                \
-  uint8 OSC_32KHZ = OSC_32KHZ_VALUE;                             \
   uint16 i;                                                      \
                                                                  \
   SLEEPCMD &= ~OSC_PD;                       /* turn on 16MHz RC and 32MHz XOSC */                \
@@ -524,7 +526,7 @@ st( \
 
 /* Set to TRUE enable AES usage, FALSE disable it */
 #ifndef HAL_AES
-#define HAL_AES TRUE
+#define HAL_AES FALSE
 #endif
 
 #ifndef HAL_AES_DMA
@@ -538,7 +540,7 @@ st( \
 
 /* Set to TRUE enable LED usage, FALSE disable it */
 #ifndef HAL_LED
-#define HAL_LED FALSE
+#define HAL_LED TRUE
 #endif
 #if (!defined BLINK_LEDS) && (HAL_LED == TRUE)
 #define BLINK_LEDS
@@ -549,7 +551,7 @@ st( \
 #define HAL_KEY FALSE
 #endif
 
-#define HAL_SPI       TRUE
+#define HAL_SPI       FALSE
 #define HAL_UART      TRUE
 
 #if defined HAL_SB_BOOT_CODE

@@ -86,6 +86,9 @@ extern "C" {
   #endif
   #if !defined ( NWK_MANAGER )
     //#define NWK_MANAGER // WARNING: this should be enabled only for one device per network
+    #if ZG_DEVICE_COORDINATOR_TYPE
+      #define NWK_MANAGER     //启动为coord时，开启, 别的时候不定义
+    #endif
   #endif
   #if !defined ( ZIGBEE_FRAGMENTATION )
     #define ZIGBEE_FRAGMENTATION
@@ -410,7 +413,8 @@ extern byte CskipChldrn[];
 
 extern byte gMIN_TREE_LINK_COST;
 
-extern CONST byte defaultKey[];
+//extern CONST byte defaultKey[];
+extern byte defaultKey[];
 extern CONST byte defaultTCLinkKey[];
 
 extern CONST uint8 gMAX_SOURCE_ROUTE;

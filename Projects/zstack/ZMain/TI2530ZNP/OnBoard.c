@@ -24,7 +24,7 @@
   its documentation for any purpose.
 
   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
-  PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+  PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
@@ -61,6 +61,8 @@
 /* Allow access macRandomByte() */
 #include "mac_radio_defs.h"
 
+#include "NLMEDE.h"
+#include "OSAL_Nv.h"
 /*********************************************************************
  * CONSTANTS
  */
@@ -148,11 +150,12 @@ void InitBoard( uint8 level )
     znpCfg1 = ZNP_CFG1_SPI;
     znpCfg0 = ZNP_CFG0_32K_OSC;
 #else
-    znpCfg1 = P2_0;
+/*    znpCfg1 = P2_0;
     znpCfg0 = P1_2;
     // Tri-state the 2 CFG inputs after being read (see hal_board_cfg_xxx.h for CFG0.)
     P1INP |= BV(2);
-    P2INP |= BV(0);
+    P2INP |= BV(0);*/
+    znpCfg1 = ZNP_CFG1_UART;
 #endif
   }
   else  // !OB_COLD
@@ -454,5 +457,30 @@ uint8 GetUserDipSw( void )
   return 0;
 }
 
+
+/*********************************************************************
+ * @fn      restore_factory_setting
+ *
+ * @brief   Restore the device to factory settings.
+ *
+ * @param   none
+ *
+ * @return  none
+ *
+ *********************************************************************/
+void restore_factory_setting( void)
+{
+  uint8 startOptions;
+  
+  NLME_InitNV();
+  NLME_SetDefaultNV();
+  
+  zgWriteStartupOptions( ZG_STARTUP_SET,ZCD_STARTOPT_DEFAULT_NETWORK_STATE );
+  startOptions = ZCD_STARTOPT_CLEAR_STATE | ZCD_STARTOPT_CLEAR_CONFIG;
+  osal_nv_write(ZCD_NV_STARTUP_OPTION, 0, sizeof(uint8),&startOptions);
+
+  SystemReset();
+ // Onboard_soft_reset();
+}
 /*********************************************************************
 *********************************************************************/

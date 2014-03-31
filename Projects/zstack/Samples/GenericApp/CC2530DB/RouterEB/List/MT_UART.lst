@@ -1,0 +1,783 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.1.10194/W32 for 8051         20/Feb/2014  17:18:54 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  Z:\Designs\ZigbeeTI\CODE\work\Components\mt\MT_UAR #
+#                          T.c                                                #
+#    Command line       =  -f Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\Tools\CC2530DB #
+#                          \f8wRouter.cfg (-DCPU32MHZ -DROOT=__near_func      #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8         #
+#                          -DMAC_CFG_RX_MAX=5 -DRTR_NWK) -f                   #
+#                          Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\..\..\..\Tools\CC2530DB\f8 #
+#                          wConfig.cfg (-DZIGBEEPRO -DSECURE=0                #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00002000                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DLINK_STATUS_JITTER_MASK=0x007F                   #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116                           #
+#                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const     #
+#                          __code" -DGENERIC=__generic                        #
+#                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000        #
+#                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)   #
+#                          -DREJOIN_POLL_RATE=440 Z:\Designs\ZigbeeTI\CODE\wo #
+#                          rk\Components\mt\MT_UART.c -D ZTOOL_P1 -D          #
+#                          xNV_RESTORE -D START_ROUTER -D NV_INIT -D          #
+#                          ZIGBEE_FREQ_AGILITY -D ZIGBEE_PANID_CONFLICT -lC   #
+#                          Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\RouterEB\List\ -lA         #
+#                          Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\RouterEB\List\             #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\RouterEB\Obj\ -e           #
+#                          --no_code_motion --debug --core=plain --dptr=16,1  #
+#                          --data_model=large --code_model=banked             #
+#                          --calling_convention=xdata_reentrant               #
+#                          --place_constants=data_rom --nr_virtual_regs 16    #
+#                          -I Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\ -I                     #
+#                          Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\..\Source\ -I              #
+#                          Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\..\..\..\ZMain\TI2530DB\   #
+#                          -I Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\S #
+#                          amples\GenericApp\CC2530DB\..\..\..\..\..\Componen #
+#                          ts\hal\include\ -I Z:\Designs\ZigbeeTI\CODE\work\P #
+#                          rojects\zstack\Samples\GenericApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\hal\target\CC2530EB\ -I         #
+#                          Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          mac\include\ -I Z:\Designs\ZigbeeTI\CODE\work\Proj #
+#                          ects\zstack\Samples\GenericApp\CC2530DB\..\..\..\. #
+#                          .\..\Components\mac\high_level\ -I                 #
+#                          Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          mac\low_level\srf04\ -I Z:\Designs\ZigbeeTI\CODE\w #
+#                          ork\Projects\zstack\Samples\GenericApp\CC2530DB\.. #
+#                          \..\..\..\..\Components\mac\low_level\srf04\single #
+#                          _chip\ -I Z:\Designs\ZigbeeTI\CODE\work\Projects\z #
+#                          stack\Samples\GenericApp\CC2530DB\..\..\..\..\..\C #
+#                          omponents\mt\ -I Z:\Designs\ZigbeeTI\CODE\work\Pro #
+#                          jects\zstack\Samples\GenericApp\CC2530DB\..\..\..\ #
+#                          ..\..\Components\osal\include\ -I                  #
+#                          Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          services\saddr\ -I Z:\Designs\ZigbeeTI\CODE\work\P #
+#                          rojects\zstack\Samples\GenericApp\CC2530DB\..\..\. #
+#                          .\..\..\Components\services\sdata\ -I              #
+#                          Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          stack\af\ -I Z:\Designs\ZigbeeTI\CODE\work\Project #
+#                          s\zstack\Samples\GenericApp\CC2530DB\..\..\..\..\. #
+#                          .\Components\stack\nwk\ -I                         #
+#                          Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          stack\sapi\ -I Z:\Designs\ZigbeeTI\CODE\work\Proje #
+#                          cts\zstack\Samples\GenericApp\CC2530DB\..\..\..\.. #
+#                          \..\Components\stack\sec\ -I                       #
+#                          Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          stack\sys\ -I Z:\Designs\ZigbeeTI\CODE\work\Projec #
+#                          ts\zstack\Samples\GenericApp\CC2530DB\..\..\..\..\ #
+#                          ..\Components\stack\zdo\ -I                        #
+#                          Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\..\..\..\..\..\Components\ #
+#                          zmac\ -I Z:\Designs\ZigbeeTI\CODE\work\Projects\zs #
+#                          tack\Samples\GenericApp\CC2530DB\..\..\..\..\..\Co #
+#                          mponents\zmac\f8w\ -Ohz --require_prototypes       #
+#    List file          =  Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\RouterEB\List\MT_UART.lst  #
+#    Object file        =  Z:\Designs\ZigbeeTI\CODE\work\Projects\zstack\Samp #
+#                          les\GenericApp\CC2530DB\RouterEB\Obj\MT_UART.r51   #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+Z:\Designs\ZigbeeTI\CODE\work\Components\mt\MT_UART.c
+      1          /***************************************************************************************************
+      2            Filename:       MT_UART.c
+      3            Revised:        $Date: 2009-03-12 16:25:22 -0700 (Thu, 12 Mar 2009) $
+      4            Revision:       $Revision: 19404 $
+      5          
+      6            Description:  This module handles anything dealing with the serial port.
+      7          
+      8            Copyright 2007 Texas Instruments Incorporated. All rights reserved.
+      9          
+     10            IMPORTANT: Your use of this Software is limited to those specific rights
+     11            granted under the terms of a software license agreement between the user
+     12            who downloaded the software, his/her employer (which must be your employer)
+     13            and Texas Instruments Incorporated (the "License").  You may not use this
+     14            Software unless you agree to abide by the terms of the License. The License
+     15            limits your use, and you acknowledge, that the Software may not be modified,
+     16            copied or distributed unless embedded on a Texas Instruments microcontroller
+     17            or used solely and exclusively in conjunction with a Texas Instruments radio
+     18            frequency transceiver, which is integrated into your product.  Other than for
+     19            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     20            works of, modify, distribute, perform, display or sell this Software and/or
+     21            its documentation for any purpose.
+     22          
+     23            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     24            PROVIDED “AS IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     25            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     26            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     27            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     28            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     29            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     30            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     31            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     32            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     33            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     34          
+     35            Should you have any questions regarding your right to use this Software,
+     36            contact Texas Instruments Incorporated at www.TI.com.
+     37          
+     38          ***************************************************************************************************/
+     39          
+     40          /***************************************************************************************************
+     41           * INCLUDES
+     42           ***************************************************************************************************/
+     43          #include "ZComDef.h"
+     44          #include "OSAL.h"
+     45          #include "hal_uart.h"
+     46          #include "MT.h"
+     47          #include "MT_UART.h"
+     48          #include "OSAL_Memory.h"
+     49          
+     50          #include "GenericApp.h"
+     51          /***************************************************************************************************
+     52           * MACROS
+     53           ***************************************************************************************************/
+     54          
+     55          /***************************************************************************************************
+     56           * CONSTANTS
+     57           ***************************************************************************************************/
+     58          /* State values for ZTool protocal */
+     59          #define SOP_STATE      0x00
+     60          #define CMD_STATE1     0x01
+     61          #define CMD_STATE2     0x02
+     62          #define LEN_STATE      0x03
+     63          #define DATA_STATE     0x04
+     64          #define FCS_STATE      0x05
+     65          
+     66          /***************************************************************************************************
+     67           *                                         GLOBAL VARIABLES
+     68           ***************************************************************************************************/
+     69          /* Used to indentify the application ID for osal task */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     70          byte App_TaskID;
+   \                     App_TaskID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     71          
+     72          /* ZTool protocal parameters */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     73          uint8 state;
+   \                     state:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     74          uint8  CMD_Token[2];
+   \                     CMD_Token:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     75          uint8  LEN_Token;
+   \                     LEN_Token:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     76          uint8  FSC_Token;
+   \                     FSC_Token:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     77          mtOSALSerialData_t  *pMsg;
+   \                     pMsg:
+   \   000000                DS 2
+   \   000002                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+     78          uint8  tempDataLen;
+   \                     tempDataLen:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+     79          
+     80          #if defined (ZAPP_P1) || defined (ZAPP_P2)
+     81          uint16  MT_UartMaxZAppBufLen;
+     82          bool    MT_UartZAppRxStatus;
+     83          #endif
+     84          
+     85          
+     86          /***************************************************************************************************
+     87           *                                          LOCAL FUNCTIONS
+     88           ***************************************************************************************************/
+     89          
+     90          /***************************************************************************************************
+     91           * @fn      MT_UartInit
+     92           *
+     93           * @brief   Initialize MT with UART support
+     94           *
+     95           * @param   None
+     96           *
+     97           * @return  None
+     98          ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     99          void MT_UartInit ()
+   \                     MT_UartInit:
+    100          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 29
+   \   000004   74E3         MOV     A,#-0x1d
+   \   000006   12....       LCALL   ?ALLOC_XSTACK8
+    101            halUARTCfg_t uartConfig;
+    102          
+    103            /* Initialize APP ID */
+    104            App_TaskID = 0;
+   \   000009   90....       MOV     DPTR,#App_TaskID
+   \   00000C   E4           CLR     A
+   \   00000D   F0           MOVX    @DPTR,A
+    105          
+    106            /* UART Configuration */
+    107            uartConfig.configured           = TRUE;
+   \   00000E   85..82       MOV     DPL,?XSP + 0
+   \   000011   85..83       MOV     DPH,?XSP + 1
+   \   000014   04           INC     A
+   \   000015   F0           MOVX    @DPTR,A
+    108            uartConfig.baudRate             = MT_UART_DEFAULT_BAUDRATE;
+   \   000016   12....       LCALL   ?XSTACK_DISP0_8
+   \   000019   7401         MOV     A,#0x1
+   \   00001B   F0           MOVX    @DPTR,A
+    109            uartConfig.flowControl          = MT_UART_DEFAULT_OVERFLOW;
+   \   00001C   04           INC     A
+   \   00001D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000020   E4           CLR     A
+   \   000021   F0           MOVX    @DPTR,A
+    110            uartConfig.flowControlThreshold = MT_UART_DEFAULT_THRESHOLD;
+   \   000022   7403         MOV     A,#0x3
+   \   000024   12....       LCALL   ?XSTACK_DISP0_8
+   \   000027   747F         MOV     A,#0x7f
+   \   000029   F0           MOVX    @DPTR,A
+   \   00002A   A3           INC     DPTR
+   \   00002B   E4           CLR     A
+   \   00002C   F0           MOVX    @DPTR,A
+    111            uartConfig.rx.maxBufSize        = MT_UART_DEFAULT_MAX_RX_BUFF;
+   \   00002D   740A         MOV     A,#0xa
+   \   00002F   12....       LCALL   ?XSTACK_DISP0_8
+   \   000032   74FF         MOV     A,#-0x1
+   \   000034   F0           MOVX    @DPTR,A
+   \   000035   A3           INC     DPTR
+   \   000036   E4           CLR     A
+   \   000037   F0           MOVX    @DPTR,A
+    112            uartConfig.tx.maxBufSize        = MT_UART_DEFAULT_MAX_TX_BUFF;
+   \   000038   7412         MOV     A,#0x12
+   \   00003A   12....       LCALL   ?XSTACK_DISP0_8
+   \   00003D   74FF         MOV     A,#-0x1
+   \   00003F   F0           MOVX    @DPTR,A
+   \   000040   A3           INC     DPTR
+   \   000041   E4           CLR     A
+   \   000042   F0           MOVX    @DPTR,A
+    113            uartConfig.idleTimeout          = MT_UART_DEFAULT_IDLE_TIMEOUT;
+   \   000043   7405         MOV     A,#0x5
+   \   000045   12....       LCALL   ?XSTACK_DISP0_8
+   \   000048   7406         MOV     A,#0x6
+   \   00004A   F0           MOVX    @DPTR,A
+    114            uartConfig.intEnable            = TRUE;
+   \   00004B   7416         MOV     A,#0x16
+   \   00004D   12....       LCALL   ?XSTACK_DISP0_8
+   \   000050   7401         MOV     A,#0x1
+   \   000052   F0           MOVX    @DPTR,A
+    115          #if defined (ZTOOL_P1) || defined (ZTOOL_P2)
+    116            uartConfig.callBackFunc         = MT_UartProcessZToolData;
+   \   000053   741B         MOV     A,#0x1b
+   \   000055   12....       LCALL   ?XSTACK_DISP0_8
+   \   000058   74..         MOV     A,#??MT_UartProcessZToolData?relay & 0xff
+   \   00005A   F0           MOVX    @DPTR,A
+   \   00005B   A3           INC     DPTR
+   \   00005C   74..         MOV     A,#(??MT_UartProcessZToolData?relay >> 8) & 0xff
+   \   00005E   F0           MOVX    @DPTR,A
+    117          #elif defined (ZAPP_P1) || defined (ZAPP_P2)
+    118            uartConfig.callBackFunc         = MT_UartProcessZAppData;
+    119          #else
+    120            uartConfig.callBackFunc         = NULL;
+    121          #endif
+    122          
+    123            /* Start UART */
+    124          #if defined (MT_UART_DEFAULT_PORT)
+    125            HalUARTOpen (MT_UART_DEFAULT_PORT, &uartConfig);
+   \   00005F                ; Setup parameters for call to function HalUARTOpen
+   \   00005F   85..82       MOV     DPL,?XSP + 0
+   \   000062   85..83       MOV     DPH,?XSP + 1
+   \   000065   AA82         MOV     R2,DPL
+   \   000067   AB83         MOV     R3,DPH
+   \   000069   7900         MOV     R1,#0x0
+   \   00006B   12....       LCALL   ??HalUARTOpen?relay
+    126          #else
+    127            /* Silence IAR compiler warning */
+    128            (void)uartConfig;
+    129          #endif
+    130          
+    131            /* Initialize for ZApp */
+    132          #if defined (ZAPP_P1) || defined (ZAPP_P2)
+    133            /* Default max bytes that ZAPP can take */
+    134            MT_UartMaxZAppBufLen  = 1;
+    135            MT_UartZAppRxStatus   = MT_UART_ZAPP_RX_READY;
+    136          #endif
+    137          
+    138          }
+   \   00006E   741D         MOV     A,#0x1d
+   \   000070   12....       LCALL   ?DEALLOC_XSTACK8
+   \   000073                REQUIRE ?Subroutine0
+   \   000073                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   D083         POP     DPH
+   \   000002   D082         POP     DPL
+   \   000004   02....       LJMP    ?BRET
+    139          
+    140          /***************************************************************************************************
+    141           * @fn      MT_SerialRegisterTaskID
+    142           *
+    143           * @brief   This function registers the taskID of the application so it knows
+    144           *          where to send the messages whent they come in.
+    145           *
+    146           * @param   void
+    147           *
+    148           * @return  void
+    149           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    150          void MT_UartRegisterTaskID( byte taskID )
+   \                     MT_UartRegisterTaskID:
+    151          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    152            App_TaskID = taskID;
+   \   000004   E9           MOV     A,R1
+   \   000005   90....       MOV     DPTR,#App_TaskID
+   \   000008   F0           MOVX    @DPTR,A
+    153          }
+   \   000009   80..         SJMP    ?Subroutine0
+    154          
+    155          /***************************************************************************************************
+    156           * @fn      SPIMgr_CalcFCS
+    157           *
+    158           * @brief   Calculate the FCS of a message buffer by XOR'ing each byte.
+    159           *          Remember to NOT include SOP and FCS fields, so start at the CMD field.
+    160           *
+    161           * @param   byte *msg_ptr - message pointer
+    162           * @param   byte len - length (in bytes) of message
+    163           *
+    164           * @return  result byte
+    165           ***************************************************************************************************/
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    166          byte MT_UartCalcFCS( uint8 *msg_ptr, uint8 len )
+   \                     MT_UartCalcFCS:
+    167          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+   \   000004   E9           MOV     A,R1
+   \   000005   FC           MOV     R4,A
+    168            byte x;
+    169            byte xorResult;
+    170          
+    171            xorResult = 0;
+   \   000006   7900         MOV     R1,#0x0
+    172          
+    173            for ( x = 0; x < len; x++, msg_ptr++ )
+   \   000008   7800         MOV     R0,#0x0
+   \   00000A   800E         SJMP    ??MT_UartCalcFCS_0
+    174              xorResult = xorResult ^ *msg_ptr;
+   \                     ??MT_UartCalcFCS_1:
+   \   00000C   8A82         MOV     DPL,R2
+   \   00000E   8B83         MOV     DPH,R3
+   \   000010   E0           MOVX    A,@DPTR
+   \   000011   C9           XCH     A,R1
+   \   000012   69           XRL     A,R1
+   \   000013   F9           MOV     R1,A
+   \   000014   08           INC     R0
+   \   000015   A3           INC     DPTR
+   \   000016   AA82         MOV     R2,DPL
+   \   000018   AB83         MOV     R3,DPH
+   \                     ??MT_UartCalcFCS_0:
+   \   00001A   E8           MOV     A,R0
+   \   00001B   C3           CLR     C
+   \   00001C   9C           SUBB    A,R4
+   \   00001D   40ED         JC      ??MT_UartCalcFCS_1
+    175          
+    176            return ( xorResult );
+   \   00001F   80..         SJMP    ?Subroutine0
+    177          }
+    178          
+    179          
+    180          /***************************************************************************************************
+    181           * @fn      MT_UartProcessZToolData
+    182           *
+    183           * @brief   | SOP | Data Length  |   CMD   |   Data   |  FCS  |
+    184           *          |  1  |     1        |    2    |  0-Len   |   1   |
+    185           *
+    186           *          Parses the data and determine either is SPI or just simply serial data
+    187           *          then send the data to correct place (MT or APP)
+    188           *
+    189           * @param   port     - UART port
+    190           *          event    - Event that causes the callback
+    191           *
+    192           *
+    193           * @return  None
+    194           ***************************************************************************************************/
+    195          #if defined START_ROUTER
+    196          extern uint8 reg_len;
+    197          extern uint8 len_check_flag;
+    198          extern uint8 GenericApp_TaskID;
+    199          #endif
+    200          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    201          void MT_UartProcessZToolData ( uint8 port, uint8 event )
+   \                     MT_UartProcessZToolData:
+    202          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 1
+   \   000005   74FF         MOV     A,#-0x1
+   \   000007   12....       LCALL   ?ALLOC_XSTACK8
+   \   00000A   E9           MOV     A,R1
+   \   00000B   FE           MOV     R6,A
+    203            uint8  ch;
+    204            
+    205            (void)event;  // Intentionally unreferenced parameter
+   \   00000C   803B         SJMP    ??MT_UartProcessZToolData_0
+    206          
+    207            while (Hal_UART_RxBufLen(port))
+    208            {
+    209              // while length of RX buffer is not none, read one byte and put into global variable TxBuffer
+    210              HalUARTRead (port, &ch, 1);
+   \                     ??MT_UartProcessZToolData_1:
+   \   00000E                ; Setup parameters for call to function HalUARTRead
+   \   00000E   7C01         MOV     R4,#0x1
+   \   000010   7D00         MOV     R5,#0x0
+   \   000012   85..82       MOV     DPL,?XSP + 0
+   \   000015   85..83       MOV     DPH,?XSP + 1
+   \   000018   AA82         MOV     R2,DPL
+   \   00001A   AB83         MOV     R3,DPH
+   \   00001C   EE           MOV     A,R6
+   \   00001D   F9           MOV     R1,A
+   \   00001E   12....       LCALL   ??HalUARTRead?relay
+    211              TxBuffer.buf[TxBuffer.size++] = ch;
+   \   000021   85..82       MOV     DPL,?XSP + 0
+   \   000024   85..83       MOV     DPH,?XSP + 1
+   \   000027   E0           MOVX    A,@DPTR
+   \   000028   C0E0         PUSH    A
+   \   00002A   90....       MOV     DPTR,#TxBuffer + 512
+   \   00002D   E0           MOVX    A,@DPTR
+   \   00002E   24..         ADD     A,#TxBuffer & 0xff
+   \   000030   F8           MOV     R0,A
+   \   000031   A3           INC     DPTR
+   \   000032   E0           MOVX    A,@DPTR
+   \   000033   34..         ADDC    A,#(TxBuffer >> 8) & 0xff
+   \   000035   F9           MOV     R1,A
+   \   000036   8882         MOV     DPL,R0
+   \   000038   8983         MOV     DPH,R1
+   \   00003A   D0E0         POP     A
+   \   00003C   F0           MOVX    @DPTR,A
+   \   00003D   90....       MOV     DPTR,#TxBuffer + 512
+   \   000040   E0           MOVX    A,@DPTR
+   \   000041   2401         ADD     A,#0x1
+   \   000043   F0           MOVX    @DPTR,A
+   \   000044   A3           INC     DPTR
+   \   000045   E0           MOVX    A,@DPTR
+   \   000046   3400         ADDC    A,#0x0
+   \   000048   F0           MOVX    @DPTR,A
+    212            }
+   \                     ??MT_UartProcessZToolData_0:
+   \   000049                ; Setup parameters for call to function Hal_UART_RxBufLen
+   \   000049   EE           MOV     A,R6
+   \   00004A   F9           MOV     R1,A
+   \   00004B   12....       LCALL   ??Hal_UART_RxBufLen?relay
+   \   00004E   8B..         MOV     ?V0 + 1,R3
+   \   000050   EA           MOV     A,R2
+   \   000051   45..         ORL     A,?V0 + 1
+   \   000053   70B9         JNZ     ??MT_UartProcessZToolData_1
+    213            
+    214          #if defined START_ROUTER
+    215            // if start device as a router, check length of buffer, once size bigger than 3, send the event to user task
+    216            if ( len_check_flag )
+   \   000055   90....       MOV     DPTR,#len_check_flag
+   \   000058   E0           MOVX    A,@DPTR
+   \   000059   601F         JZ      ??MT_UartProcessZToolData_2
+    217            {
+    218              if( TxBuffer.size >= (reg_len*2 + 5))
+   \   00005B   90....       MOV     DPTR,#reg_len
+   \   00005E   E0           MOVX    A,@DPTR
+   \   00005F   C3           CLR     C
+   \   000060   33           RLC     A
+   \   000061   F8           MOV     R0,A
+   \   000062   E4           CLR     A
+   \   000063   33           RLC     A
+   \   000064   F9           MOV     R1,A
+   \   000065   E8           MOV     A,R0
+   \   000066   2405         ADD     A,#0x5
+   \   000068   F8           MOV     R0,A
+   \   000069   E9           MOV     A,R1
+   \   00006A   3400         ADDC    A,#0x0
+   \   00006C   F9           MOV     R1,A
+   \   00006D   7583..       MOV     DPH,#((TxBuffer + 512) >> 8) & 0xff
+   \   000070   7582..       MOV     DPL,#TxBuffer & 0xff
+   \   000073   E0           MOVX    A,@DPTR
+   \   000074   98           SUBB    A,R0
+   \   000075   A3           INC     DPTR
+   \   000076   E0           MOVX    A,@DPTR
+   \   000077   99           SUBB    A,R1
+   \   000078   400C         JC      ??MT_UartProcessZToolData_3
+    219              {
+    220                  osal_set_event( GenericApp_TaskID, TX_MSG_EVENT );
+   \                     ??MT_UartProcessZToolData_2:
+   \   00007A                ; Setup parameters for call to function osal_set_event
+   \   00007A   7A04         MOV     R2,#0x4
+   \   00007C   7B00         MOV     R3,#0x0
+   \   00007E   90....       MOV     DPTR,#GenericApp_TaskID
+   \   000081   E0           MOVX    A,@DPTR
+   \   000082   F9           MOV     R1,A
+   \   000083   12....       LCALL   ??osal_set_event?relay
+    221              }
+    222            }
+    223            else
+    224            {
+    225              osal_set_event( GenericApp_TaskID, TX_MSG_EVENT );
+    226            }
+    227          #endif
+    228          }
+   \                     ??MT_UartProcessZToolData_3:
+   \   000086   7401         MOV     A,#0x1
+   \   000088   12....       LCALL   ?DEALLOC_XSTACK8
+   \   00008B   7F02         MOV     R7,#0x2
+   \   00008D   02....       LJMP    ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_UartInit?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_UartInit
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_UartRegisterTaskID?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_UartRegisterTaskID
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_UartCalcFCS?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_UartCalcFCS
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??MT_UartProcessZToolData?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    MT_UartProcessZToolData
+    229          
+    230          #if defined (ZAPP_P1) || defined (ZAPP_P2)
+    231          /***************************************************************************************************
+    232           * @fn      MT_UartProcessZAppData
+    233           *
+    234           * @brief   | SOP | CMD  |   Data Length   | FSC  |
+    235           *          |  1  |  2   |       1         |  1   |
+    236           *
+    237           *          Parses the data and determine either is SPI or just simply serial data
+    238           *          then send the data to correct place (MT or APP)
+    239           *
+    240           * @param   port    - UART port
+    241           *          event   - Event that causes the callback
+    242           *
+    243           *
+    244           * @return  None
+    245           ***************************************************************************************************/
+    246          void MT_UartProcessZAppData ( uint8 port, uint8 event )
+    247          {
+    248          
+    249            osal_event_hdr_t  *msg_ptr;
+    250            uint16 length = 0;
+    251            uint16 rxBufLen  = Hal_UART_RxBufLen(MT_UART_DEFAULT_PORT);
+    252          
+    253            /*
+    254               If maxZAppBufferLength is 0 or larger than current length
+    255               the entire length of the current buffer is returned.
+    256            */
+    257            if ((MT_UartMaxZAppBufLen != 0) && (MT_UartMaxZAppBufLen <= rxBufLen))
+    258            {
+    259              length = MT_UartMaxZAppBufLen;
+    260            }
+    261            else
+    262            {
+    263              length = rxBufLen;
+    264            }
+    265          
+    266            /* Verify events */
+    267            if (event == HAL_UART_TX_FULL)
+    268            {
+    269              // Do something when TX if full
+    270              return;
+    271            }
+    272          
+    273            if (event & ( HAL_UART_RX_FULL | HAL_UART_RX_ABOUT_FULL | HAL_UART_RX_TIMEOUT))
+    274            {
+    275              if ( App_TaskID )
+    276              {
+    277                /*
+    278                   If Application is ready to receive and there is something
+    279                   in the Rx buffer then send it up
+    280                */
+    281                if ((MT_UartZAppRxStatus == MT_UART_ZAPP_RX_READY ) && (length != 0))
+    282                {
+    283                  /* Disable App flow control until it processes the current data */
+    284                   MT_UartAppFlowControl (MT_UART_ZAPP_RX_NOT_READY);
+    285          
+    286                  /* 2 more bytes are added, 1 for CMD type, other for length */
+    287                  msg_ptr = (osal_event_hdr_t *)osal_msg_allocate( length + sizeof(osal_event_hdr_t) );
+    288                  if ( msg_ptr )
+    289                  {
+    290                    msg_ptr->event = SPI_INCOMING_ZAPP_DATA;
+    291                    msg_ptr->status = length;
+    292          
+    293                    /* Read the data of Rx buffer */
+    294                    HalUARTRead( MT_UART_DEFAULT_PORT, (uint8 *)(msg_ptr + 1), length );
+    295          
+    296                    /* Send the raw data to application...or where ever */
+    297                    osal_msg_send( App_TaskID, (uint8 *)msg_ptr );
+    298                  }
+    299                }
+    300              }
+    301            }
+    302          }
+    303          
+    304          /***************************************************************************************************
+    305           * @fn      SPIMgr_ZAppBufferLengthRegister
+    306           *
+    307           * @brief
+    308           *
+    309           * @param   maxLen - Max Length that the application wants at a time
+    310           *
+    311           * @return  None
+    312           *
+    313           ***************************************************************************************************/
+    314          void MT_UartZAppBufferLengthRegister ( uint16 maxLen )
+    315          {
+    316            /* If the maxLen is larger than the RX buff, something is not right */
+    317            if (maxLen <= MT_UART_DEFAULT_MAX_RX_BUFF)
+    318              MT_UartMaxZAppBufLen = maxLen;
+    319            else
+    320              MT_UartMaxZAppBufLen = 1; /* default is 1 byte */
+    321          }
+    322          
+    323          /***************************************************************************************************
+    324           * @fn      SPIMgr_AppFlowControl
+    325           *
+    326           * @brief
+    327           *
+    328           * @param   status - ready to send or not
+    329           *
+    330           * @return  None
+    331           *
+    332           ***************************************************************************************************/
+    333          void MT_UartAppFlowControl ( bool status )
+    334          {
+    335          
+    336            /* Make sure only update if needed */
+    337            if (status != MT_UartZAppRxStatus )
+    338            {
+    339              MT_UartZAppRxStatus = status;
+    340            }
+    341          
+    342            /* App is ready to read again, ProcessZAppData have to be triggered too */
+    343            if (status == MT_UART_ZAPP_RX_READY)
+    344            {
+    345              MT_UartProcessZAppData (MT_UART_DEFAULT_PORT, HAL_UART_RX_TIMEOUT );
+    346            }
+    347          
+    348          }
+    349          
+    350          #endif //ZAPP
+    351          
+    352          /***************************************************************************************************
+    353          ***************************************************************************************************/
+
+   Maximum stack usage in bytes:
+
+     Function                ISTACK PSTACK XSTACK
+     --------                ------ ------ ------
+     MT_UartCalcFCS              2      0      0
+     MT_UartInit                 2      0     29
+       -> HalUARTOpen            4      0     58
+     MT_UartProcessZToolData     2      0     11
+       -> HalUARTRead            0      0     22
+       -> Hal_UART_RxBufLen      0      0     22
+       -> osal_set_event         0      0     22
+     MT_UartRegisterTaskID       2      0      0
+
+
+   Segment part sizes:
+
+     Function/Label                  Bytes
+     --------------                  -----
+     App_TaskID                         1
+     state                              1
+     CMD_Token                          2
+     LEN_Token                          1
+     FSC_Token                          1
+     pMsg                               2
+     tempDataLen                        1
+     MT_UartInit                      115
+     ?Subroutine0                       7
+     MT_UartRegisterTaskID             11
+     MT_UartCalcFCS                    33
+     MT_UartProcessZToolData          144
+     ??MT_UartInit?relay                6
+     ??MT_UartRegisterTaskID?relay      6
+     ??MT_UartCalcFCS?relay             6
+     ??MT_UartProcessZToolData?relay    6
+
+ 
+ 310 bytes in segment BANKED_CODE
+  24 bytes in segment BANK_RELAYS
+   9 bytes in segment XDATA_Z
+ 
+ 334 bytes of CODE  memory
+   9 bytes of XDATA memory
+
+Errors: none
+Warnings: none

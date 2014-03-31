@@ -47,7 +47,7 @@
 #include "MT_UART.h"
 #include "OSAL_Memory.h"
 
-#include "GenericApp.h"
+//#include "GenericApp.h"
 /***************************************************************************************************
  * MACROS
  ***************************************************************************************************/
@@ -208,7 +208,7 @@ void MT_UartProcessZToolData ( uint8 port, uint8 event )
   {
     // while length of RX buffer is not none, read one byte and put into global variable TxBuffer
     HalUARTRead (port, &ch, 1);
-    TxBuffer.buf[TxBuffer.size++] = ch;      
+ //   TxBuffer.buf[TxBuffer.size++] = ch;
   }
   
 #if defined START_ROUTER
@@ -221,7 +221,9 @@ void MT_UartProcessZToolData ( uint8 port, uint8 event )
     }
   }
   else
+  {
     osal_set_event( GenericApp_TaskID, TX_MSG_EVENT );
+  }
 #endif
 }
 

@@ -276,7 +276,11 @@
           <name>CCDefines</name>
           <state>ZTOOL_P1</state>
           <state>NV_INIT</state>
-          <state>NV_RESTORE</state>
+          <state>xNV_RESTORE</state>
+          <state>ZIGBEE_FREQ_AGILITY</state>
+          <state>PANID_DISPLAY</state>
+          <state>ZIGBEE_PANID_CONFLICT</state>
+          <state>NWK_MANAGER</state>
           <state>xMT_TASK</state>
           <state>xMT_SYS_FUNC</state>
           <state>xMT_ZDO_FUNC</state>
@@ -720,11 +724,11 @@
         </option>
         <option>
           <name>XOutOverride</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>OutputFile</name>
-          <state>GenericApp.d51</state>
+          <state>Coord_Rev9.hex</state>
         </option>
         <option>
           <name>OutputFormat</name>
@@ -898,7 +902,7 @@
         </option>
         <option>
           <name>DebugInformation</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>RuntimeControl</name>
@@ -1334,9 +1338,11 @@
         <option>
           <name>CCDefines</name>
           <state>ZTOOL_P1</state>
-          <state>NV_RESTORE</state>
+          <state>xNV_RESTORE</state>
           <state>START_ROUTER</state>
           <state>NV_INIT</state>
+          <state>ZIGBEE_FREQ_AGILITY</state>
+          <state>ZIGBEE_PANID_CONFLICT</state>
         </option>
         <option>
           <name>CCPreprocFile</name>

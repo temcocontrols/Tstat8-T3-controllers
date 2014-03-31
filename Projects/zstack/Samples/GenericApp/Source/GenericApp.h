@@ -66,6 +66,10 @@ extern "C"
 #define GENERICAPP_MAX_CLUSTERS       1
 #define GENERICAPP_CLUSTERID          2
 #define ACK_CMD_ID                    3
+#if defined ( START_ROUTER)
+  #define RSSI_REQ_ID                   4
+  #define RSSI_RSP_ID                   5
+#endif
 
 // Send Message Timeout
 #define GENERICAPP_SEND_MSG_TIMEOUT   5000     // Every 5 seconds
@@ -79,6 +83,7 @@ extern "C"
 
 #define TX_MSG_EVENT                  0x0004
 #define ACK_CHECK                     0x0008
+#define ASK_MODBUS_ID                 0x0020
   
 /*********************************************************************
  * MACROS

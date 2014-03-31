@@ -285,7 +285,7 @@ void ZDApp_Init( uint8 task_id )
   if ( devState != DEV_HOLD )
   {
     ZDOInitDevice( 0 );
-    HalLedBlink ( HAL_LED_1, 0, 50, 500 );
+//    HalLedBlink ( HAL_LED_1, 0, 50, 1000 );
   }
   else
   {
@@ -383,6 +383,7 @@ UINT16 ZDApp_event_loop( uint8 task_id, UINT16 events )
     devState = DEV_INIT;
     osal_set_event( ZDAppTaskID, ZDO_STATE_CHANGE_EVT );
 
+    HalLedSet ( HAL_LED_1, HAL_LED_MODE_TOGGLE );
     ZDO_StartDevice( (uint8)ZDO_Config_Node_Descriptor.LogicalType, devStartMode,
                      DEFAULT_BEACON_ORDER, DEFAULT_SUPERFRAME_ORDER );
 

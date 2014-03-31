@@ -1,0 +1,2001 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.1.10194/W32 for 8051        22/May/2013  10:02:21 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  D:\Texas Instruments\ZIG_TEMCO\Components\hal\tar /
+//                          get\CC2530USB\usb\library\usb_framework.c         /
+//    Command line       =  -f "D:\Texas Instruments\ZIG_TEMCO\Projects\zstac /
+//                          k\Samples\GenericApp\CC2531\..\..\..\Tools\CC2530 /
+//                          DB\f8wCoord.cfg" (-DCPU32MHZ -DROOT=__near_func   /
+//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
+//                          -DMAC_CFG_TX_DATA_MAX=5 -DMAC_CFG_TX_MAX=8        /
+//                          -DMAC_CFG_RX_MAX=5 -DZDO_COORDINATOR -DRTR_NWK)   /
+//                          -f "D:\Texas Instruments\ZIG_TEMCO\Projects\zstac /
+//                          k\Samples\GenericApp\CC2531\..\..\..\Tools\CC2530 /
+//                          DB\f8wConfig.cfg" (-DZIGBEEPRO -DSECURE=0         /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00002000                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DLINK_STATUS_JITTER_MASK=0x007F                  /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const    /
+//                          __code" -DGENERIC=__generic                       /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 "D:\Texas                  /
+//                          Instruments\ZIG_TEMCO\Components\hal\target\CC253 /
+//                          0USB\usb\library\usb_framework.c" -D ZTOOL_P1 -D  /
+//                          NV_INIT -D NV_RESTORE -D USB_DONGLE -D            /
+//                          MODBUS_SUPPLY -D xMT_TASK -D xMT_SYS_FUNC -D      /
+//                          xMT_ZDO_FUNC -lC "D:\Texas                        /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\Coordinator\List\" -lA "D:\Texas   /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\Coordinator\List\"                 /
+//                          --diag_suppress Pe001,Pa010 -o "D:\Texas          /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\Coordinator\Obj\" -e               /
+//                          --no_code_motion --debug --core=plain             /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I "D:\Texas                 /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\" -I "D:\Texas                     /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\Source\" -I "D:\Texas           /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\ZMain\TI2530DB\" -I       /
+//                          "D:\Texas Instruments\ZIG_TEMCO\Projects\zstack\S /
+//                          amples\GenericApp\CC2531\..\..\..\..\..\Component /
+//                          s\hal\include\" -I "D:\Texas                      /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\hal\targ /
+//                          et\CC2530USB\" -I "D:\Texas                       /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\hal\targ /
+//                          et\CC2530USB\usb\library\" -I "D:\Texas           /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\hal\targ /
+//                          et\CC2530USB\usb\library\cc2531\" -I "D:\Texas    /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\hal\targ /
+//                          et\CC2530USB\usb\class_cdc\" -I "D:\Texas         /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\mac\incl /
+//                          ude\" -I "D:\Texas Instruments\ZIG_TEMCO\Projects /
+//                          \zstack\Samples\GenericApp\CC2531\..\..\..\..\..\ /
+//                          Components\mac\high_level\" -I "D:\Texas          /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\mac\low_ /
+//                          level\srf04\" -I "D:\Texas                        /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\mac\low_ /
+//                          level\srf04\single_chip\" -I "D:\Texas            /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\mt\" -I  /
+//                          "D:\Texas Instruments\ZIG_TEMCO\Projects\zstack\S /
+//                          amples\GenericApp\CC2531\..\..\..\..\..\Component /
+//                          s\osal\include\" -I "D:\Texas                     /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\services /
+//                          \saddr\" -I "D:\Texas Instruments\ZIG_TEMCO\Proje /
+//                          cts\zstack\Samples\GenericApp\CC2531\..\..\..\..\ /
+//                          ..\Components\services\sdata\" -I "D:\Texas       /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\stack\af /
+//                          \" -I "D:\Texas Instruments\ZIG_TEMCO\Projects\zs /
+//                          tack\Samples\GenericApp\CC2531\..\..\..\..\..\Com /
+//                          ponents\stack\nwk\" -I "D:\Texas                  /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\stack\sa /
+//                          pi\" -I "D:\Texas Instruments\ZIG_TEMCO\Projects\ /
+//                          zstack\Samples\GenericApp\CC2531\..\..\..\..\..\C /
+//                          omponents\stack\sec\" -I "D:\Texas                /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\stack\sy /
+//                          s\" -I "D:\Texas Instruments\ZIG_TEMCO\Projects\z /
+//                          stack\Samples\GenericApp\CC2531\..\..\..\..\..\Co /
+//                          mponents\stack\zdo\" -I "D:\Texas                 /
+//                          Instruments\ZIG_TEMCO\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2531\..\..\..\..\..\Components\zmac\"   /
+//                          -I "D:\Texas Instruments\ZIG_TEMCO\Projects\zstac /
+//                          k\Samples\GenericApp\CC2531\..\..\..\..\..\Compon /
+//                          ents\zmac\f8w\" -Ohz --require_prototypes         /
+//    List file          =  D:\Texas Instruments\ZIG_TEMCO\Projects\zstack\Sa /
+//                          mples\GenericApp\CC2531\Coordinator\List\usb_fram /
+//                          ework.s51                                         /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME usb_framework
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?CALL_IND
+        EXTERN ?C_GPTR_LOAD
+        EXTERN ?C_GPTR_STORE
+        EXTERN ?DEALLOC_XSTACK8
+        EXTERN ?PUSH_XSTACK8_X_THREE
+        EXTERN ?PUSH_XSTACK_I_THREE
+        EXTERN ?V0
+        EXTERN ?XSTACK_DISP0_8
+        EXTERN __INIT_DATA_Z
+        EXTERN __INIT_XDATA_Z
+
+        PUBLIC ??usbfwInit?relay
+        FUNCTION ??usbfwInit?relay,0203H
+        PUBLIC ??usbfwReadFifo?relay
+        FUNCTION ??usbfwReadFifo?relay,0203H
+        PUBLIC ??usbfwResetHandler?relay
+        FUNCTION ??usbfwResetHandler?relay,0203H
+        PUBLIC ??usbfwSetAllEpStatus?relay
+        FUNCTION ??usbfwSetAllEpStatus?relay,0203H
+        PUBLIC ??usbfwSetupHandler?relay
+        FUNCTION ??usbfwSetupHandler?relay,0203H
+        PUBLIC ??usbfwWriteFifo?relay
+        FUNCTION ??usbfwWriteFifo?relay,0203H
+        PUBLIC usbSetupData
+        PUBLIC usbSetupHeader
+        PUBLIC usbfwData
+        PUBLIC usbfwInit
+        FUNCTION usbfwInit,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC usbfwReadFifo
+        FUNCTION usbfwReadFifo,0203H
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 11, STACK
+        PUBLIC usbfwResetHandler
+        FUNCTION usbfwResetHandler,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC usbfwSetAllEpStatus
+        FUNCTION usbfwSetAllEpStatus,0203H
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC usbfwSetupHandler
+        FUNCTION usbfwSetupHandler,021203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        PUBLIC usbfwWriteFifo
+        FUNCTION usbfwWriteFifo,0203H
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        LOCFRAME ISTACK, 1, STACK
+        LOCFRAME XSTACK, 11, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-2
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B SameValue
+        CFI A SameValue
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 SameValue
+        CFI R1 SameValue
+        CFI R2 SameValue
+        CFI R3 SameValue
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT SameValue
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon1
+        
+usbdpGetConfigurationDesc SYMBOL "usbdpGetConfigurationDesc"
+usbsrSetAddress     SYMBOL "usbsrSetAddress"
+usbsrSetFeature     SYMBOL "usbsrSetFeature"
+usbsrClearFeature   SYMBOL "usbsrClearFeature"
+usbsrSetConfiguration SYMBOL "usbsrSetConfiguration"
+usbsrSetInterface   SYMBOL "usbsrSetInterface"
+usbsrGetStatus      SYMBOL "usbsrGetStatus"
+usbsrGetDescriptor  SYMBOL "usbsrGetDescriptor"
+usbsrGetConfiguration SYMBOL "usbsrGetConfiguration"
+usbsrGetInterface   SYMBOL "usbsrGetInterface"
+usbvrHookProcessOut SYMBOL "usbvrHookProcessOut"
+usbvrHookProcessIn  SYMBOL "usbvrHookProcessIn"
+usbcrHookProcessOut SYMBOL "usbcrHookProcessOut"
+usbcrHookProcessIn  SYMBOL "usbcrHookProcessIn"
+??usbcrHookProcessIn?relay SYMBOL "?relay", usbcrHookProcessIn
+??usbcrHookProcessOut?relay SYMBOL "?relay", usbcrHookProcessOut
+??usbdpGetConfigurationDesc?relay SYMBOL "?relay", usbdpGetConfigurationDesc
+??usbsrClearFeature?relay SYMBOL "?relay", usbsrClearFeature
+??usbsrGetConfiguration?relay SYMBOL "?relay", usbsrGetConfiguration
+??usbsrGetDescriptor?relay SYMBOL "?relay", usbsrGetDescriptor
+??usbsrGetInterface?relay SYMBOL "?relay", usbsrGetInterface
+??usbsrGetStatus?relay SYMBOL "?relay", usbsrGetStatus
+??usbsrSetAddress?relay SYMBOL "?relay", usbsrSetAddress
+??usbsrSetConfiguration?relay SYMBOL "?relay", usbsrSetConfiguration
+??usbsrSetFeature?relay SYMBOL "?relay", usbsrSetFeature
+??usbsrSetInterface?relay SYMBOL "?relay", usbsrSetInterface
+??usbvrHookProcessIn?relay SYMBOL "?relay", usbvrHookProcessIn
+??usbvrHookProcessOut?relay SYMBOL "?relay", usbvrHookProcessOut
+usbfwInit           SYMBOL "usbfwInit"
+??usbfwInit?relay   SYMBOL "?relay", usbfwInit
+usbfwReadFifo       SYMBOL "usbfwReadFifo"
+??usbfwReadFifo?relay SYMBOL "?relay", usbfwReadFifo
+usbfwResetHandler   SYMBOL "usbfwResetHandler"
+??usbfwResetHandler?relay SYMBOL "?relay", usbfwResetHandler
+usbfwSetAllEpStatus SYMBOL "usbfwSetAllEpStatus"
+??usbfwSetAllEpStatus?relay SYMBOL "?relay", usbfwSetAllEpStatus
+usbfwSetupHandler   SYMBOL "usbfwSetupHandler"
+??usbfwSetupHandler?relay SYMBOL "?relay", usbfwSetupHandler
+usbfwWriteFifo      SYMBOL "usbfwWriteFifo"
+??usbfwWriteFifo?relay SYMBOL "?relay", usbfwWriteFifo
+
+        EXTERN usbdpGetConfigurationDesc
+        FUNCTION usbdpGetConfigurationDesc,0202H
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN usbsrSetAddress
+        FUNCTION usbsrSetAddress,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN usbsrSetFeature
+        FUNCTION usbsrSetFeature,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN usbsrClearFeature
+        FUNCTION usbsrClearFeature,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN usbsrSetConfiguration
+        FUNCTION usbsrSetConfiguration,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN usbsrSetInterface
+        FUNCTION usbsrSetInterface,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN usbsrGetStatus
+        FUNCTION usbsrGetStatus,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN usbsrGetDescriptor
+        FUNCTION usbsrGetDescriptor,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN usbsrGetConfiguration
+        FUNCTION usbsrGetConfiguration,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN usbsrGetInterface
+        FUNCTION usbsrGetInterface,0202H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN usbvrHookProcessOut
+        FUNCTION usbvrHookProcessOut,0602H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN usbvrHookProcessIn
+        FUNCTION usbvrHookProcessIn,0602H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN usbcrHookProcessOut
+        FUNCTION usbcrHookProcessOut,0602H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN usbcrHookProcessIn
+        FUNCTION usbcrHookProcessIn,0602H
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        EXTERN ??usbcrHookProcessIn?relay
+        FUNCTION ??usbcrHookProcessIn?relay,00H
+        EXTERN ??usbcrHookProcessOut?relay
+        FUNCTION ??usbcrHookProcessOut?relay,00H
+        EXTERN ??usbdpGetConfigurationDesc?relay
+        FUNCTION ??usbdpGetConfigurationDesc?relay,00H
+        EXTERN ??usbsrClearFeature?relay
+        FUNCTION ??usbsrClearFeature?relay,00H
+        EXTERN ??usbsrGetConfiguration?relay
+        FUNCTION ??usbsrGetConfiguration?relay,00H
+        EXTERN ??usbsrGetDescriptor?relay
+        FUNCTION ??usbsrGetDescriptor?relay,00H
+        EXTERN ??usbsrGetInterface?relay
+        FUNCTION ??usbsrGetInterface?relay,00H
+        EXTERN ??usbsrGetStatus?relay
+        FUNCTION ??usbsrGetStatus?relay,00H
+        EXTERN ??usbsrSetAddress?relay
+        FUNCTION ??usbsrSetAddress?relay,00H
+        EXTERN ??usbsrSetConfiguration?relay
+        FUNCTION ??usbsrSetConfiguration?relay,00H
+        EXTERN ??usbsrSetFeature?relay
+        FUNCTION ??usbsrSetFeature?relay,00H
+        EXTERN ??usbsrSetInterface?relay
+        FUNCTION ??usbsrSetInterface?relay,00H
+        EXTERN ??usbvrHookProcessIn?relay
+        FUNCTION ??usbvrHookProcessIn?relay,00H
+        EXTERN ??usbvrHookProcessOut?relay
+        FUNCTION ??usbvrHookProcessOut?relay,00H
+
+// D:\Texas Instruments\ZIG_TEMCO\Components\hal\target\CC2530USB\usb\library\usb_framework.c
+//    1 /***********************************************************************************
+//    2 
+//    3     Filename:     usb_framework.c
+//    4 
+//    5     Description:  USB library common functionality.
+//    6 
+//    7 ***********************************************************************************/
+//    8 
+//    9 /// \addtogroup module_usb_framework
+//   10 /// @{
+//   11 #define USBFRAMEWORK_C ///< Modifies the behavior of "EXTERN" in usb_framework.h
+//   12 #include "usb_firmware_library_headers.h"
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+// USBFW_DATA usbfwData
+usbfwData:
+        DS 20
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+// USB_SETUP_DATA usbSetupData
+usbSetupData:
+        DS 5
+        REQUIRE __INIT_XDATA_Z
+
+        RSEG XDATA_Z:XDATA:NOROOT(0)
+        DATA8
+// USB_SETUP_HEADER usbSetupHeader
+usbSetupHeader:
+        DS 8
+        REQUIRE __INIT_XDATA_Z
+//   13 #include "usb_board_cfg.h"
+//   14 
+//   15 // Function pointer used by usbfwSetupHandler()
+
+        RSEG DATA_Z:DATA:NOROOT(0)
+        DATA16
+//   16 static VFPTR __data ProcessFunc;
+ProcessFunc:
+        DS 2
+        REQUIRE __INIT_DATA_Z
+//   17 
+//   18 /** \brief Initializes the USB framework
+//   19  *
+//   20  * This function should be called when the microcontroller is ready to accept USB traffic. It enables the
+//   21  * USB peripheral unit and enables the pull-up resistor on the D+ line. Endpoint status, current
+//   22  * configuration value, etc. are initialized and evenetually re-initialized in the
+//   23  * \ref usbfwResetHandler() function.
+//   24  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   25 void usbfwInit(void)
+usbfwInit:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function usbfwInit
+        CODE
+//   26 {
+        FUNCALL usbfwInit, usbdpGetConfigurationDesc
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   27     // Set default values
+//   28     usbfwData.selfPowered = (usbdpGetConfigurationDesc(1, 0)->bmAttributes & 0x40) ? TRUE : FALSE;
+        ; Setup parameters for call to function usbdpGetConfigurationDesc
+        MOV     R2,#0x0
+        MOV     R1,#0x1
+        LCALL   ??usbdpGetConfigurationDesc?relay
+        MOV     DPL,R2
+        MOV     DPH,R3
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        INC     DPTR
+        CLR     A
+        MOVC    A,@A+DPTR
+        MOV     C,0xE0 /* A   */.6
+        MOV     DPTR,#usbfwData + 19
+        JNC     ??usbfwInit_0
+        MOV     A,#0x1
+        SJMP    ??usbfwInit_1
+??usbfwInit_0:
+        CLR     A
+??usbfwInit_1:
+        MOVX    @DPTR,A
+//   29     usbfwData.remoteWakeup = FALSE;
+        MOV     DPTR,#usbfwData + 18
+        CLR     A
+        MOVX    @DPTR,A
+//   30 
+//   31     HAL_USB_ENABLE();
+        MOV     DPTR,#0x620f
+        MOV     A,#0x3
+        MOVX    @DPTR,A
+??usbfwInit_2:
+        MOVX    A,@DPTR
+        MOV     C,0xE0 /* A   */.7
+        JNC     ??usbfwInit_2
+//   32 
+//   33     // Enable Resume Interrupt
+//   34     HAL_USB_RESUME_INT_ENABLE();
+        MOV     DPTR,#0x620b
+        MOVX    A,@DPTR
+        SETB    0xE0 /* A   */.1
+        MOVX    @DPTR,A
+        CFI EndBlock cfiBlock0
+//   35 
+//   36 } // usbfwInit
+        REQUIRE ?Subroutine0
+        ; // Fall through to label ?Subroutine0
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine0:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+-5
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI DPH0 Frame(CFA_SP, 5)
+        POP     DPH
+        CFI CFA_SP SP+-4
+        CFI DPH0 SameValue
+        POP     DPL
+        CFI CFA_SP SP+-3
+        CFI DPL0 SameValue
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock1
+//   37 
+//   38 
+//   39 
+//   40 
+//   41 /** \brief Handles USB reset signalling
+//   42  *
+//   43  * This function should be called, either from the USB interrupt or the main loop, when the \c USBCIF.RST
+//   44  * flag has been set. Keep in mind that all bits in \c USBCIF register are cleared when the register is
+//   45  * read. The function puts the device into the default state (not yet addressed), and puts all endpoints
+//   46  * (except EP0) into the \ref EP_HALT state
+//   47  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   48 void usbfwResetHandler(void)
+usbfwResetHandler:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function usbfwResetHandler
+        CODE
+//   49 {
+        FUNCALL usbfwResetHandler, usbfwSetAllEpStatus
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   50 
+//   51    // Reset the USB state
+//   52    usbfwData.usbState = DEV_DEFAULT;
+        MOV     DPTR,#usbfwData
+        MOV     A,#0x2
+        MOVX    @DPTR,A
+//   53    usbfwData.configurationValue = 0;
+        INC     DPTR
+        CLR     A
+        MOVX    @DPTR,A
+//   54 
+//   55    // Reset all endpoints
+//   56    usbfwData.ep0Status = EP_IDLE;
+        MOV     DPTR,#usbfwData + 7
+        MOVX    @DPTR,A
+//   57    usbfwSetAllEpStatus(EP_HALT);
+        ; Setup parameters for call to function usbfwSetAllEpStatus
+        MOV     R1,#0x3
+        LCALL   ??usbfwSetAllEpStatus?relay
+//   58 
+//   59    // Reset last function pointer
+//   60    ProcessFunc = NULL;
+        MOV     ProcessFunc+0x0,#0x0
+        MOV     ProcessFunc+0x1,#0x0
+//   61 
+//   62 } // usbfwResetHandler
+        SJMP    ?Subroutine0
+        CFI EndBlock cfiBlock2
+//   63 
+//   64 
+//   65 
+//   66 
+//   67 /** \brief USB Setup Handler
+//   68  *
+//   69  * This function should be called either from the USB interrupt or the main loop when the \c USBIIF.EP0IF
+//   70  * flag has been set. Keep in mind that all bits in \c USBIIF register are cleared when the register is
+//   71  * read. A detailed description of the framework is found in the \ref section_setup_handler_usage
+//   72  * section.
+//   73  *
+//   74  * \note The USB header data is always little-endian, so if a big-endian compiler is used (such as Keil
+//   75  * C51), the 16-bit values in the \ref usbSetupHeader must be flipped before they are used.
+//   76  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   77 void usbfwSetupHandler(void)
+usbfwSetupHandler:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function usbfwSetupHandler
+        CODE
+//   78 {
+        FUNCALL usbfwSetupHandler, usbfwReadFifo
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbfwReadFifo
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbsrSetAddress
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbsrSetFeature
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbsrClearFeature
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbsrSetConfiguration
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbsrSetInterface
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbsrGetStatus
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbsrGetDescriptor
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbsrGetConfiguration
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbsrGetInterface
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbvrHookProcessOut
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbvrHookProcessIn
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbcrHookProcessOut
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbcrHookProcessIn
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 11, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 11, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        FUNCALL usbfwSetupHandler, usbfwWriteFifo
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        MOV     A,#-0xb
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        ; Saved register size: 11
+        ; Auto size: 0
+//   79    uint8 controlReg;
+//   80    uint8 bytesNow;
+//   81    uint8 oldEndpoint;
+//   82 
+//   83    // Save the old index setting, then select endpoint 0 and fetch the control register
+//   84    oldEndpoint = USBFW_GET_SELECTED_ENDPOINT();
+        MOV     DPTR,#0x620e
+        MOVX    A,@DPTR
+        MOV     R6,A
+//   85    USBFW_SELECT_ENDPOINT(0);
+        CLR     A
+        MOVX    @DPTR,A
+//   86    controlReg = USBCS0;
+        MOV     DPTR,#0x6211
+        MOVX    A,@DPTR
+        MOV     ?V0 + 2,A
+//   87 
+//   88    // The last transfer was ended prematurely by a new SETUP packet
+//   89    if (controlReg & USBCS0_SETUP_END) {
+        MOV     C,0xE0 /* A   */.4
+        JNC     ??usbfwSetupHandler_0
+//   90       USBCS0 = USBCS0_CLR_SETUP_END;
+        MOV     A,#-0x80
+        MOVX    @DPTR,A
+//   91       usbfwData.ep0Status = EP_CANCEL;
+        MOV     DPTR,#usbfwData + 7
+        MOV     A,#0x7
+        MOVX    @DPTR,A
+//   92       if (ProcessFunc) ProcessFunc();
+        MOV     A,ProcessFunc+0x0
+        ORL     A,ProcessFunc+0x1
+        JZ      ??usbfwSetupHandler_1
+        ; Setup parameters for indirect call
+        MOV     DPL,ProcessFunc+0x0
+        MOV     DPH,ProcessFunc+0x1
+        LCALL   ?CALL_IND
+//   93       usbfwData.ep0Status = EP_IDLE;
+??usbfwSetupHandler_1:
+        MOV     DPTR,#usbfwData + 7
+        CLR     A
+        MOVX    @DPTR,A
+//   94    }
+//   95 
+//   96    // A STALL handshake was transmitted to the PC
+//   97    if (controlReg & USBCS0_SENT_STALL) {
+??usbfwSetupHandler_0:
+        MOV     A,?V0 + 2
+        MOV     C,0xE0 /* A   */.2
+        JNC     ??usbfwSetupHandler_2
+//   98       USBCS0 = 0x00;
+        MOV     DPTR,#0x6211
+        CLR     A
+        MOVX    @DPTR,A
+//   99       usbfwData.ep0Status = EP_IDLE;
+        MOV     DPTR,#usbfwData + 7
+        MOVX    @DPTR,A
+        SJMP    ??usbfwSetupHandler_3
+//  100    }
+//  101 
+//  102    // Receive OUT packets
+//  103    if (usbfwData.ep0Status == EP_RX) {
+??usbfwSetupHandler_2:
+        MOV     DPTR,#usbfwData + 7
+        MOVX    A,@DPTR
+        XRL     A,#0x2
+        JNZ     ??usbfwSetupHandler_4
+//  104 
+//  105       // Read FIFO
+//  106       bytesNow = USBCNT0;
+        MOV     DPTR,#0x6216
+        MOVX    A,@DPTR
+        MOV     R7,A
+//  107       usbfwReadFifo(&USBF0, bytesNow, usbSetupData.pBuffer);
+        ; Setup parameters for call to function usbfwReadFifo
+        MOV     DPTR,#usbSetupData
+        LCALL   ?PUSH_XSTACK8_X_THREE
+        CFI CFA_XSP16 add(XSP16, 14)
+        MOV     A,R7
+        MOV     R1,A
+        MOV     R2,#0x20
+        MOV     R3,#0x62
+        LCALL   ??usbfwReadFifo?relay
+        MOV     A,#0x3
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 11)
+//  108       usbSetupData.bytesLeft -= bytesNow;
+        MOV     ?V0 + 0,R7
+        MOV     DPTR,#usbSetupData + 3
+        LCALL   ?Subroutine5 & 0xFFFF
+//  109       usbSetupData.pBuffer += bytesNow;
+??CrossCallReturnLabel_6:
+        LCALL   ?Subroutine2 & 0xFFFF
+//  110 
+//  111       // Arm the endpoint
+//  112       USBCS0 = usbSetupData.bytesLeft ? USBCS0_CLR_OUTPKT_RDY : (USBCS0_CLR_OUTPKT_RDY | USBCS0_DATA_END);
+??CrossCallReturnLabel_0:
+        MOVX    A,@DPTR
+        MOV     R0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,A
+        MOV     A,R0
+        ORL     A,R1
+        JZ      ??usbfwSetupHandler_5
+        MOV     A,#0x40
+        SJMP    ??usbfwSetupHandler_6
+??usbfwSetupHandler_5:
+        MOV     A,#0x48
+??usbfwSetupHandler_6:
+        MOV     DPTR,#0x6211
+        MOVX    @DPTR,A
+//  113 
+//  114       // Make a call to the appropriate request handler when done
+//  115       if (usbSetupData.bytesLeft == 0) {
+        MOV     A,R0
+        ORL     A,R1
+        JNZ     ??usbfwSetupHandler_7
+//  116          if (ProcessFunc) ProcessFunc();
+??usbfwSetupHandler_8:
+        MOV     A,ProcessFunc+0x0
+        ORL     A,ProcessFunc+0x1
+        JZ      ??usbfwSetupHandler_9
+        ; Setup parameters for indirect call
+        MOV     DPL,ProcessFunc+0x0
+        MOV     DPH,ProcessFunc+0x1
+        LCALL   ?CALL_IND
+//  117          usbfwData.ep0Status = EP_IDLE;
+??usbfwSetupHandler_9:
+        MOV     DPTR,#usbfwData + 7
+        CLR     A
+        MOVX    @DPTR,A
+//  118       }
+//  119 
+//  120       // Return here since nothing more will happen until the next interrupt
+//  121       USBFW_SELECT_ENDPOINT(oldEndpoint);
+??usbfwSetupHandler_7:
+        MOV     A,R6
+        MOV     DPTR,#0x620e
+        MOVX    @DPTR,A
+//  122       return;
+        LJMP    ?Subroutine1 & 0xFFFF
+//  123 
+//  124    // Let the application handle the reception
+//  125    } else if (usbfwData.ep0Status == EP_MANUAL_RX) {
+??usbfwSetupHandler_4:
+        MOVX    A,@DPTR
+        XRL     A,#0x6
+        JNZ     ??usbfwSetupHandler_10
+//  126       ProcessFunc();
+        ; Setup parameters for indirect call
+        MOV     DPL,ProcessFunc+0x0
+        MOV     DPH,ProcessFunc+0x1
+        LCALL   ?CALL_IND
+//  127    }
+//  128 
+//  129    // Receive SETUP header
+//  130    if (usbfwData.ep0Status == EP_IDLE) {
+??usbfwSetupHandler_10:
+        MOV     DPTR,#usbfwData + 7
+        MOVX    A,@DPTR
+        JZ      $+5
+        LJMP    ??usbfwSetupHandler_11 & 0xFFFF
+//  131       if (controlReg & USBCS0_OUTPKT_RDY) {
+??usbfwSetupHandler_3:
+        MOV     A,?V0 + 2
+        MOV     C,0xE0 /* A   */.0
+        JNC     ??usbfwSetupHandler_7
+//  132          usbfwReadFifo(&USBF0, 8, (uint8 __xdata *) &usbSetupHeader);
+        ; Setup parameters for call to function usbfwReadFifo
+        MOV     ?V0 + 0,#usbSetupHeader & 0xff
+        MOV     ?V0 + 1,#(usbSetupHeader >> 8) & 0xff
+        MOV     ?V0 + 2,#0x0
+        MOV     R0,#?V0 + 0
+        LCALL   ?PUSH_XSTACK_I_THREE
+        CFI CFA_XSP16 add(XSP16, 14)
+        MOV     R1,#0x8
+        MOV     R2,#0x20
+        MOV     R3,#0x62
+        LCALL   ??usbfwReadFifo?relay
+        MOV     A,#0x3
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 11)
+//  133 
+//  134          // Handle control transfers individually
+//  135          ProcessFunc = NULL;
+        MOV     ProcessFunc+0x0,#0x0
+        MOV     ProcessFunc+0x1,#0x0
+//  136          switch (usbSetupHeader.requestType & (RT_MASK_TYPE | RT_MASK_DIR)) {
+        MOV     DPTR,#usbSetupHeader
+        MOVX    A,@DPTR
+        ANL     A,#0xe0
+        JZ      ??usbfwSetupHandler_12
+        ADD     A,#-0x20
+        JNZ     $+5
+        LJMP    ??usbfwSetupHandler_13 & 0xFFFF
+        ADD     A,#-0x20
+        JZ      ??usbfwSetupHandler_14
+        ADD     A,#-0x40
+        JZ      ??usbfwSetupHandler_15
+        ADD     A,#-0x20
+        JNZ     $+5
+        LJMP    ??usbfwSetupHandler_16 & 0xFFFF
+        ADD     A,#-0x20
+        JZ      ??usbfwSetupHandler_17
+        SJMP    ??usbfwSetupHandler_18
+//  137 
+//  138             // Standard requests with data from the host (OUT)
+//  139          case RT_STD_OUT:
+//  140             switch (usbSetupHeader.request) {
+??usbfwSetupHandler_12:
+        INC     DPTR
+        MOVX    A,@DPTR
+        DEC     A
+        JZ      ??usbfwSetupHandler_19
+        ADD     A,#-0x2
+        JZ      ??usbfwSetupHandler_20
+        ADD     A,#-0x2
+        JZ      ??usbfwSetupHandler_21
+        ADD     A,#-0x4
+        JZ      ??usbfwSetupHandler_22
+        ADD     A,#-0x2
+        JZ      ??usbfwSetupHandler_23
+        SJMP    ??usbfwSetupHandler_18
+//  141             case SET_ADDRESS:       usbsrSetAddress(); break;
+??usbfwSetupHandler_21:
+        ; Setup parameters for call to function usbsrSetAddress
+        LCALL   ??usbsrSetAddress?relay
+        SJMP    ??usbfwSetupHandler_24
+//  142             case SET_FEATURE:       usbsrSetFeature(); break;
+??usbfwSetupHandler_20:
+        ; Setup parameters for call to function usbsrSetFeature
+        LCALL   ??usbsrSetFeature?relay
+        SJMP    ??usbfwSetupHandler_24
+//  143             case CLEAR_FEATURE:     usbsrClearFeature(); break;
+??usbfwSetupHandler_19:
+        ; Setup parameters for call to function usbsrClearFeature
+        LCALL   ??usbsrClearFeature?relay
+        SJMP    ??usbfwSetupHandler_24
+//  144             case SET_CONFIGURATION: usbsrSetConfiguration(); break;
+??usbfwSetupHandler_22:
+        ; Setup parameters for call to function usbsrSetConfiguration
+        LCALL   ??usbsrSetConfiguration?relay
+        SJMP    ??usbfwSetupHandler_24
+//  145             case SET_INTERFACE:     usbsrSetInterface(); break;
+??usbfwSetupHandler_23:
+        ; Setup parameters for call to function usbsrSetInterface
+        LCALL   ??usbsrSetInterface?relay
+        SJMP    ??usbfwSetupHandler_24
+//  146             case SET_DESCRIPTOR:    /*usbsrHookSetDescriptor(); break; - unsupported */
+//  147             default:                usbfwData.ep0Status = EP_STALL; break;
+??usbfwSetupHandler_18:
+        MOV     DPTR,#usbfwData + 7
+        MOV     A,#0x4
+        MOVX    @DPTR,A
+        SJMP    ??usbfwSetupHandler_25
+//  148             }
+//  149             break;
+//  150 
+//  151             // Standard requests with data to the host (IN)
+//  152          case RT_STD_IN:
+//  153             switch (usbSetupHeader.request) {
+??usbfwSetupHandler_15:
+        INC     DPTR
+        MOVX    A,@DPTR
+        JZ      ??usbfwSetupHandler_26
+        ADD     A,#-0x6
+        JZ      ??usbfwSetupHandler_27
+        ADD     A,#-0x2
+        JZ      ??usbfwSetupHandler_28
+        ADD     A,#-0x2
+        JZ      ??usbfwSetupHandler_29
+        SJMP    ??usbfwSetupHandler_18
+//  154             case GET_STATUS:        usbsrGetStatus(); break;
+??usbfwSetupHandler_26:
+        ; Setup parameters for call to function usbsrGetStatus
+        LCALL   ??usbsrGetStatus?relay
+        SJMP    ??usbfwSetupHandler_24
+//  155             case GET_DESCRIPTOR:    usbsrGetDescriptor(); break;
+??usbfwSetupHandler_27:
+        ; Setup parameters for call to function usbsrGetDescriptor
+        LCALL   ??usbsrGetDescriptor?relay
+        SJMP    ??usbfwSetupHandler_24
+//  156             case GET_CONFIGURATION: usbsrGetConfiguration(); break;
+??usbfwSetupHandler_28:
+        ; Setup parameters for call to function usbsrGetConfiguration
+        LCALL   ??usbsrGetConfiguration?relay
+        SJMP    ??usbfwSetupHandler_24
+//  157             case GET_INTERFACE:     usbsrGetInterface(); break;
+??usbfwSetupHandler_29:
+        ; Setup parameters for call to function usbsrGetInterface
+        LCALL   ??usbsrGetInterface?relay
+        SJMP    ??usbfwSetupHandler_24
+//  158             case SYNCH_FRAME:       /*usbsrHookSynchFrame(); break; - unsupported */
+//  159             default:                usbfwData.ep0Status = EP_STALL; break;
+//  160             }
+//  161             break;
+//  162 
+//  163             // Vendor requests
+//  164          case RT_VEND_OUT:
+//  165             ProcessFunc = usbvrHookProcessOut; usbvrHookProcessOut();
+??usbfwSetupHandler_14:
+        MOV     ProcessFunc+0x0,#??usbvrHookProcessOut?relay & 0xff
+        MOV     ProcessFunc+0x1,#(??usbvrHookProcessOut?relay >> 8) & 0xff
+        ; Setup parameters for call to function usbvrHookProcessOut
+        LCALL   ??usbvrHookProcessOut?relay
+//  166             break;
+        SJMP    ??usbfwSetupHandler_24
+//  167          case RT_VEND_IN:
+//  168             ProcessFunc = usbvrHookProcessIn; usbvrHookProcessIn();
+??usbfwSetupHandler_17:
+        MOV     ProcessFunc+0x0,#??usbvrHookProcessIn?relay & 0xff
+        MOV     ProcessFunc+0x1,#(??usbvrHookProcessIn?relay >> 8) & 0xff
+        ; Setup parameters for call to function usbvrHookProcessIn
+        LCALL   ??usbvrHookProcessIn?relay
+//  169             break;
+        SJMP    ??usbfwSetupHandler_24
+//  170 
+//  171             // Class requests
+//  172          case RT_CLASS_OUT:
+//  173             ProcessFunc = usbcrHookProcessOut; usbcrHookProcessOut();
+??usbfwSetupHandler_13:
+        MOV     ProcessFunc+0x0,#??usbcrHookProcessOut?relay & 0xff
+        MOV     ProcessFunc+0x1,#(??usbcrHookProcessOut?relay >> 8) & 0xff
+        ; Setup parameters for call to function usbcrHookProcessOut
+        LCALL   ??usbcrHookProcessOut?relay
+//  174             break;
+        SJMP    ??usbfwSetupHandler_24
+//  175          case RT_CLASS_IN:
+//  176             ProcessFunc = usbcrHookProcessIn; usbcrHookProcessIn();
+??usbfwSetupHandler_16:
+        MOV     ProcessFunc+0x0,#??usbcrHookProcessIn?relay & 0xff
+        MOV     ProcessFunc+0x1,#(??usbcrHookProcessIn?relay >> 8) & 0xff
+        ; Setup parameters for call to function usbcrHookProcessIn
+        LCALL   ??usbcrHookProcessIn?relay
+//  177             break;
+//  178 
+//  179             // Unrecognized request: Stall the endpoint
+//  180          default:
+//  181             usbfwData.ep0Status = EP_STALL;
+//  182             break;
+//  183          }
+//  184 
+//  185          // Arm/stall the endpoint
+//  186          USBCS0 = (usbfwData.ep0Status == EP_STALL) ? (USBCS0_CLR_OUTPKT_RDY | USBCS0_SEND_STALL) : USBCS0_CLR_OUTPKT_RDY;
+??usbfwSetupHandler_24:
+        MOV     DPTR,#usbfwData + 7
+        MOVX    A,@DPTR
+        XRL     A,#0x4
+        JNZ     ??usbfwSetupHandler_30
+??usbfwSetupHandler_25:
+        MOV     A,#0x60
+        SJMP    ??usbfwSetupHandler_31
+??usbfwSetupHandler_30:
+        MOV     A,#0x40
+??usbfwSetupHandler_31:
+        MOV     DPTR,#0x6211
+        MOVX    @DPTR,A
+//  187       }
+//  188    }
+//  189 
+//  190    // Transmit IN packets
+//  191    if (usbfwData.ep0Status == EP_TX) {
+??usbfwSetupHandler_11:
+        MOV     DPTR,#usbfwData + 7
+        MOVX    A,@DPTR
+        XRL     A,#0x1
+        JNZ     ??usbfwSetupHandler_32
+//  192       controlReg = USBCS0_INPKT_RDY;
+        MOV     ?V0 + 2,#0x2
+//  193 
+//  194       // The last frame should contain 0 to (EP0_PACKET_SIZE - 1) bytes
+//  195       if (usbSetupData.bytesLeft < EP0_PACKET_SIZE) {
+        MOV     DPTR,#usbSetupData + 3
+        CLR     C
+        MOVX    A,@DPTR
+        SUBB    A,#0x20
+        INC     DPTR
+        MOVX    A,@DPTR
+        SUBB    A,#0x0
+        JNC     ??usbfwSetupHandler_33
+//  196          bytesNow = usbSetupData.bytesLeft;
+        MOV     DPTR,#usbSetupData + 3
+        MOVX    A,@DPTR
+        MOV     R7,A
+//  197          controlReg |= USBCS0_DATA_END;
+        MOV     ?V0 + 2,#0xa
+        SJMP    ??usbfwSetupHandler_34
+//  198 
+//  199          // All other packets should have the maximum length
+//  200       } else {
+//  201          bytesNow = EP0_PACKET_SIZE;
+??usbfwSetupHandler_33:
+        MOV     R7,#0x20
+//  202       }
+//  203 
+//  204       // Load the FIFO and move the pointer
+//  205       usbfwWriteFifo(&USBF0, bytesNow, usbSetupData.pBuffer);
+??usbfwSetupHandler_34:
+        ; Setup parameters for call to function usbfwWriteFifo
+        MOV     DPTR,#usbSetupData
+        LCALL   ?PUSH_XSTACK8_X_THREE
+        CFI CFA_XSP16 add(XSP16, 14)
+        MOV     A,R7
+        MOV     R1,A
+        MOV     R2,#0x20
+        MOV     R3,#0x62
+        LCALL   ??usbfwWriteFifo?relay
+        MOV     A,#0x3
+        LCALL   ?DEALLOC_XSTACK8
+        CFI CFA_XSP16 add(XSP16, 11)
+//  206       usbSetupData.pBuffer += bytesNow;
+        MOV     ?V0 + 0,R7
+        LCALL   ?Subroutine2 & 0xFFFF
+//  207       usbSetupData.bytesLeft -= bytesNow;
+??CrossCallReturnLabel_1:
+        LCALL   ?Subroutine5 & 0xFFFF
+//  208 
+//  209       // Arm the FIFO (even for a zero-length packet)
+//  210       USBCS0 = controlReg;
+??CrossCallReturnLabel_7:
+        MOV     A,?V0 + 2
+        MOV     DPTR,#0x6211
+        MOVX    @DPTR,A
+//  211 
+//  212       // Make a call to the appropriate request handler when done
+//  213       if (bytesNow < EP0_PACKET_SIZE) {
+        MOV     A,R7
+        CLR     C
+        SUBB    A,#0x20
+        JC      $+5
+        LJMP    ??usbfwSetupHandler_7 & 0xFFFF
+        LJMP    ??usbfwSetupHandler_8 & 0xFFFF
+//  214          if (ProcessFunc) ProcessFunc();
+//  215          usbfwData.ep0Status = EP_IDLE;
+//  216       }
+//  217 
+//  218    // Let the application handle the transmission
+//  219    } else if (usbfwData.ep0Status == EP_MANUAL_TX) {
+??usbfwSetupHandler_32:
+        MOVX    A,@DPTR
+        XRL     A,#0x5
+        JZ      $+5
+        LJMP    ??usbfwSetupHandler_7 & 0xFFFF
+//  220       ProcessFunc();
+        ; Setup parameters for indirect call
+        MOV     DPL,ProcessFunc+0x0
+        MOV     DPH,ProcessFunc+0x1
+        LCALL   ?CALL_IND
+        LJMP    ??usbfwSetupHandler_7 & 0xFFFF
+        CFI EndBlock cfiBlock3
+//  221    }
+//  222 
+//  223    // Restore the old index setting
+//  224    USBFW_SELECT_ENDPOINT(oldEndpoint);
+//  225 
+//  226 } // usbfwSetupHandler
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine5:
+        CFI Block cfiCond4 Using cfiCommon0
+        CFI NoFunction
+        CFI Conditional ??CrossCallReturnLabel_6
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiCond5 Using cfiCommon0
+        CFI (cfiCond5) NoFunction
+        CFI (cfiCond5) Conditional ??CrossCallReturnLabel_7
+        CFI (cfiCond5) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI (cfiCond5) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond5) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond5) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond5) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond5) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond5) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond5) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond5) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond5) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond5) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond5) CFA_SP SP+0
+        CFI (cfiCond5) CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiPicker6 Using cfiCommon1
+        CFI (cfiPicker6) NoFunction
+        CFI (cfiPicker6) Picker
+        CLR     C
+        MOVX    A,@DPTR
+        SUBB    A,?V0 + 0
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        SUBB    A,#0x0
+        MOVX    @DPTR,A
+        RET
+        CFI EndBlock cfiCond4
+        CFI EndBlock cfiCond5
+        CFI EndBlock cfiPicker6
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine2:
+        CFI Block cfiCond7 Using cfiCommon0
+        CFI NoFunction
+        CFI Conditional ??CrossCallReturnLabel_0
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiCond8 Using cfiCommon0
+        CFI (cfiCond8) NoFunction
+        CFI (cfiCond8) Conditional ??CrossCallReturnLabel_1
+        CFI (cfiCond8) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI (cfiCond8) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond8) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond8) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond8) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond8) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond8) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond8) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond8) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond8) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond8) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond8) CFA_SP SP+0
+        CFI (cfiCond8) CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiPicker9 Using cfiCommon1
+        CFI (cfiPicker9) NoFunction
+        CFI (cfiPicker9) Picker
+        MOV     DPTR,#usbSetupData
+        MOVX    A,@DPTR
+        MOV     R1,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R2,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R3,A
+        MOV     A,R1
+        ADD     A,?V0 + 0
+        MOV     R1,A
+        MOV     A,R2
+        ADDC    A,#0x0
+        MOV     R2,A
+        MOV     DPTR,#usbSetupData
+        MOV     A,R1
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R2
+        MOVX    @DPTR,A
+        INC     DPTR
+        MOV     A,R3
+        MOVX    @DPTR,A
+        INC     DPTR
+        RET
+        CFI EndBlock cfiCond7
+        CFI EndBlock cfiCond8
+        CFI EndBlock cfiPicker9
+//  227 
+//  228 
+//  229 
+//  230 
+//  231 /** \brief Changes the state of endpoint 1-5 IN/OUT
+//  232  *
+//  233  * This is an internal function used by the library.
+//  234  *
+//  235  * \param[in]       status
+//  236  *     The new status for each endpoint
+//  237  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  238 void usbfwSetAllEpStatus(EP_STATUS status)
+usbfwSetAllEpStatus:
+        CFI Block cfiBlock10 Using cfiCommon0
+        CFI Function usbfwSetAllEpStatus
+        CODE
+//  239 {
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+//  240    uint8 n;
+//  241    for (n = 0; n < sizeof(usbfwData.pEpInStatus); n++)
+        MOV     R0,#0x0
+//  242        usbfwData.pEpInStatus[n] = status;
+??usbfwSetAllEpStatus_0:
+        MOV     ?V0 + 0,R0
+        MOV     A,#(usbfwData + 8) & 0xff
+        ADD     A,?V0 + 0
+        MOV     DPL,A
+        MOV     A,#((usbfwData + 8) >> 8) & 0xff
+        LCALL   ?Subroutine4 & 0xFFFF
+??CrossCallReturnLabel_4:
+        JC      ??usbfwSetAllEpStatus_0
+//  243    for (n = 0; n < sizeof(usbfwData.pEpOutStatus); n++)
+        MOV     R0,#0x0
+//  244        usbfwData.pEpOutStatus[n] = status;
+??usbfwSetAllEpStatus_1:
+        MOV     ?V0 + 0,R0
+        MOV     A,#(usbfwData + 13) & 0xff
+        ADD     A,?V0 + 0
+        MOV     DPL,A
+        MOV     A,#((usbfwData + 13) >> 8) & 0xff
+        LCALL   ?Subroutine4 & 0xFFFF
+??CrossCallReturnLabel_5:
+        JC      ??usbfwSetAllEpStatus_1
+//  245 } // usbfwSetAllEpStatus
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock10
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine4:
+        CFI Block cfiCond11 Using cfiCommon0
+        CFI NoFunction
+        CFI Conditional ??CrossCallReturnLabel_4
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        CFI Block cfiCond12 Using cfiCommon0
+        CFI (cfiCond12) NoFunction
+        CFI (cfiCond12) Conditional ??CrossCallReturnLabel_5
+        CFI (cfiCond12) R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond12) VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond12) V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond12) V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond12) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond12) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond12) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond12) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond12) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond12) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond12) CFA_SP SP+0
+        CFI (cfiCond12) CFA_XSP16 add(XSP16, 10)
+        CFI Block cfiPicker13 Using cfiCommon1
+        CFI (cfiPicker13) NoFunction
+        CFI (cfiPicker13) Picker
+        ADDC    A,#0x0
+        MOV     DPH,A
+        MOV     A,R1
+        MOVX    @DPTR,A
+        INC     R0
+        MOV     A,R0
+        CLR     C
+        SUBB    A,#0x5
+        RET
+        CFI EndBlock cfiCond11
+        CFI EndBlock cfiCond12
+        CFI EndBlock cfiPicker13
+//  246 
+//  247 
+//  248 
+//  249 
+//  250 /** \brief Reads from the selected OUT endpoint FIFO, without using DMA
+//  251  *
+//  252  * The FIFO must be re-armed after reading it empty (using the \ref USBFW_ARM_OUT_ENDPOINT() macro). This
+//  253  * is not necessary when flushing the FIFO.
+//  254  *
+//  255  * \param[in]       *pFifo
+//  256  *     Pointer to the FIFO (\c &USBFx)
+//  257  * \param[in]       count
+//  258  *     The number of bytes to read
+//  259  * \param[in]       *pData
+//  260  *     A pointer to the storage location for the read data (in any memory space)
+//  261  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  262 void usbfwReadFifo(uint8 volatile __xdata *pFifo, uint8 count, void __generic *pData)
+usbfwReadFifo:
+        CFI Block cfiBlock14 Using cfiCommon0
+        CFI Function usbfwReadFifo
+        CODE
+//  263 {
+        MOV     A,#-0xb
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        ; Saved register size: 11
+        ; Auto size: 0
+        MOV     A,R2
+        MOV     R4,A
+        MOV     A,R3
+        MOV     R5,A
+        MOV     A,R1
+        MOV     R0,A
+        MOV     A,#0xb
+        LCALL   ?XSTACK_DISP0_8
+        LCALL   ?Subroutine3 & 0xFFFF
+//  264    uint8 __generic *pTemp = pData;
+//  265    if (count) {
+??CrossCallReturnLabel_2:
+        JZ      ??usbfwReadFifo_0
+//  266       do {
+//  267          *(pTemp++) = *pFifo;
+??usbfwReadFifo_1:
+        MOV     DPL,R4
+        MOV     DPH,R5
+        MOVX    A,@DPTR
+        LCALL   ?C_GPTR_STORE
+        LCALL   ?Subroutine6 & 0xFFFF
+//  268       } while (--count);
+//  269    }
+??CrossCallReturnLabel_8:
+        JNZ     ??usbfwReadFifo_1
+//  270 } // usbfwReadFifo
+??usbfwReadFifo_0:
+        SJMP    ?Subroutine1
+        CFI EndBlock cfiBlock14
+//  271 
+//  272 
+//  273 
+//  274 
+//  275 /** \brief Writes to the selected IN endpoint FIFO, without using DMA
+//  276  *
+//  277  * Note that the FIFO must be armed in order to be transmitted (using the \ref USBFW_ARM_IN_ENDPOINT()
+//  278  * macro).
+//  279  *
+//  280  * \param[in]       *pFifo
+//  281  *     Pointer to the FIFO (\c &USBFx)
+//  282  * \param[in]       count
+//  283  *     The number of bytes to write
+//  284  * \param[in]       *pData
+//  285  *     A pointer to the data to be written (from any memory space)
+//  286  */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//  287 void usbfwWriteFifo(uint8 volatile __xdata *pFifo, uint8 count, void __generic *pData)
+usbfwWriteFifo:
+        CFI Block cfiBlock15 Using cfiCommon0
+        CFI Function usbfwWriteFifo
+        CODE
+//  288 {
+        MOV     A,#-0xb
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        ; Saved register size: 11
+        ; Auto size: 0
+        MOV     A,R2
+        MOV     R4,A
+        MOV     A,R3
+        MOV     R5,A
+        MOV     A,R1
+        MOV     R0,A
+        MOV     A,#0xb
+        LCALL   ?XSTACK_DISP0_8
+        LCALL   ?Subroutine3 & 0xFFFF
+//  289    uint8 __generic *pTemp = pData;
+//  290    if (count) {
+??CrossCallReturnLabel_3:
+        JZ      ??usbfwWriteFifo_0
+//  291       do {
+//  292          *pFifo = *(pTemp++);
+??usbfwWriteFifo_1:
+        LCALL   ?C_GPTR_LOAD
+        MOV     DPL,R4
+        MOV     DPH,R5
+        MOVX    @DPTR,A
+        LCALL   ?Subroutine6 & 0xFFFF
+//  293       } while (--count);
+//  294    }
+??CrossCallReturnLabel_9:
+        JNZ     ??usbfwWriteFifo_1
+        CFI EndBlock cfiBlock15
+//  295 } // usbfwWriteFifo
+??usbfwWriteFifo_0:
+        REQUIRE ?Subroutine1
+        ; // Fall through to label ?Subroutine1
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine1:
+        CFI Block cfiBlock16 Using cfiCommon0
+        CFI NoFunction
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        MOV     R7,#0x3
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock16
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine6:
+        CFI Block cfiCond17 Using cfiCommon0
+        CFI NoFunction
+        CFI Conditional ??CrossCallReturnLabel_8
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiCond18 Using cfiCommon0
+        CFI (cfiCond18) NoFunction
+        CFI (cfiCond18) Conditional ??CrossCallReturnLabel_9
+        CFI (cfiCond18) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI (cfiCond18) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond18) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond18) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond18) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond18) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond18) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond18) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond18) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond18) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond18) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond18) CFA_SP SP+0
+        CFI (cfiCond18) CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiPicker19 Using cfiCommon1
+        CFI (cfiPicker19) NoFunction
+        CFI (cfiPicker19) Picker
+        MOV     A,R1
+        ADD     A,#0x1
+        INC     R1
+        MOV     A,R2
+        ADDC    A,#0x0
+        MOV     R2,A
+        DEC     R0
+        MOV     A,R0
+        RET
+        CFI EndBlock cfiCond17
+        CFI EndBlock cfiCond18
+        CFI EndBlock cfiPicker19
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+?Subroutine3:
+        CFI Block cfiCond20 Using cfiCommon0
+        CFI NoFunction
+        CFI Conditional ??CrossCallReturnLabel_2
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiCond21 Using cfiCommon0
+        CFI (cfiCond21) NoFunction
+        CFI (cfiCond21) Conditional ??CrossCallReturnLabel_3
+        CFI (cfiCond21) R6 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI (cfiCond21) VB load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI (cfiCond21) V0 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI (cfiCond21) V1 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI (cfiCond21) V2 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI (cfiCond21) R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI (cfiCond21) ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI (cfiCond21) ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI (cfiCond21) ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI (cfiCond21) DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI (cfiCond21) DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI (cfiCond21) CFA_SP SP+0
+        CFI (cfiCond21) CFA_XSP16 add(XSP16, 11)
+        CFI Block cfiPicker22 Using cfiCommon1
+        CFI (cfiPicker22) NoFunction
+        CFI (cfiPicker22) Picker
+        MOVX    A,@DPTR
+        MOV     ?V0 + 0,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     ?V0 + 1,A
+        INC     DPTR
+        MOVX    A,@DPTR
+        MOV     R1,?V0 + 0
+        MOV     R2,?V0 + 1
+        MOV     R3,A
+        MOV     A,R0
+        RET
+        CFI EndBlock cfiCond20
+        CFI EndBlock cfiCond21
+        CFI EndBlock cfiPicker22
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??usbfwInit?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    usbfwInit
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??usbfwResetHandler?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    usbfwResetHandler
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??usbfwSetupHandler?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    usbfwSetupHandler
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??usbfwSetAllEpStatus?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    usbfwSetAllEpStatus
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??usbfwReadFifo?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    usbfwReadFifo
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??usbfwWriteFifo?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    usbfwWriteFifo
+
+        END
+//  296 
+//  297 
+//  298 /// @}
+//  299 /*
+//  300 +------------------------------------------------------------------------------
+//  301 |  Copyright 2004-2007 Texas Instruments Incorporated. All rights reserved.
+//  302 |
+//  303 |  IMPORTANT: Your use of this Software is limited to those specific rights
+//  304 |  granted under the terms of a software license agreement between the user who
+//  305 |  downloaded the software, his/her employer (which must be your employer) and
+//  306 |  Texas Instruments Incorporated (the "License"). You may not use this Software
+//  307 |  unless you agree to abide by the terms of the License. The License limits
+//  308 |  your use, and you acknowledge, that the Software may not be modified, copied
+//  309 |  or distributed unless embedded on a Texas Instruments microcontroller or used
+//  310 |  solely and exclusively in conjunction with a Texas Instruments radio
+//  311 |  frequency transceiver, which is integrated into your product. Other than for
+//  312 |  the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//  313 |  works of, modify, distribute, perform, display or sell this Software and/or
+//  314 |  its documentation for any purpose.
+//  315 |
+//  316 |  YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//  317 |  PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//  318 |  INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//  319 |  NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//  320 |  TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//  321 |  NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//  322 |  LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES INCLUDING
+//  323 |  BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
+//  324 |  CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
+//  325 |  SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//  326 |  (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//  327 |
+//  328 |  Should you have any questions regarding your right to use this Software,
+//  329 |  contact Texas Instruments Incorporated at www.TI.com.
+//  330 |
+//  331 +------------------------------------------------------------------------------
+//  332 */
+// 
+// 816 bytes in segment BANKED_CODE
+//  36 bytes in segment BANK_RELAYS
+//   2 bytes in segment DATA_Z
+//  33 bytes in segment XDATA_Z
+// 
+// 852 bytes of CODE  memory
+//   2 bytes of DATA  memory
+//  33 bytes of XDATA memory
+//
+//Errors: none
+//Warnings: none
