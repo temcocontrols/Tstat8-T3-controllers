@@ -1,0 +1,45 @@
+Rev 10
+Make two type device in one hex file, first time start up it checks which product it connected in one minute, then will remember.
+Modbus support read and write PAN, channel, device type . Read MAC address, signal strength of all nodes it connects.
+-       2/21/2014
+
+
+Rev 09
+Dead master support. End device send ack request to coord, if no respose, restore factory.
+-	4/11/2013
+
+Rev 08
+Add bootloader for ISP upgrade, and change application to fit bootloader.
+-LJ	3/29/2013
+
+Rev 07
+Change way to send message by UART. When the length of modbus message is more than 85 bytes, send out in two packets.
+-LJ	3/1/2013
+
+Rev 06
+Add some comments, in order to understand the codes easily.
+-LJ	1/4/2013
+
+Rev 05
+Add register21 of Tstat6 to send back PAN Id.
+-LJ	12/14/2012
+
+Rev 04
+Add power amplifier and low-noise amplifier(cc2591) support
+-LJ	9/4/2012
+
+Rev 03
+Add fragmented messages process.
+-LJ	6/20/2012
+
+Rev 02
+Fixed a bug in losing packets.
+-LJ	6/12/2012
+
+Rev 01
+Add modbus CRC to check modbus messages.
+-LJ	6/6/2012
+
+Rev 00
+Based on Project SimpleApp in ZStack, change UART mode to run Modbus.
+-LJ	5/30/2012
