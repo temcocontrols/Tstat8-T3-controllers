@@ -275,7 +275,7 @@
         <option>
           <name>CCDefines</name>
           <state>xPOWER_SAVING</state>
-          <state>NV_RESTORE</state>
+          <state>xNV_RESTORE</state>
         </option>
         <option>
           <name>CCPreprocFile</name>

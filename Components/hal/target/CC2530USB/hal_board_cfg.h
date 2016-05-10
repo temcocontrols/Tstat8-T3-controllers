@@ -291,7 +291,7 @@
 
 /* Set to TRUE enable AES usage, FALSE disable it */
 #ifndef HAL_AES
-#define HAL_AES TRUE
+#define HAL_AES FASLE
 #endif
 
 #ifndef HAL_AES_DMA
@@ -313,7 +313,7 @@
 
 /* Set to TRUE enable KEY usage, FALSE disable it */
 #ifndef HAL_KEY
-#define HAL_KEY TRUE
+#define HAL_KEY FALSE
 #endif
 
 /* Set to TRUE enable UART usage, FALSE disable it */

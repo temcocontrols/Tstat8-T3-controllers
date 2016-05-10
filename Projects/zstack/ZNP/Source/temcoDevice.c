@@ -107,7 +107,7 @@ static void temcoInit(void)
 
   uartConfig.configured           = TRUE;
   if(zgDeviceLogicalType == ZG_DEVICETYPE_COORDINATOR)
-    uartConfig.baudRate = HAL_UART_BR_9600;
+    uartConfig.baudRate = HAL_UART_BR_19200;
   else
     uartConfig.baudRate             = HAL_UART_BR_19200;
   uartConfig.flowControl          = FALSE;
@@ -229,8 +229,15 @@ static void temcoUartCback(uint8 port, uint8 event)
           
           if( tempDataLenTemco == cmdLen)
           {
+            if( (head == 0xff) && (cmd == 0x03) && (cmdLen == 0x06))  // Use while asking TSTAT ID
+            {
+              // store the tstat id
+              tstat_id = pMsgTemco[4];
+              product_id = pMsgTemco[6];
+            }
+            else
+              modbus_uart_data_process( pMsgTemco, cmdLen+headLen);
             stateTemco = HEAD_STATE;
-            modbus_uart_data_process( pMsgTemco, cmdLen+headLen);
        //     osal_mem_free(pMsgTemco);
             haveMsg = FALSE;
           }

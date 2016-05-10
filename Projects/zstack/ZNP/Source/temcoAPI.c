@@ -15,15 +15,17 @@
 #include "modbus.h"
 #include "OSAL_nv.h"
 #include "hal_led.h"
+#include "string.h"
 /*********************************************************************
  * CONSTANTS
  */
 #define TYPE_ASSERT_TIMEOUT     6
 
-#define ACK_CHECK_TIMEOUT        8000     // 10000 means 1 minute
+#define ACK_CHECK_TIMEOUT        10000     // 10000 means 10 secends
 #define RSSI_REQ_TIMEOUT         10000
 
-#define RSSI_NODE_LEAVE_NUM   2    
+#define RSSI_NODE_LEAVE_NUM   2
+#define ACK_TIMEOUT_NUM       2
 /*********************************************************************
  * TYPEDEFS
  */
@@ -52,6 +54,7 @@ const SimpleDescriptionFormat_t temcoSimpleDesc =
 
 endPointDesc_t temco_epDesc;
 bool ack_exist = TRUE;
+uint8 ack_count = 0;
 uint8 ask_modbus_id[8] = { 0xff, 0x03, 0x00, 0x06, 0x00, 0x02, 0x31, 0xd4};//0x01, 0x71, 0xd5};
 uint8 tstat_id = 0;
 uint8 product_id = 0;
@@ -87,12 +90,18 @@ void temcoApp_Init(uint8 task_id)
   
   // register the endpoint description with the AF
   afRegister( &temco_epDesc);
-  
+#if 0
   if( zgDeviceLogicalType == ZG_DEVICETYPE_COORDINATOR)
   {
-     tstat_id = 9;        // NC's modbus id always is 9
+     tstat_id = 254;        // NC's modbus id always is 9
   }
-  osal_set_event( temcoAPP_TaskID, ASK_MODBUS_ID);
+#endif
+  if( zgDeviceLogicalType == ZG_DEVICETYPE_COORDINATOR)
+  {
+    osal_set_event( temcoAPP_TaskID, SEND_ZIGBEE_FLAG);
+  }
+  else
+    osal_set_event( temcoAPP_TaskID, ASK_MODBUS_ID);
 }
 
 /*********************************************************************
@@ -118,7 +127,7 @@ uint16 temcoApp_ProcessEvent(uint8 task_id, uint16 events)
         case ZDO_STATE_CHANGE:
           if (pMsg->status == DEV_END_DEVICE ||
               pMsg->status == DEV_ROUTER )
-             // ||pMsg->status == DEV_ZB_COORD )
+              //||pMsg->status == DEV_ZB_COORD )
           {
             osal_set_event( temcoAPP_TaskID, ACK_CHECK);
 //            HalLedSet ( HAL_LED_1, HAL_LED_MODE_FLASH );
@@ -143,16 +152,22 @@ uint16 temcoApp_ProcessEvent(uint8 task_id, uint16 events)
   if (events & ACK_CHECK)
   {
     uint8 ack_byte = 0;
+    
+    if( ack_count > ACK_TIMEOUT_NUM)
+    {
+      ack_count = 0;
+      if( ack_exist == FALSE)
+      {
+        restore_factory_setting();
+      }
+    }
     if( ack_exist == TRUE)
     {
       zb_SendDataRequest( 0, ACK_CMD_CLUSTERID, 1, &ack_byte,
-                         0, AF_ACK_REQUEST, 0);
+                           0, AF_ACK_REQUEST, 0);
+      ack_exist = FALSE;
     }
-    else
-    {
-      restore_factory_setting();
-    }
-    ack_exist = FALSE;
+    ack_count ++;
     osal_start_timerEx( temcoAPP_TaskID, ACK_CHECK, ACK_CHECK_TIMEOUT);   // Every minute check ack, if no receive, restart to join a new network
     return ( events ^ ACK_CHECK);
   }
@@ -162,26 +177,10 @@ uint16 temcoApp_ProcessEvent(uint8 task_id, uint16 events)
   {
     uint8 rssi_byte = 0;
     uint8 deleteId;
-    
-    // To read register6 of TSTAT
-    if( tstat_id != 0)
-    {
-      //if( zgDeviceLogicalType != ZG_DEVICETYPE_COORDINATOR)
-      // Send a command asking other nodes' modbus id, the response message carry rssi 
-      zb_SendDataRequest( 0xffff, RSSI_REQ_CLUSTERID, 1, &rssi_byte,
-                           0, AF_ACK_REQUEST, 0);
-      
-      deleteId = checkNodeAlive();   // check if there are any nodes not alive
-      if( deleteId != 255)
-        deleteSignalStrength(deleteId);        // delete the dead id
-    }
-    else
-    {
-      HalUARTWrite ( 0, ask_modbus_id, 8 );
-    }
-    
+
     if( type_assert >= TYPE_ASSERT_TIMEOUT)  // Decide which type to start up
     {
+#if 0
       if( (product_id == 0) || (product_id == 100))   
       {
         if( zgDeviceLogicalType == ZG_DEVICETYPE_ROUTER)
@@ -198,14 +197,38 @@ uint16 temcoApp_ProcessEvent(uint8 task_id, uint16 events)
           restart_to_other_type();
         }
       }
+#endif
+      // To read register6 of TSTAT
+      if( tstat_id != 0)
+      {
+        //if( zgDeviceLogicalType != ZG_DEVICETYPE_COORDINATOR)
+        // Send a command asking other nodes' modbus id, the response message carry rssi 
+        zb_SendDataRequest( 0xffff, RSSI_REQ_CLUSTERID, 1, &rssi_byte,
+                             0, AF_ACK_REQUEST, 0);
+        
+        deleteId = checkNodeAlive();   // check if there are any nodes not alive
+        if( deleteId != 255)
+          deleteSignalStrength(deleteId);        // delete the dead id
+      }
     }
     else
+    {
       type_assert ++;
-    
+      HalUARTWrite ( 0, ask_modbus_id, 8 );
+    }
     
     // if not received, send again X seconds later
     osal_start_timerEx( temcoAPP_TaskID, ASK_MODBUS_ID, RSSI_REQ_TIMEOUT);
     return ( events ^ ASK_MODBUS_ID);
+  }
+  
+  if( events & SEND_ZIGBEE_FLAG)
+  {
+    if( tstat_id == 0)
+      HalUARTWrite( 0, "zigbee", strlen("zigbee"));
+    else
+      osal_stop_timerEx( temcoAPP_TaskID, SEND_ZIGBEE_FLAG);
+    osal_start_timerEx( temcoAPP_TaskID, SEND_ZIGBEE_FLAG, 3000);
   }
   
   // Discard unknown events
@@ -270,7 +293,7 @@ static void temcoApp_MessageMSGCB(afIncomingMSGPacket_t *pkt)
       {
         if( (pkt->cmd.Data[1] == MODBUS_SINGLE_READ) && (pkt->cmd.DataLength == 8))
         {
-          firstAddr = pkt->cmd.Data[3];
+          firstAddr = BUILD_UINT16(pkt->cmd.Data[3],pkt->cmd.Data[2]);
           uint8 length = pkt->cmd.Data[5];
           
           if( (firstAddr<21)&&((firstAddr+length)>21))
@@ -304,7 +327,7 @@ static void temcoApp_MessageMSGCB(afIncomingMSGPacket_t *pkt)
       HalUARTWrite ( 0, pkt->cmd.Data, pkt->cmd.DataLength );
       break;
       
-    case ACK_CMD_CLUSTERID:  // 此处改为定时发广播，收到任何节点消息，不论对方类型，都不需要重启
+    case ACK_CMD_CLUSTERID:  // 7/16取消修改 此处改为定时发广播，收到任何节点消息，不论对方类型，都不需要重启
       if(zgDeviceLogicalType == ZG_DEVICETYPE_COORDINATOR)
       {
         uint8 ack_byte = 1;

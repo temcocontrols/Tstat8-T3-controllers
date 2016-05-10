@@ -131,7 +131,7 @@ extern uint8 aExtendedAddress[8];
 #define WDCLP1     0xA0  // Clear pattern 1
 #define WDCLP2     0x50  // Clear pattern 2
 
-#if defined CC2531ZNP
+#if !defined CC2531ZNP   // 7/15ÐÞ¸Ä
 #define ZNP_CFG1_UART                       0
 #define ZNP_CFG1_SPI                        1
 extern uint8 znpCfg1;

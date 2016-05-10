@@ -67,9 +67,9 @@ uint8 modbus_id = 254;
 uint8 modbus_id = 23;
 #endif
 uint8 zSoftwareRev = 10;
-uint8 modbusDataLength = 0;
-uint8 modbusStartAddr = 0;
-uint8 firstAddr;
+uint16 modbusDataLength = 0;
+uint16 modbusStartAddr = 0;
+uint16 firstAddr;
 
 #if defined ( RSSI_DISPLAY)
   bool panId_send = FALSE;

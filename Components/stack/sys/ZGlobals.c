@@ -183,7 +183,7 @@ uint8 zgUseDefaultTCLK = TRUE; // FALSE
 uint16 zgConfigPANID = ZDAPP_CONFIG_PAN_ID;
 
 // Device Logical Type
-uint8 zgDeviceLogicalType = ZG_DEVICETYPE_ROUTER;
+uint8 zgDeviceLogicalType = ZG_DEVICETYPE_ROUTER; //ZG_DEVICETYPE_COORDINATOR;//
 
 // Startup Delay
 uint8 zgStartDelay = START_DELAY;

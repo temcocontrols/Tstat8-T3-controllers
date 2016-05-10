@@ -34,9 +34,9 @@
  */
 extern uint8 CRClo, CRChi;
 extern uint8 modbus_id;
-extern uint8 modbusDataLength;
-extern uint8 modbusStartAddr;
-extern uint8 firstAddr;
+extern uint16 modbusDataLength;
+extern uint16 modbusStartAddr;
+extern uint16 firstAddr;
 
 #if defined ( RSSI_DISPLAY)
   extern uint8 rssi_send_hi, rssi_send_lo;

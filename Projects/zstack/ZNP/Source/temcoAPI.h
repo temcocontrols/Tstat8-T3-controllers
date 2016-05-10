@@ -39,6 +39,7 @@ typedef struct signalStrength
  
 #define ACK_CHECK                0x0004
 #define ASK_MODBUS_ID            0x0008
+#define SEND_ZIGBEE_FLAG         0x0010
   
 
   
